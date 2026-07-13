@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Śledzenie paczek — ScoutList</title>
+<meta name="description" content="Śledź swoją przesyłkę u dowolnego kuriera w jednym miejscu.">
+
+<style>
+  :root{
+    --bg:#0A0A0C;
+    --panel:#141417;
+    --panel-2:#1B1B1F;
+    --ink:#F2F1EE;
+    --muted:#9A98A3;
+    --red:#E8352F;
+    --red-dim:rgba(232,53,47,0.14);
+    --line:rgba(242,241,238,0.09);
+    --radius:14px;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;min-height:100vh;
+    background:var(--bg);color:var(--ink);
+    font-family:"Inter", system-ui, sans-serif;
+    display:flex;flex-direction:column;align-items:center;
+  }
+  h1{
+    font-family:"Fraunces", Georgia, serif;font-weight:600;
+    font-size:clamp(30px,5vw,44px);margin:0 0 12px;text-align:center;
+  }
+  p.lead{color:var(--muted);text-align:center;max-width:480px;margin:0 auto 40px;font-size:16px;}
+
+  .back-link{
+    align-self:flex-start;margin:24px 0 0 24px;
+    color:var(--muted);font-size:14px;display:flex;align-items:center;gap:6px;
+    text-decoration:none;
+  }
+  .back-link:hover{color:var(--red);}
+
+  .tracker-card{
+    width:100%;max-width:560px;margin:40px 24px;
+    background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+    padding:36px;
+  }
+  label{
+    display:block;font-size:13px;color:var(--muted);margin-bottom:8px;
+    text-transform:uppercase;letter-spacing:0.04em;font-family:"JetBrains Mono",monospace;
+  }
+  select, input[type="text"]{
+    width:100%;background:var(--panel-2);border:1px solid var(--line);
+    color:var(--ink);font-size:15px;padding:14px 16px;border-radius:10px;
+    margin-bottom:22px;font-family:"Inter",sans-serif;
+    outline:none;transition:border-color .15s ease;
+  }
+  select:focus, input[type="text"]:focus{border-color:var(--red);}
+  select{appearance:none;cursor:pointer;}
+
+  button.track-btn{
+    width:100%;background:var(--red);color:#0A0A0C;border:none;
+    padding:15px;border-radius:999px;font-weight:700;font-size:15.5px;
+    cursor:pointer;transition:filter .15s ease;
+  }
+  button.track-btn:hover{filter:brightness(1.12);}
+
+  .hint{
+    font-size:13px;color:var(--muted);margin-top:16px;text-align:center;
+  }
+  .error{color:var(--red);font-size:13.5px;margin-top:-12px;margin-bottom:16px;display:none;}
+</style>
+</head>
+<body>
+
+<a class="back-link" href="index.html">← Powrót do strony głównej</a>
+
+<div class="tracker-card">
+  <h1>Śledzenie paczek</h1>
+  <p class="lead">Wybierz kuriera i wpisz numer przesyłki — przeniesiemy Cię od razu na oficjalną stronę śledzenia.</p>
+
+  <label for="courier">Kurier</label>
+  <select id="courier">
+    <option value="inpost">InPost</option>
+    <option value="dpd">DPD</option>
+    <option value="dhl">DHL</option>
+    <option value="gls">GLS</option>
+    <option value="poczta">Poczta Polska</option>
+    <option value="ups">UPS</option>
+    <option value="fedex">FedEx</option>
+  </select>
+
+  <label for="trackingNumber">Numer przesyłki</label>
+  <input type="text" id="trackingNumber" placeholder="np. 1234567890123">
+  <div class="error" id="errorMsg">Wpisz numer przesyłki.</div>
+
+  <button class="track-btn" onclick="trackParcel()">Śledź przesyłkę →</button>
+  <p class="hint">Otworzy się nowa karta z oficjalną stroną kuriera.</p>
+</div>
+
+<script>
+  // ============================================================
+  // Wzorce adresów śledzenia dla każdego kuriera.
+  // {NUMBER} zostanie zamienione na numer wpisany przez użytkownika.
+  // Dodaj kolejnego kuriera dodając wpis tutaj i opcję w <select> powyżej.
+  // ============================================================
+  const COURIER_URLS = {
+    inpost:  "https://inpost.pl/sledzenie-przesylek?number={NUMBER}",
+    dpd:     "https://tracktrace.dpd.com.pl/parcelDetails?p1={NUMBER}",
+    dhl:     "https://www.dhl.com/pl-pl/home/sledzenie.html?tracking-id={NUMBER}",
+    gls:     "https://gls-group.com/PL/pl/sledzenie-paczek?match={NUMBER}",
+    poczta:  "https://sledzenie.poczta-polska.pl/?numer={NUMBER}",
+    ups:     "https://www.ups.com/track?loc=pl_PL&tracknum={NUMBER}",
+    fedex:   "https://www.fedex.com/fedextrack/?trknbr={NUMBER}"
+  };
+
+  function trackParcel() {
+    const courier = document.getElementById('courier').value;
+    const number = document.getElementById('trackingNumber').value.trim();
+    const errorMsg = document.getElementById('errorMsg');
+
+    if (!number) {
+      errorMsg.style.display = 'block';
+      return;
+    }
+    errorMsg.style.display = 'none';
+
+    const template = COURIER_URLS[courier];
+    const url = template.replace('{NUMBER}', encodeURIComponent(number));
+    window.open(url, '_blank', 'noopener');
+  }
+
+  document.getElementById('trackingNumber').addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') trackParcel();
+  });
+</script>
+
+</body>
+</html>
