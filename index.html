@@ -3,19 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>RepMafia —  Najlepsze oferty w jednym miejscu</title>
+<title>ScoutList — Znajdź najlepsze oferty w jednym miejscu</title>
 <meta name="description" content="Wyszukiwarka produktów i ofert z zaufanych, legalnych sklepów. Porównuj ceny, sprawdzaj opinie, śledź promocje.">
 
 <style>
   :root{
-    --ink:#161A22;
-    --paper:#F6F3EA;
-    --panel:#FFFFFF;
-    --navy:#1B2A3A;
-    --mustard:#E3A008;
-    --teal:#2F6F6B;
-    --muted:#6B7280;
-    --line:rgba(22,26,34,0.12);
+    --bg:#0A0A0C;
+    --panel:#141417;
+    --panel-2:#1B1B1F;
+    --ink:#F2F1EE;
+    --muted:#9A98A3;
+    --red:#E8352F;
+    --red-dim:rgba(232,53,47,0.14);
+    --line:rgba(242,241,238,0.09);
     --radius:14px;
   }
 
@@ -23,7 +23,7 @@
   html{scroll-behavior:smooth;}
   body{
     margin:0;
-    background:var(--paper);
+    background:var(--bg);
     color:var(--ink);
     font-family:"Inter", system-ui, -apple-system, sans-serif;
     line-height:1.5;
@@ -34,111 +34,260 @@
     font-weight:600;
     margin:0;
     letter-spacing:-0.01em;
+    color:var(--ink);
   }
   a{color:inherit;text-decoration:none;}
   .mono{font-family:"JetBrains Mono", monospace; letter-spacing:0.02em;}
 
-  .wrap{max-width:1160px;margin:0 auto;padding:0 24px;}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 24px;}
 
   /* ---------- NAV ---------- */
   header.nav{
     position:sticky;top:0;z-index:50;
-    background:rgba(246,243,234,0.88);
-    backdrop-filter:blur(8px);
+    background:rgba(10,10,12,0.85);
+    backdrop-filter:blur(10px);
     border-bottom:1px solid var(--line);
   }
   .nav-inner{
-    display:flex;align-items:center;justify-content:space-between;
-    padding:16px 24px;max-width:1160px;margin:0 auto;
+    display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
+    padding:16px 24px;max-width:1200px;margin:0 auto;gap:20px;
   }
-  .brand{display:flex;align-items:center;gap:10px;font-family:"Fraunces",serif;font-size:20px;font-weight:600;}
+  .brand{
+    display:flex;align-items:center;gap:10px;
+    font-family:"Fraunces",serif;font-size:20px;font-weight:600;
+    justify-self:start;
+  }
   .brand-mark{
-    width:28px;height:28px;border-radius:8px;
-    background:var(--navy);
+    width:30px;height:30px;border-radius:8px;
+    background:var(--red);
     display:flex;align-items:center;justify-content:center;
-    color:var(--mustard);font-family:"JetBrains Mono",monospace;font-size:13px;font-weight:700;
+    color:#0A0A0C;font-family:"JetBrains Mono",monospace;font-size:13px;font-weight:700;
   }
-  .nav-links{display:flex;gap:28px;font-size:14.5px;color:var(--navy);}
-  .nav-links a:hover{color:var(--teal);}
-  .nav-cta{
-    background:var(--navy);color:var(--paper);
-    padding:9px 18px;border-radius:999px;font-size:14px;font-weight:600;
+  .nav-links{
+    display:flex;gap:30px;font-size:14.5px;color:var(--muted);
+    justify-self:center;
+  }
+  .nav-links a{
+    display:flex;align-items:center;gap:7px;
+    transition:color .15s ease;
+  }
+  .nav-links a:hover{color:var(--ink);}
+  .nav-links .icon{
+    width:15px;height:15px;display:inline-flex;align-items:center;justify-content:center;
+    color:var(--red);
+    filter:none;
+  }
+  #favCount{
+    font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--red);
+    margin-left:2px;
+  }
+  .nav-links .icon.red-icon{
+    filter:brightness(0) saturate(100%) invert(24%) sepia(85%) saturate(3000%) hue-rotate(345deg) brightness(95%) contrast(95%);
+  }
+  .nav-dropdown{position:relative;}
+  .nav-dropdown .dropdown-menu{
+    position:absolute;top:calc(100% + 14px);left:50%;transform:translateX(-50%);
+    background:var(--panel);border:1px solid var(--line);border-radius:12px;
+    padding:8px;min-width:190px;
+    display:flex;flex-direction:column;gap:2px;
+    opacity:0;visibility:hidden;transform:translateX(-50%) translateY(-6px);
+    transition:opacity .15s ease, transform .15s ease, visibility .15s ease;
+    box-shadow:0 20px 40px -20px rgba(0,0,0,0.5);
+  }
+  .nav-dropdown:hover .dropdown-menu{
+    opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);
+  }
+  .dropdown-menu a{
+    display:block;padding:9px 14px;border-radius:8px;font-size:14px;color:var(--ink);
     transition:background .15s ease;
   }
-  .nav-cta:hover{background:var(--teal);}
-  @media (max-width:760px){ .nav-links{display:none;} }
+  .dropdown-menu a:hover{background:var(--panel-2);color:var(--red);}
+  .nav-right{justify-self:end;}
+  .nav-cta{
+    background:var(--red);color:#0A0A0C;
+    padding:9px 20px;border-radius:999px;font-size:14px;font-weight:700;
+    transition:filter .15s ease;
+  }
+  .nav-cta:hover{filter:brightness(1.12);}
+  @media (max-width:900px){ .nav-links{display:none;} .nav-inner{grid-template-columns:1fr auto;} }
 
   /* ---------- HERO ---------- */
   .hero{
-    padding:88px 0 64px;
+    padding:96px 0 64px;
+    text-align:center;
     position:relative;
-    overflow:hidden;
   }
   .eyebrow{
-    display:inline-flex;align-items:center;gap:8px;
+    display:inline-flex;align-items:center,;gap:8px;
     font-family:"JetBrains Mono",monospace;font-size:12.5px;
-    color:var(--teal);background:rgba(47,111,107,0.09);
-    padding:6px 12px;border-radius:999px;margin-bottom:22px;
+    color:var(--red);background:var(--red-dim);
+    padding:6px 14px;border-radius:999px;margin-bottom:26px;
   }
-  .eyebrow::before{content:"●";font-size:8px;color:var(--mustard);}
+  .eyebrow::before{content:"●";font-size:8px;color:var(--red);}
   .hero h1{
-    font-size:clamp(38px,6vw,64px);
+    font-size:clamp(38px,6.4vw,68px);
     line-height:1.03;
     max-width:820px;
+    margin:0 auto;
   }
-  .hero h1 em{
-    font-style:normal;color:var(--teal);
-  }
+  .hero h1 .accent{color:var(--red);}
   .hero p.lead{
-    max-width:560px;margin-top:22px;font-size:18px;color:#3B4250;
+    max-width:560px;margin:22px auto 0;font-size:18px;color:var(--muted);
   }
-  .hero-cta{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap;}
+  .hero-cta{display:flex;gap:14px;margin-top:36px;flex-wrap:wrap;justify-content:center;}
   .btn-primary{
-    background:var(--navy);color:var(--paper);
-    padding:14px 26px;border-radius:999px;font-weight:600;font-size:15px;
+    background:var(--red);color:#0A0A0C;
+    padding:14px 28px;border-radius:999px;font-weight:700;font-size:15px;
     display:inline-flex;align-items:center;gap:8px;
-    transition:transform .15s ease, background .15s ease;
+    transition:transform .15s ease, filter .15s ease;
   }
-  .btn-primary:hover{background:var(--teal);transform:translateY(-1px);}
+  .btn-primary:hover{filter:brightness(1.12);transform:translateY(-1px);}
   .btn-secondary{
-    border:1.5px solid var(--line);color:var(--navy);
-    padding:13px 26px;border-radius:999px;font-weight:600;font-size:15px;
+    border:1.5px solid var(--line);color:var(--ink);
+    padding:13px 28px;border-radius:999px;font-weight:600;font-size:15px;
     transition:border-color .15s ease, background .15s ease;
   }
-  .btn-secondary:hover{border-color:var(--navy);background:rgba(27,42,58,0.04);}
+  .btn-secondary:hover{border-color:var(--red);background:var(--red-dim);}
 
-  /* ticker signature element */
-  .ticker-frame{
-    margin-top:56px;border:1px solid var(--line);border-radius:var(--radius);
-    background:var(--panel);overflow:hidden;
-    box-shadow:0 20px 40px -28px rgba(22,26,34,0.35);
+  /* search bar mock */
+  .search-mock{
+    max-width:680px;margin:52px auto 0;
+    background:var(--panel);border:1px solid var(--line);border-radius:999px;
+    display:flex;align-items:center;gap:12px;padding:16px 22px;
+    box-shadow:0 30px 60px -30px rgba(232,53,47,0.18);
   }
-  .ticker-head{
-    display:flex;align-items:center;justify-content:space-between;
-    padding:12px 18px;border-bottom:1px solid var(--line);
-    font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted);
+  .search-mock .sicon{color:var(--red);font-size:16px;}
+  .search-mock input{
+    background:transparent;border:none;outline:none;
+    color:var(--ink);font-size:15px;font-family:"Inter",sans-serif;
+    flex:1;
   }
-  .ticker-track{
-    display:flex;gap:0;
-    animation:scroll 22s linear infinite;
-    width:max-content;
+  .search-mock input::placeholder{color:var(--muted);}
+  .search-mock kbd{
+    margin-left:auto;font-family:"JetBrains Mono",monospace;font-size:11px;
+    color:var(--muted);border:1px solid var(--line);padding:3px 8px;border-radius:6px;
   }
-  .ticker-track:hover{animation-play-state:paused;}
-  @keyframes scroll{
-    from{transform:translateX(0);}
-    to{transform:translateX(-50%);}
+
+  /* search row with filters button */
+  .search-row{
+    max-width:680px;margin:52px auto 0;display:flex;gap:12px;align-items:center;
   }
-  .tick-item{
-    display:flex;align-items:center;gap:14px;
-    padding:16px 26px;border-right:1px solid var(--line);
-    min-width:280px;
+  .search-row .search-mock{margin:0;flex:1;}
+  .filters-btn{
+    flex:0 0 auto;background:var(--panel);border:1px solid var(--line);color:var(--ink);
+    padding:16px 20px;border-radius:999px;font-weight:600;font-size:14.5px;cursor:pointer;
+    display:flex;align-items:center;gap:6px;transition:border-color .15s ease;
   }
-  .tick-item .price-drop{color:var(--teal);font-weight:700;}
-  .tick-item .price-old{color:var(--muted);text-decoration:line-through;font-size:13px;}
-  .tick-store{
+  .filters-btn:hover{border-color:var(--red);}
+  .filters-btn .fchev{color:var(--red);font-size:12px;transition:transform .15s ease;}
+  .filters-btn.open .fchev{transform:rotate(180deg);}
+
+  .filters-panel{
+    max-width:680px;margin:14px auto 0;
+    background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+    overflow:hidden;max-height:0;opacity:0;
+    transition:max-height .25s ease, opacity .2s ease;
+  }
+  .filters-panel.open{max-height:600px;opacity:1;}
+  .filters-head{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:18px 24px;border-bottom:1px solid var(--line);
+    font-family:"Fraunces",serif;font-weight:600;font-size:18px;
+  }
+  .filters-close{
+    background:none;border:none;color:var(--muted);font-size:16px;cursor:pointer;
+  }
+  .filters-close:hover{color:var(--red);}
+  .filters-body{padding:22px 24px;text-align:left;}
+  .filter-group{margin-bottom:22px;}
+  .filter-group label{
+    display:block;font-family:"JetBrains Mono",monospace;font-size:11.5px;
+    letter-spacing:0.05em;color:var(--muted);margin-bottom:12px;
+  }
+  .price-inputs{display:flex;align-items:center;gap:10px;}
+  .price-inputs input{
+    flex:1;background:var(--panel-2);border:1px solid var(--line);color:var(--ink);
+    padding:10px 14px;border-radius:8px;font-size:14px;outline:none;
+  }
+  .price-inputs input:focus{border-color:var(--red);}
+  .price-inputs span{color:var(--muted);}
+
+  .condition-row{display:flex;gap:8px;}
+  .cond-btn{
+    flex:1;background:var(--panel-2);border:1px solid var(--line);color:var(--muted);
+    padding:10px;border-radius:8px;font-size:13.5px;font-weight:600;cursor:pointer;
+    transition:border-color .15s ease, color .15s ease, background .15s ease;
+  }
+  .cond-btn.active{background:var(--ink);color:#0A0A0C;border-color:var(--ink);}
+  .cond-btn:hover:not(.active){border-color:var(--red);color:var(--ink);}
+
+  .sort-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+  .sort-btn{
+    background:var(--panel-2);border:1px solid var(--line);color:var(--muted);
+    padding:10px 12px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;text-align:left;
+    transition:border-color .15s ease, color .15s ease, background .15s ease;
+  }
+  .sort-btn.active{background:var(--ink);color:#0A0A0C;border-color:var(--ink);}
+  .sort-btn:hover:not(.active){border-color:var(--red);color:var(--ink);}
+  @media (max-width:560px){ .sort-grid{grid-template-columns:1fr;} }
+
+  .filters-apply{width:100%;justify-content:center;margin-top:6px;}
+
+  /* category pills under hero */
+  .pill-row{
+    display:flex;gap:10px;flex-wrap:nowrap;
+    max-width:820px;margin:26px auto 0;
+    overflow-x:auto;overflow-y:hidden;
+    padding-bottom:6px;
+    scrollbar-width:thin;scrollbar-color:var(--line) transparent;
+    -webkit-overflow-scrolling:touch;
+  }
+  .pill-row::-webkit-scrollbar{height:6px;}
+  .pill-row::-webkit-scrollbar-thumb{background:var(--line);border-radius:999px;}
+  .pill-row::-webkit-scrollbar-track{background:transparent;}
+  .pill{flex:0 0 auto;}
+  .pill{
+    font-family:"Inter", system-ui, sans-serif;font-weight:600;cursor:pointer;
+    font-size:14px;color:var(--muted);border:1px solid var(--line);
+    padding:8px 18px;border-radius:999px;background:var(--panel);
+    transition:border-color .15s ease, color .15s ease;
+  }
+
+  /* ---------- PRODUCT GRID ---------- */
+  .product-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:20px;
+  }
+  .product-card{
+    background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+    overflow:hidden;transition:border-color .15s ease, transform .15s ease;
+    display:block;position:relative;
+  }
+  .product-card:hover{border-color:var(--red);transform:translateY(-3px);}
+  .product-card a{display:block;}
+  .fav-btn{
+    position:absolute;top:10px;right:10px;z-index:2;
+    background:rgba(10,10,12,0.55);backdrop-filter:blur(4px);
+    border:none;border-radius:999px;width:32px;height:32px;
+    font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;
+    transition:transform .15s ease;
+  }
+  .fav-btn:hover{transform:scale(1.12);}
+  .product-card .pimg{
+    width:100%;aspect-ratio:1/1;object-fit:cover;
+    background:var(--panel-2);display:block;
+  }
+  .product-card .pinfo{padding:16px;}
+  .product-card .pname{font-size:14.5px;color:var(--ink);font-weight:600;margin-bottom:6px;}
+  .product-card .pmeta{display:flex;justify-content:space-between;align-items:center;}
+  .product-card .pprice{color:var(--red);font-weight:700;font-size:15px;}
+  .product-card .pstore{
     font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);
-    background:var(--paper);padding:3px 8px;border-radius:6px;
+    background:var(--panel-2);padding:3px 8px;border-radius:6px;
   }
+  @media (max-width:900px){ .product-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:520px){ .product-grid{grid-template-columns:1fr 1fr;gap:12px;} }
+  .pill:hover, .pill.active{border-color:var(--red);color:var(--ink);}
+  .pill.active{background:var(--red-dim);}
 
   /* ---------- STATS ---------- */
   .stats{
@@ -146,10 +295,10 @@
     border-top:1px solid var(--line);border-bottom:1px solid var(--line);
     margin-top:70px;
   }
-  .stat{padding:30px 24px;border-right:1px solid var(--line);}
+  .stat{padding:30px 24px;border-right:1px solid var(--line);text-align:center;}
   .stat:last-child{border-right:none;}
-  .stat .num{font-family:"Fraunces",serif;font-size:38px;font-weight:600;color:var(--navy);}
-  .stat .label{font-size:13.5px;color:var(--muted);margin-top:4px;}
+  .stat .num{font-family:"Fraunces",serif;font-size:38px;font-weight:600;color:var(--red);}
+  .stat .label{font-size:13.5px;color:var(--muted);margin-top:4px;letter-spacing:0.03em;text-transform:uppercase;}
   @media (max-width:640px){
     .stats{grid-template-columns:1fr;}
     .stat{border-right:none;border-bottom:1px solid var(--line);}
@@ -157,7 +306,7 @@
 
   /* ---------- SECTION HEAD ---------- */
   section{padding:88px 0;}
-  .section-head{max-width:560px;margin-bottom:52px;}
+  .section-head{max-width:560px;margin:0 auto 52px;text-align:center;}
   .section-head .eyebrow{margin-bottom:14px;}
   .section-head h2{font-size:clamp(28px,4vw,38px);}
   .section-head p{color:var(--muted);margin-top:14px;font-size:16px;}
@@ -169,38 +318,43 @@
   }
   .feature{
     background:var(--panel);padding:32px 28px;
+    transition:background .15s ease;
   }
+  .feature:hover{background:var(--panel-2);}
   .feature .ficon{
-    width:38px;height:38px;border-radius:10px;background:rgba(227,160,8,0.14);
-    display:flex;align-items:center;justify-content:center;color:var(--mustard);
+    width:40px;height:40px;border-radius:10px;background:var(--red-dim);
+    display:flex;align-items:center;justify-content:center;color:var(--red);
     margin-bottom:18px;font-size:18px;
   }
-  .feature h3{font-size:18px;margin-bottom:8px;}
+  .feature h3{font-size:18px;margin-bottom:8px;color:var(--ink);}
   .feature p{color:var(--muted);font-size:14.5px;margin:0 0 14px;}
-  .feature .flink{font-size:14px;font-weight:600;color:var(--teal);}
+  .feature .flink{font-size:14px;font-weight:600;color:var(--red);}
   .feature .flink:hover{text-decoration:underline;}
   @media (max-width:900px){ .grid-features{grid-template-columns:1fr;} }
 
   /* ---------- TOOLS ---------- */
-  .tools-band{background:var(--navy);color:var(--paper);border-radius:20px;padding:56px 44px;}
-  .tools-band .section-head p{color:rgba(246,243,234,0.65);}
-  .tools-band .eyebrow{background:rgba(227,160,8,0.16);color:var(--mustard);}
+  .tools-band{
+    background:var(--panel);border:1px solid var(--line);
+    border-radius:20px;padding:56px 44px;
+  }
   .tools-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:10px;}
   .tool-card{
-    background:rgba(246,243,234,0.06);border:1px solid rgba(246,243,234,0.14);
+    background:var(--panel-2);border:1px solid var(--line);
     border-radius:var(--radius);padding:26px;
+    transition:border-color .15s ease;
   }
-  .tool-card .tnum{font-family:"JetBrains Mono",monospace;color:var(--mustard);font-size:13px;}
-  .tool-card h3{color:var(--paper);font-size:19px;margin:14px 0 8px;}
-  .tool-card p{color:rgba(246,243,234,0.68);font-size:14.5px;margin:0 0 16px;}
-  .tool-card a{font-size:14px;font-weight:600;color:var(--paper);border-bottom:1px solid var(--mustard);padding-bottom:2px;}
+  .tool-card:hover{border-color:var(--red);}
+  .tool-card .tnum{font-family:"JetBrains Mono",monospace;color:var(--red);font-size:13px;}
+  .tool-card h3{color:var(--ink);font-size:19px;margin:14px 0 8px;}
+  .tool-card p{color:var(--muted);font-size:14.5px;margin:0 0 16px;}
+  .tool-card a{font-size:14px;font-weight:600;color:var(--ink);border-bottom:1px solid var(--red);padding-bottom:2px;}
   @media (max-width:900px){ .tools-grid{grid-template-columns:1fr;} .tools-band{padding:40px 24px;} }
 
   /* ---------- COMMUNITY ---------- */
   .community{
     display:flex;align-items:center;justify-content:space-between;gap:40px;
     border:1px solid var(--line);border-radius:var(--radius);padding:48px;
-    background:linear-gradient(135deg, rgba(47,111,107,0.06), rgba(227,160,8,0.05));
+    background:linear-gradient(135deg, var(--red-dim), transparent 60%);
   }
   .community h2{font-size:clamp(24px,3.4vw,32px);max-width:420px;}
   .community p{color:var(--muted);margin-top:12px;max-width:420px;}
@@ -217,7 +371,7 @@
   }
   .footer-grid ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;}
   .footer-grid a{font-size:14.5px;color:var(--ink);}
-  .footer-grid a:hover{color:var(--teal);}
+  .footer-grid a:hover{color:var(--red);}
   .footer-brand p{color:var(--muted);font-size:14.5px;max-width:280px;margin-top:10px;}
   .footer-bottom{
     display:flex;justify-content:space-between;align-items:center;
@@ -225,6 +379,117 @@
     font-size:13px;color:var(--muted);flex-wrap:wrap;gap:10px;
   }
   @media (max-width:800px){ .footer-grid{grid-template-columns:1fr 1fr;} }
+
+  /* ---------- OUTFITS ---------- */
+  .outfit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .outfit-card{
+    background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+    overflow:hidden;transition:border-color .15s ease,transform .15s ease;
+  }
+  .outfit-card:hover{border-color:var(--red);transform:translateY(-3px);}
+  .outfit-img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;background:var(--panel-2);}
+  .outfit-body{padding:20px;}
+  .outfit-name{font-family:"Fraunces",serif;font-size:17px;margin-bottom:14px;}
+  .outfit-items{display:flex;flex-direction:column;gap:8px;}
+  .outfit-item{
+    display:flex;justify-content:space-between;align-items:center;gap:10px;
+    padding:10px 12px;background:var(--panel-2);border-radius:8px;font-size:13.5px;
+    transition:background .15s ease;
+  }
+  .outfit-item:hover{background:var(--red-dim);}
+  .outfit-item .oi-name{color:var(--ink);}
+  .outfit-item .oi-price{color:var(--red);font-weight:700;font-family:"JetBrains Mono",monospace;font-size:12.5px;white-space:nowrap;}
+  @media (max-width:900px){ .outfit-grid{grid-template-columns:1fr 1fr;} }
+  @media (max-width:560px){ .outfit-grid{grid-template-columns:1fr;} }
+
+  /* ---------- QUALITY ---------- */
+  .quality-badge{
+    position:absolute;top:10px;left:10px;z-index:2;
+    background:var(--red);color:#0A0A0C;font-size:10.5px;font-weight:700;
+    padding:4px 9px;border-radius:999px;
+  }
+
+  /* ---------- STORES ---------- */
+  .store-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .store-card{
+    background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+    padding:28px;display:flex;flex-direction:column;gap:14px;
+    transition:border-color .15s ease,transform .15s ease;
+  }
+  .store-card:hover{border-color:var(--red);transform:translateY(-3px);}
+  .store-name{font-family:"Fraunces",serif;font-size:19px;}
+  .store-desc{color:var(--muted);font-size:14px;flex:1;margin:0;}
+  .store-link{
+    align-self:flex-start;background:var(--red-dim);color:var(--red);
+    padding:10px 20px;border-radius:999px;font-weight:700;font-size:13.5px;
+    transition:background .15s ease,color .15s ease;
+  }
+  .store-link:hover{background:var(--red);color:#0A0A0C;}
+  @media (max-width:900px){ .store-grid{grid-template-columns:1fr 1fr;} }
+  @media (max-width:560px){ .store-grid{grid-template-columns:1fr;} }
+
+  /* ---------- DISCORD LOGIN ---------- */
+  .discord-login-btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:9px;
+    background:#5865F2;color:#fff;
+    padding:10px 22px 10px 16px;border-radius:999px;font-size:14px;font-weight:700;
+    transition:filter .15s ease,transform .15s ease;
+  }
+  .discord-login-btn:hover{filter:brightness(1.12);transform:translateY(-1px);}
+  .discord-login-btn svg{width:18px;height:18px;flex:0 0 auto;fill:#fff;}
+
+  .discord-user-chip{
+    display:flex;align-items:center;gap:9px;position:relative;
+    background:var(--panel);border:1px solid var(--line);
+    padding:6px 16px 6px 6px;border-radius:999px;cursor:pointer;
+    transition:border-color .15s ease;
+  }
+  .discord-user-chip:hover{border-color:var(--red);}
+  .discord-user-chip img{width:28px;height:28px;border-radius:50%;display:block;background:var(--panel-2);}
+  .discord-user-chip span{font-size:13.5px;font-weight:600;color:var(--ink);}
+  .discord-user-menu{
+    position:absolute;top:calc(100% + 12px);right:0;
+    background:var(--panel);border:1px solid var(--line);border-radius:12px;
+    padding:8px;min-width:160px;display:flex;flex-direction:column;gap:2px;
+    opacity:0;visibility:hidden;transform:translateY(-6px);
+    transition:opacity .15s ease,transform .15s ease,visibility .15s ease;
+    box-shadow:0 20px 40px -20px rgba(0,0,0,0.5);
+  }
+  .discord-user-chip.open .discord-user-menu{opacity:1;visibility:visible;transform:translateY(0);}
+  .discord-user-menu button{
+    background:none;border:none;color:var(--ink);text-align:left;width:100%;
+    padding:9px 12px;border-radius:8px;font-size:13.5px;cursor:pointer;
+    transition:background .15s ease,color .15s ease;font-family:inherit;
+  }
+  .discord-user-menu button:hover{background:var(--panel-2);color:var(--red);}
+
+  /* ---------- LOGIN MODAL ---------- */
+  .modal-overlay{
+    position:fixed;inset:0;background:rgba(10,10,12,0.72);backdrop-filter:blur(5px);
+    display:flex;align-items:center;justify-content:center;z-index:200;padding:20px;
+    opacity:0;visibility:hidden;transition:opacity .2s ease,visibility .2s ease;
+  }
+  .modal-overlay.open{opacity:1;visibility:visible;}
+  .modal-box{
+    position:relative;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+    padding:38px 32px 32px;max-width:380px;width:100%;text-align:center;
+    transform:translateY(10px);transition:transform .2s ease;
+  }
+  .modal-overlay.open .modal-box{transform:translateY(0);}
+  .modal-box .micon{
+    width:52px;height:52px;border-radius:50%;background:var(--red-dim);color:var(--red);
+    display:flex;align-items:center;justify-content:center;font-size:22px;margin:0 auto 18px;
+  }
+  .modal-box h3{font-size:20px;margin-bottom:10px;}
+  .modal-box p{color:var(--muted);font-size:14.5px;margin:0 0 26px;}
+  .modal-actions{display:flex;flex-direction:column;gap:10px;}
+  .modal-actions .btn-primary{justify-content:center;width:100%;}
+  .modal-close{
+    position:absolute;top:14px;right:16px;background:none;border:none;color:var(--muted);
+    font-size:16px;cursor:pointer;width:28px;height:28px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;transition:background .15s ease,color .15s ease;
+  }
+  .modal-close:hover{background:var(--panel-2);color:var(--red);}
 </style>
 </head>
 <body>
@@ -237,54 +502,177 @@
       ScoutList
     </div>
     <nav class="nav-links">
-      <a href="#features">Funkcje</a>
-      <a href="#tools">Narzędzia</a>
-      <a href="#community">Społeczność</a>
-      <a href="https://example.com/blog">Blog</a>
+      <a href="#products">
+        <span class="icon">🛍️</span> Products
+      </a>
+      <a href="#outfits">
+        <span class="icon red-icon">👕</span> Outfits
+      </a>
+      <a href="#quality">
+        <span class="icon">✅</span> Weryfikacja Jakości
+      </a>
+      <a href="#stores">
+        <span class="icon red-icon">🏬</span> Sklepy partnerskie
+      </a>
+      <div class="nav-dropdown">
+        <a href="#tools">
+          <span class="icon">🛠️</span> Narzędzia
+        </a>
+        <div class="dropdown-menu">
+          <a href="tracking.html">Śledzenie paczki</a>
+          <a href="https://example.com/shipping-calculator">Kalkulator wysyłki</a>
+          <a href="https://example.com/guide">Poradnik</a>
+        </div>
+      </div>
+      <a href="#" id="favoritesLink">
+        <span class="icon" id="favIcon">🤍</span> Ulubione<span id="favCount"></span>
+      </a>
     </nav>
-    <a class="nav-cta" href="https://example.com/register">Dołącz za darmo</a>
+    <div class="nav-right" id="discordArea">
+      <!-- Wypełniane automatycznie przez JS (renderDiscordArea) -->
+    </div>
   </div>
 </header>
+
+<!-- ============ MODAL LOGOWANIA ============ -->
+<div class="modal-overlay" id="loginModal">
+  <div class="modal-box">
+    <button class="modal-close" id="loginModalClose">✕</button>
+    <div class="micon">❤️</div>
+    <h3>Zaloguj się, żeby dodawać ulubione</h3>
+    <p>Dołącz do naszego serwera Discord i zaloguj się przez Discord, żeby zapisywać ulubione produkty i wracać do nich później.</p>
+    <div class="modal-actions">
+      <a class="btn-secondary" id="modalInviteBtn" href="https://discord.com/invite/example" target="_blank" rel="noopener">Dołącz do serwera</a>
+      <a class="discord-login-btn" id="modalLoginBtn" href="#">
+        <svg viewBox="0 0 24 24"><path d="M20.317 4.369a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.056 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.099.246.198.373.292a.077.077 0 0 1-.006.128 12.3 12.3 0 0 1-1.873.891.076.076 0 0 0-.04.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.029 19.84 19.84 0 0 0 6.002-3.03.077.077 0 0 0 .032-.055c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.418 2.157-2.418 1.21 0 2.176 1.094 2.157 2.418 0 1.334-.955 2.419-2.157 2.419zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.418 2.157-2.418 1.21 0 2.176 1.094 2.157 2.418 0 1.334-.946 2.419-2.157 2.419z"/></svg>
+        Zaloguj przez Discord
+      </a>
+    </div>
+  </div>
+</div>
 
 <!-- ============ HERO ============ -->
 <div class="wrap">
   <section class="hero">
     <span class="eyebrow">NAJLEPSZA POROWNYWARKA W POLSCE</span>
-    <h1>Wszystko czego potrzebujesz, <em>w jednym miejscu.</em></h1>
-    <p class="lead">Przeszukujemy setki legalnych sklepów, żebyś znalazł najlepszą cenę, sprawdzoną opinię i aktualną promocję — bez przekopywania dziesięciu kart w przeglądarce.</p>
+    <h1>Znajdź więcej<br><span class="accent">Szybciej i lepiej.</span></h1>
+    <p class="lead">Przeszukujemy setki legalnych sklepów, żebyś znalazł najlepszą cenę, sprawdzoną opinię i aktualną promocję.</p>
 
-    <div class="hero-cta">
-      <a class="btn-primary" href="https://example.com/search">Przeglądaj oferty →</a>
-      <a class="btn-secondary" href="https://discord.com/invite/example">Dołącz do społeczności</a>
+    <div class="search-row">
+      <div class="search-mock">
+        <span class="sicon">🔍</span>
+        <input type="text" id="searchInput" placeholder="Szukaj produktów…" autocomplete="off">
+        <kbd>Ctrl K</kbd>
+      </div>
+      <button class="filters-btn" id="filtersBtn">Filters <span class="fchev">▾</span></button>
     </div>
 
-    <!-- SIGNATURE ELEMENT: live-style ticker of sample deals -->
-    <div class="ticker-frame">
-      <div class="ticker-head">
-        <span>AKTUALNE OBNIŻKI</span>
-        <span>NA ŻYWO</span>
+    <div class="filters-panel" id="filtersPanel">
+      <div class="filters-head">
+        <span>Filters</span>
+        <button class="filters-close" id="filtersClose">✕</button>
       </div>
-      <div style="overflow:hidden;">
-        <div class="ticker-track">
-          <div class="tick-item"><span class="tick-store">SklepA</span><div><div class="price-drop">−32%</div><div class="price-old">249 zł</div></div></div>
-          <div class="tick-item"><span class="tick-store">SklepB</span><div><div class="price-drop">−18%</div><div class="price-old">129 zł</div></div></div>
-          <div class="tick-item"><span class="tick-store">SklepC</span><div><div class="price-drop">−45%</div><div class="price-old">399 zł</div></div></div>
-          <div class="tick-item"><span class="tick-store">SklepD</span><div><div class="price-drop">−12%</div><div class="price-old">89 zł</div></div></div>
-          <div class="tick-item"><span class="tick-store">SklepA</span><div><div class="price-drop">−32%</div><div class="price-old">249 zł</div></div></div>
-          <div class="tick-item"><span class="tick-store">SklepB</span><div><div class="price-drop">−18%</div><div class="price-old">129 zł</div></div></div>
-          <div class="tick-item"><span class="tick-store">SklepC</span><div><div class="price-drop">−45%</div><div class="price-old">399 zł</div></div></div>
-          <div class="tick-item"><span class="tick-store">SklepD</span><div><div class="price-drop">−12%</div><div class="price-old">89 zł</div></div></div>
+
+      <div class="filters-body">
+        <div class="filter-group">
+          <label>ZAKRES CEN</label>
+          <div class="price-inputs">
+            <input type="number" id="priceMin" placeholder="Min">
+            <span>—</span>
+            <input type="number" id="priceMax" placeholder="Max">
+          </div>
         </div>
+
+        <div class="filter-group">
+          <label>STAN</label>
+          <div class="condition-row">
+            <button class="cond-btn active" data-cond="all">Wszystkie</button>
+            <button class="cond-btn" data-cond="new">Nowe</button>
+            <button class="cond-btn" data-cond="used">Używane</button>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <label>SORTUJ WEDŁUG</label>
+          <div class="sort-grid">
+            <button class="sort-btn active" data-sort="newest">🕐 Najnowsze</button>
+            <button class="sort-btn" data-sort="oldest">🕐 Najstarsze</button>
+            <button class="sort-btn" data-sort="popular-desc">📈 Popularność ↓</button>
+            <button class="sort-btn" data-sort="popular-asc">📉 Popularność ↑</button>
+            <button class="sort-btn" data-sort="price-desc">💲 Cena: wysoka→niska</button>
+            <button class="sort-btn" data-sort="price-asc">💲 Cena: niska→wysoka</button>
+          </div>
+        </div>
+
+        <button class="btn-primary filters-apply" id="filtersApply">Zastosuj filtry</button>
       </div>
+    </div>
+
+    <div class="pill-row" id="categoryPills">
+      <span class="pill active" data-cat="all">Wszystko</span>
+      <span class="pill" data-cat="buty">Buty</span>
+      <span class="pill" data-cat="spodnie">Spodnie</span>
+      <span class="pill" data-cat="bluzy">Bluzy</span>
+      <span class="pill" data-cat="tshirty">T-shirty</span>
+      <span class="pill" data-cat="spodenki">Spodenki</span>
+      <span class="pill" data-cat="paski">Paski</span>
+      <span class="pill" data-cat="akcesoria">Akcesoria</span>
+      <span class="pill" data-cat="torby">Torby</span>
+      <span class="pill" data-cat="elektronika">Elektronika</span>
+      <span class="pill" data-cat="lego">Lego</span>
+      <span class="pill" data-cat="perfumy">Perfumy</span>
+      <span class="pill" data-cat="okulary">Okulary</span>
+      <span class="pill" data-cat="czapki">Czapki</span>
+      <span class="pill" data-cat="bizuteria">Biżuteria</span>
+      <span class="pill" data-cat="zegarki">Zegarki</span>
+      <span class="pill" data-cat="bielizna">Bielizna</span>
+    </div>
+
+    <div class="hero-cta">
+      <a class="btn-primary" href="#products">Przeglądaj produkty →</a>
+      <a class="btn-secondary" href="https://discord.com/invite/example">Dołącz do społeczności</a>
     </div>
   </section>
 
-  <!-- ============ STATS ============ -->
-  <div class="stats">
-    <div class="stat"><div class="num mono">12k+</div><div class="label">PRODUKTÓW W BAZIE</div></div>
-    <div class="stat"><div class="num mono">85k+</div><div class="label">UŻYTKOWNIKÓW DISCORD</div></div>
-    <div class="stat"><div class="num mono">4.8/5</div><div class="label">ŚREDNIA OCENA</div></div>
-  </div>
+  <!-- ============ PRODUCTS GRID ============ -->
+  <section id="products">
+    <div class="section-head">
+      <span class="eyebrow">PRODUKTY</span>
+      <h2 id="productsTitle">Wszystkie produkty</h2>
+      <p>Kliknij kartę, żeby przejść do oferty w sklepie partnera.</p>
+    </div>
+    <div class="product-grid" id="productGrid"></div>
+  </section>
+
+  <!-- ============ OUTFITS ============ -->
+  <section id="outfits">
+    <div class="section-head">
+      <span class="eyebrow">OUTFITY</span>
+      <h2>Gotowe stylizacje</h2>
+      <p>Zdjęcie całego fitu i linki do każdej z rzeczy w oryginalnym sklepie wraz z ceną.</p>
+    </div>
+    <div class="outfit-grid" id="outfitGrid"></div>
+  </section>
+
+  <!-- ============ WERYFIKACJA JAKOŚCI ============ -->
+  <section id="quality">
+    <div class="section-head">
+      <span class="eyebrow">WERYFIKACJA JAKOŚCI</span>
+      <h2>Sprawdzone produkty</h2>
+      <p>Zdjęcia i ceny produktów, które nasz zespół sprawdził przed zakupem.</p>
+    </div>
+    <div class="product-grid" id="qualityGrid"></div>
+  </section>
+
+  <!-- ============ SKLEPY PARTNERSKIE ============ -->
+  <section id="stores">
+    <div class="section-head">
+      <span class="eyebrow">SKLEPY PARTNERSKIE</span>
+      <h2>Zweryfikowani sprzedawcy</h2>
+      <p>Współpracujemy tylko z legalnymi, sprawdzonymi sklepami.</p>
+    </div>
+    <div class="store-grid" id="storeGrid"></div>
+  </section>
 
   <!-- ============ FEATURES ============ -->
   <section id="features">
@@ -296,42 +684,42 @@
     <div class="grid-features">
 
       <div class="feature">
-        <div class="ficon">◆</div>
+        <div class="ficon">🛍️</div>
         <h3>12 000+ produktów</h3>
         <p>Największa baza linków do legalnych sklepów. Znajdź buty, ubrania, akcesoria i wszystko inne.</p>
         <a class="flink" href="https://example.com/products">Przeglądaj →</a>
       </div>
 
       <div class="feature">
-        <div class="ficon">✓</div>
+        <div class="ficon">✅</div>
         <h3>Weryfikacja jakości</h3>
         <p>Sprawdzone opinie i zdjęcia produktów przed zakupem, żebyś wiedział czego się spodziewać.</p>
-        <a class="flink" href="https://example.com/reviews">Sprawdź opinie →</a>
+        <a class="flink" href="#quality">Sprawdź opinie →</a>
       </div>
 
       <div class="feature">
-        <div class="ficon">⇄</div>
+        <div class="ficon">💱</div>
         <h3>Porównywarka cen</h3>
         <p>Porównuj ceny tego samego produktu w różnych sklepach w kilka sekund.</p>
         <a class="flink" href="https://example.com/compare">Porównaj →</a>
       </div>
 
       <div class="feature">
-        <div class="ficon">▣</div>
-        <h3>Śledzenie przesyłek</h3>
-        <p>Wszystkie Twoje zamówienia i numery przesyłek w jednym panelu.</p>
-        <a class="flink" href="https://example.com/tracking">Śledź →</a>
+        <div class="ficon">👕</div>
+        <h3>Gotowe stylizacje</h3>
+        <p>Inspiracje na cały outfit złożone z produktów dostępnych w legalnych sklepach.</p>
+        <a class="flink" href="#outfits">Zobacz stylizacje →</a>
       </div>
 
       <div class="feature">
-        <div class="ficon">✔</div>
+        <div class="ficon">🛡️</div>
         <h3>Zweryfikowane sklepy</h3>
         <p>Współpracujemy tylko z legalnymi, zweryfikowanymi sprzedawcami. Bezpieczne zakupy.</p>
-        <a class="flink" href="https://example.com/stores">Zobacz listę →</a>
+        <a class="flink" href="#stores">Zobacz listę →</a>
       </div>
 
       <div class="feature">
-        <div class="ficon">◎</div>
+        <div class="ficon">💬</div>
         <h3>Społeczność</h3>
         <p>Dołącz do 85 000+ osób na Discordzie. Dziel się wiedzą i znajdź pomoc.</p>
         <a class="flink" href="https://discord.com/invite/example">Dołącz →</a>
@@ -359,13 +747,13 @@
           <span class="tnum">02</span>
           <h3>Weryfikator opinii</h3>
           <p>Zobacz zdjęcia i oceny od realnych kupujących przed zakupem.</p>
-          <a href="https://example.com/reviews">Otwórz narzędzie</a>
+          <a href="#quality">Otwórz narzędzie</a>
         </div>
         <div class="tool-card">
           <span class="tnum">03</span>
           <h3>Śledzenie paczek</h3>
           <p>Śledź przesyłki od dowolnego przewoźnika w jednym miejscu.</p>
-          <a href="https://example.com/tracking">Otwórz narzędzie</a>
+          <a href="tracking.html">Otwórz narzędzie</a>
         </div>
       </div>
     </div>
@@ -398,8 +786,8 @@
         <h4>Narzędzia</h4>
         <ul>
           <li><a href="https://example.com/compare">Porównywarka cen</a></li>
-          <li><a href="https://example.com/reviews">Weryfikator opinii</a></li>
-          <li><a href="https://example.com/tracking">Śledzenie paczek</a></li>
+          <li><a href="#quality">Weryfikator opinii</a></li>
+          <li><a href="tracking.html">Śledzenie paczek</a></li>
         </ul>
       </div>
       <div>
@@ -413,7 +801,7 @@
       <div>
         <h4>Informacje</h4>
         <ul>
-          <li><a href="https://discord.gg/wq2PAMawDt">O nas</a></li>
+          <li><a href="https://example.com/about">O nas</a></li>
           <li><a href="https://example.com/terms">Regulamin</a></li>
           <li><a href="https://example.com/privacy">Prywatność</a></li>
         </ul>
@@ -426,5 +814,555 @@
   </div>
 </footer>
 
+<script>
+  // ============================================================
+  // LISTA PRODUKTÓW — edytuj tę tablicę, żeby dodać/usunąć produkty.
+  // category musi być jedną z: buty, spodnie, kurtki, bluzy, tshirty, akcesoria, elektronika
+  // image: podaj link do zdjęcia (np. wrzucone na imgur, cloudinary, albo z Twojego sklepu partnera)
+  // url: link do oferty w sklepie partnera
+  // ============================================================
+  const PRODUCTS = [
+    {
+      id: "p1",
+      name: "Sneakersy Runner Classic",
+      price: "249 zł", priceValue: 249,
+      category: "buty", condition: "new", popularity: 92, dateAdded: 9,
+      store: "SklepA",
+      image: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=500&q=80",
+      url: "https://example.com/products/sneakersy-runner-classic"
+    },
+    {
+      id: "p2",
+      name: "Buty trekkingowe Trail",
+      price: "329 zł", priceValue: 329,
+      category: "buty", condition: "new", popularity: 74, dateAdded: 8,
+      store: "SklepB",
+      image: "https://images.unsplash.com/photo-1520256862855-398228c41684?w=500&q=80",
+      url: "https://example.com/products/buty-trekkingowe-trail"
+    },
+    {
+      id: "p3",
+      name: "Spodnie cargo Utility",
+      price: "159 zł", priceValue: 159,
+      category: "spodnie", condition: "new", popularity: 65, dateAdded: 7,
+      store: "SklepC",
+      image: "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=500&q=80",
+      url: "https://example.com/products/spodnie-cargo-utility"
+    },
+    {
+      id: "p4",
+      name: "Kurtka zimowa Alpine",
+      price: "459 zł", priceValue: 459,
+      category: "kurtki", condition: "used", popularity: 58, dateAdded: 6,
+      store: "SklepA",
+      image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=500&q=80",
+      url: "https://example.com/products/kurtka-zimowa-alpine"
+    },
+    {
+      id: "p5",
+      name: "Bluza z kapturem Basic",
+      price: "129 zł", priceValue: 129,
+      category: "bluzy", condition: "new", popularity: 81, dateAdded: 5,
+      store: "SklepD",
+      image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=500&q=80",
+      url: "https://example.com/products/bluza-z-kapturem-basic"
+    },
+    {
+      id: "p6",
+      name: "T-shirt bawełniany Essential",
+      price: "59 zł", priceValue: 59,
+      category: "tshirty", condition: "new", popularity: 88, dateAdded: 4,
+      store: "SklepB",
+      image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&q=80",
+      url: "https://example.com/products/tshirt-basic-essential"
+    },
+    {
+      id: "p7",
+      name: "Czapka z daszkiem Street",
+      price: "49 zł", priceValue: 49,
+      category: "akcesoria", condition: "used", popularity: 43, dateAdded: 3,
+      store: "SklepC",
+      image: "https://images.unsplash.com/photo-1521369909029-2afed882baee?w=500&q=80",
+      url: "https://example.com/products/czapka-street"
+    },
+    {
+      id: "p8",
+      name: "Słuchawki bezprzewodowe Pulse",
+      price: "199 zł", priceValue: 199,
+      category: "elektronika", condition: "new", popularity: 96, dateAdded: 2,
+      store: "SklepD",
+      image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&q=80",
+      url: "https://example.com/products/sluchawki-pulse"
+    }
+  ];
+
+  // ============================================================
+  // OUTFITY — edytuj tę tablicę, żeby dodać/usunąć stylizacje.
+  // image: zdjęcie całego fitu
+  // items: lista rzeczy w stylizacji — każda z nazwą, ceną i linkiem do sklepu partnera
+  // ============================================================
+  const OUTFITS = [
+    {
+      id: "o1",
+      name: "Street Casual",
+      image: "https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?w=600&q=80",
+      items: [
+        { name: "Sneakersy Runner Classic", price: "249 zł", url: "https://example.com/products/sneakersy-runner-classic" },
+        { name: "Spodnie cargo Utility", price: "159 zł", url: "https://example.com/products/spodnie-cargo-utility" },
+        { name: "Bluza z kapturem Basic", price: "129 zł", url: "https://example.com/products/bluza-z-kapturem-basic" }
+      ]
+    },
+    {
+      id: "o2",
+      name: "Minimal Everyday",
+      image: "https://images.unsplash.com/photo-1516826957135-700dedea698c?w=600&q=80",
+      items: [
+        { name: "T-shirt bawełniany Essential", price: "59 zł", url: "https://example.com/products/tshirt-basic-essential" },
+        { name: "Czapka z daszkiem Street", price: "49 zł", url: "https://example.com/products/czapka-street" }
+      ]
+    },
+    {
+      id: "o3",
+      name: "Outdoor Ready",
+      image: "https://images.unsplash.com/photo-1516257984-b1b4d707412e?w=600&q=80",
+      items: [
+        { name: "Buty trekkingowe Trail", price: "329 zł", url: "https://example.com/products/buty-trekkingowe-trail" },
+        { name: "Kurtka zimowa Alpine", price: "459 zł", url: "https://example.com/products/kurtka-zimowa-alpine" }
+      ]
+    }
+  ];
+
+  // ============================================================
+  // WERYFIKACJA JAKOŚCI — edytuj tę tablicę.
+  // Każdy wpis to produkt sprawdzony przez zespół: zdjęcie + cena + link do oferty.
+  // ============================================================
+  const QUALITY = [
+    {
+      id: "q1", name: "Sneakersy Runner Classic", price: "249 zł",
+      image: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=500&q=80",
+      url: "https://example.com/products/sneakersy-runner-classic"
+    },
+    {
+      id: "q2", name: "Kurtka zimowa Alpine", price: "459 zł",
+      image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=500&q=80",
+      url: "https://example.com/products/kurtka-zimowa-alpine"
+    },
+    {
+      id: "q3", name: "Słuchawki bezprzewodowe Pulse", price: "199 zł",
+      image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&q=80",
+      url: "https://example.com/products/sluchawki-pulse"
+    },
+    {
+      id: "q4", name: "Bluza z kapturem Basic", price: "129 zł",
+      image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=500&q=80",
+      url: "https://example.com/products/bluza-z-kapturem-basic"
+    }
+  ];
+
+  // ============================================================
+  // SKLEPY PARTNERSKIE — edytuj tę tablicę.
+  // name: nazwa sklepu, description: krótki opis, url: link do sklepu
+  // ============================================================
+  const STORES = [
+    {
+      name: "SklepA",
+      description: "Sprawdzony sklep z obuwiem i odzieżą uliczną. Szybka wysyłka i oryginalne produkty.",
+      url: "https://example.com/sklepa"
+    },
+    {
+      name: "SklepB",
+      description: "Szeroki wybór odzieży casual i akcesoriów w przystępnych cenach.",
+      url: "https://example.com/sklepb"
+    },
+    {
+      name: "SklepC",
+      description: "Specjalizuje się w odzieży outdoorowej i akcesoriach premium.",
+      url: "https://example.com/sklepc"
+    },
+    {
+      name: "SklepD",
+      description: "Elektronika i akcesoria od zaufanych, zweryfikowanych dostawców.",
+      url: "https://example.com/sklepd"
+    }
+  ];
+
+  const grid = document.getElementById('productGrid');
+  const title = document.getElementById('productsTitle');
+  const pills = document.querySelectorAll('#categoryPills .pill');
+  const searchInput = document.getElementById('searchInput');
+  const favoritesLink = document.getElementById('favoritesLink');
+  const favIcon = document.getElementById('favIcon');
+  const favCount = document.getElementById('favCount');
+
+  let currentCategory = 'all';
+  let showFavoritesOnly = false;
+
+  let currentSort = 'newest';
+  let currentCondition = 'all';
+  let priceMin = null;
+  let priceMax = null;
+
+  const CATEGORY_LABELS = {
+    all: "Wszystkie produkty",
+    buty: "Buty", spodnie: "Spodnie", bluzy: "Bluzy", tshirty: "T-shirty",
+    spodenki: "Spodenki", paski: "Paski", akcesoria: "Akcesoria", torby: "Torby",
+    elektronika: "Elektronika", lego: "Lego", perfumy: "Perfumy", okulary: "Okulary",
+    czapki: "Czapki", bizuteria: "Biżuteria", zegarki: "Zegarki", bielizna: "Bielizna"
+  };
+
+  // ---------- Favorites (zapisywane lokalnie w przeglądarce) ----------
+  function getFavorites() {
+    try {
+      return JSON.parse(localStorage.getItem('scoutlist_favorites') || '[]');
+    } catch (e) {
+      return [];
+    }
+  }
+  function saveFavorites(favs) {
+    localStorage.setItem('scoutlist_favorites', JSON.stringify(favs));
+  }
+  function isFavorite(id) {
+    return getFavorites().includes(id);
+  }
+  function toggleFavorite(id) {
+    let favs = getFavorites();
+    if (favs.includes(id)) {
+      favs = favs.filter(f => f !== id);
+    } else {
+      favs.push(id);
+    }
+    saveFavorites(favs);
+    updateFavCount();
+  }
+  function updateFavCount() {
+    const n = getFavorites().length;
+    favCount.textContent = n > 0 ? ` (${n})` : '';
+    favIcon.textContent = n > 0 ? '❤️' : '🤍';
+  }
+
+  favoritesLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (!isLoggedIn()) {
+      openLoginModal();
+      return;
+    }
+    showFavoritesOnly = !showFavoritesOnly;
+    favoritesLink.style.color = showFavoritesOnly ? 'var(--red)' : '';
+    renderProducts();
+  });
+
+  // ---------- Render ----------
+  function renderProducts() {
+    const query = searchInput.value.trim().toLowerCase();
+
+    let filtered = currentCategory === 'all'
+      ? PRODUCTS.slice()
+      : PRODUCTS.filter(p => p.category === currentCategory);
+
+    if (query) {
+      filtered = filtered.filter(p => p.name.toLowerCase().includes(query));
+    }
+
+    if (showFavoritesOnly) {
+      const favs = getFavorites();
+      filtered = filtered.filter(p => favs.includes(p.id));
+    }
+
+    if (currentCondition !== 'all') {
+      filtered = filtered.filter(p => p.condition === currentCondition);
+    }
+
+    if (priceMin !== null && !isNaN(priceMin)) {
+      filtered = filtered.filter(p => p.priceValue >= priceMin);
+    }
+    if (priceMax !== null && !isNaN(priceMax)) {
+      filtered = filtered.filter(p => p.priceValue <= priceMax);
+    }
+
+    switch (currentSort) {
+      case 'newest': filtered.sort((a, b) => b.dateAdded - a.dateAdded); break;
+      case 'oldest': filtered.sort((a, b) => a.dateAdded - b.dateAdded); break;
+      case 'popular-desc': filtered.sort((a, b) => b.popularity - a.popularity); break;
+      case 'popular-asc': filtered.sort((a, b) => a.popularity - b.popularity); break;
+      case 'price-desc': filtered.sort((a, b) => b.priceValue - a.priceValue); break;
+      case 'price-asc': filtered.sort((a, b) => a.priceValue - b.priceValue); break;
+    }
+
+    if (showFavoritesOnly) {
+      title.textContent = "❤️ Ulubione";
+    } else {
+      title.textContent = query
+        ? `Wyniki dla „${searchInput.value.trim()}”`
+        : (CATEGORY_LABELS[currentCategory] || "Produkty");
+    }
+
+    if (filtered.length === 0) {
+      grid.innerHTML = '<p style="color:var(--muted);grid-column:1/-1;">Brak produktów spełniających kryteria.</p>';
+      return;
+    }
+
+    grid.innerHTML = filtered.map(p => `
+      <div class="product-card">
+        <button class="fav-btn" data-id="${p.id}">${isFavorite(p.id) ? '❤️' : '🤍'}</button>
+        <a href="${p.url}" target="_blank" rel="noopener">
+          <img class="pimg" src="${p.image}" alt="${p.name}" loading="lazy">
+          <div class="pinfo">
+            <div class="pname">${p.name}</div>
+            <div class="pmeta">
+              <span class="pprice">${p.price}</span>
+              <span class="pstore">${p.store}</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    `).join('');
+
+    grid.querySelectorAll('.fav-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (!isLoggedIn()) {
+          openLoginModal();
+          return;
+        }
+        toggleFavorite(btn.dataset.id);
+        btn.textContent = isFavorite(btn.dataset.id) ? '❤️' : '🤍';
+        if (showFavoritesOnly) renderProducts();
+      });
+    });
+  }
+
+  // ---------- Render: Outfity ----------
+  function renderOutfits() {
+    const wrap = document.getElementById('outfitGrid');
+    if (!wrap) return;
+    wrap.innerHTML = OUTFITS.map(o => `
+      <div class="outfit-card">
+        <img class="outfit-img" src="${o.image}" alt="${o.name}" loading="lazy">
+        <div class="outfit-body">
+          <div class="outfit-name">${o.name}</div>
+          <div class="outfit-items">
+            ${o.items.map(it => `
+              <a class="outfit-item" href="${it.url}" target="_blank" rel="noopener">
+                <span class="oi-name">${it.name}</span>
+                <span class="oi-price">${it.price}</span>
+              </a>
+            `).join('')}
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  // ---------- Render: Weryfikacja jakości ----------
+  function renderQuality() {
+    const wrap = document.getElementById('qualityGrid');
+    if (!wrap) return;
+    wrap.innerHTML = QUALITY.map(q => `
+      <div class="product-card">
+        <span class="quality-badge">✅ Zweryfikowano</span>
+        <a href="${q.url}" target="_blank" rel="noopener">
+          <img class="pimg" src="${q.image}" alt="${q.name}" loading="lazy">
+          <div class="pinfo">
+            <div class="pname">${q.name}</div>
+            <div class="pmeta"><span class="pprice">${q.price}</span></div>
+          </div>
+        </a>
+      </div>
+    `).join('');
+  }
+
+  // ---------- Render: Sklepy partnerskie ----------
+  function renderStores() {
+    const wrap = document.getElementById('storeGrid');
+    if (!wrap) return;
+    wrap.innerHTML = STORES.map(s => `
+      <div class="store-card">
+        <div class="store-name">${s.name}</div>
+        <p class="store-desc">${s.description}</p>
+        <a class="store-link" href="${s.url}" target="_blank" rel="noopener">Przejdź do sklepu →</a>
+      </div>
+    `).join('');
+  }
+
+  // ============================================================
+  // LOGOWANIE PRZEZ DISCORD
+  // Żeby to zadziałało naprawdę, załóż aplikację na
+  // https://discord.com/developers/applications, wklej jej Client ID
+  // poniżej i dodaj adres tej strony jako "Redirect URI" w ustawieniach
+  // OAuth2 tej aplikacji (dokładnie taki sam adres, jak w DISCORD_REDIRECT_URI).
+  // ============================================================
+  const DISCORD_CLIENT_ID = "WKLEJ_TU_CLIENT_ID";
+  const DISCORD_REDIRECT_URI = window.location.origin + window.location.pathname;
+  const DISCORD_INVITE_URL = "https://discord.com/invite/example";
+
+  function getDiscordAuthUrl() {
+    const params = new URLSearchParams({
+      client_id: DISCORD_CLIENT_ID,
+      redirect_uri: DISCORD_REDIRECT_URI,
+      response_type: "token",
+      scope: "identify"
+    });
+    return `https://discord.com/api/oauth2/authorize?${params.toString()}`;
+  }
+
+  function getDiscordUser() {
+    try {
+      return JSON.parse(localStorage.getItem('scoutlist_discord_user') || 'null');
+    } catch (e) {
+      return null;
+    }
+  }
+  function saveDiscordUser(u) {
+    localStorage.setItem('scoutlist_discord_user', JSON.stringify(u));
+  }
+  function clearDiscordUser() {
+    localStorage.removeItem('scoutlist_discord_user');
+  }
+  function isLoggedIn() {
+    return !!getDiscordUser();
+  }
+
+  // Po powrocie z Discorda token przychodzi we fragmencie adresu (#access_token=...)
+  async function handleDiscordRedirect() {
+    if (!window.location.hash.includes('access_token')) return;
+    const hashParams = new URLSearchParams(window.location.hash.slice(1));
+    const token = hashParams.get('access_token');
+    if (token) {
+      try {
+        const res = await fetch('https://discord.com/api/users/@me', {
+          headers: { Authorization: `Bearer ${token}` }
+        });
+        if (res.ok) {
+          const data = await res.json();
+          const avatarUrl = data.avatar
+            ? `https://cdn.discordapp.com/avatars/${data.id}/${data.avatar}.png?size=64`
+            : `https://cdn.discordapp.com/embed/avatars/${(parseInt(data.discriminator || '0', 10)) % 5}.png`;
+          saveDiscordUser({ username: data.global_name || data.username, avatar: avatarUrl });
+        }
+      } catch (e) {
+        console.error('Błąd logowania Discord:', e);
+      }
+    }
+    history.replaceState(null, '', window.location.pathname + window.location.search);
+  }
+
+  function renderDiscordArea() {
+    const area = document.getElementById('discordArea');
+    if (!area) return;
+    const user = getDiscordUser();
+    if (user) {
+      area.innerHTML = `
+        <div class="discord-user-chip" id="discordChip">
+          <img src="${user.avatar}" alt="${user.username}">
+          <span>${user.username}</span>
+          <div class="discord-user-menu" id="discordMenu">
+            <button id="discordLogout" type="button">Wyloguj się</button>
+          </div>
+        </div>
+      `;
+      const chip = document.getElementById('discordChip');
+      chip.addEventListener('click', (e) => {
+        e.stopPropagation();
+        chip.classList.toggle('open');
+      });
+      document.addEventListener('click', () => chip.classList.remove('open'));
+      document.getElementById('discordLogout').addEventListener('click', (e) => {
+        e.stopPropagation();
+        clearDiscordUser();
+        renderDiscordArea();
+        renderProducts();
+      });
+    } else {
+      area.innerHTML = `
+        <a class="discord-login-btn" href="${getDiscordAuthUrl()}">
+          <svg viewBox="0 0 24 24"><path d="M20.317 4.369a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.056 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.099.246.198.373.292a.077.077 0 0 1-.006.128 12.3 12.3 0 0 1-1.873.891.076.076 0 0 0-.04.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.029 19.84 19.84 0 0 0 6.002-3.03.077.077 0 0 0 .032-.055c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.418 2.157-2.418 1.21 0 2.176 1.094 2.157 2.418 0 1.334-.955 2.419-2.157 2.419zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.418 2.157-2.418 1.21 0 2.176 1.094 2.157 2.418 0 1.334-.946 2.419-2.157 2.419z"/></svg>
+          Zaloguj przez Discord
+        </a>
+      `;
+    }
+  }
+
+  function openLoginModal() {
+    document.getElementById('loginModal').classList.add('open');
+  }
+  function closeLoginModal() {
+    document.getElementById('loginModal').classList.remove('open');
+  }
+
+  pills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      pills.forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+      currentCategory = pill.dataset.cat;
+      showFavoritesOnly = false;
+      favoritesLink.style.color = '';
+      renderProducts();
+    });
+  });
+
+  searchInput.addEventListener('input', renderProducts);
+
+  // ---------- Filters panel ----------
+  const filtersBtn = document.getElementById('filtersBtn');
+  const filtersPanel = document.getElementById('filtersPanel');
+  const filtersClose = document.getElementById('filtersClose');
+  const filtersApply = document.getElementById('filtersApply');
+
+  filtersBtn.addEventListener('click', () => {
+    filtersPanel.classList.toggle('open');
+    filtersBtn.classList.toggle('open');
+  });
+  filtersClose.addEventListener('click', () => {
+    filtersPanel.classList.remove('open');
+    filtersBtn.classList.remove('open');
+  });
+
+  document.querySelectorAll('.cond-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.cond-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentCondition = btn.dataset.cond;
+    });
+  });
+
+  document.querySelectorAll('.sort-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentSort = btn.dataset.sort;
+    });
+  });
+
+  filtersApply.addEventListener('click', () => {
+    const minVal = document.getElementById('priceMin').value;
+    const maxVal = document.getElementById('priceMax').value;
+    priceMin = minVal ? parseFloat(minVal) : null;
+    priceMax = maxVal ? parseFloat(maxVal) : null;
+    filtersPanel.classList.remove('open');
+    filtersBtn.classList.remove('open');
+    renderProducts();
+  });
+
+  // ---------- Modal logowania ----------
+  const loginModal = document.getElementById('loginModal');
+  const loginModalClose = document.getElementById('loginModalClose');
+  const modalLoginBtn = document.getElementById('modalLoginBtn');
+
+  loginModalClose.addEventListener('click', closeLoginModal);
+  loginModal.addEventListener('click', (e) => {
+    if (e.target === loginModal) closeLoginModal();
+  });
+
+  // ---------- Start ----------
+  (async function init() {
+    modalLoginBtn.href = getDiscordAuthUrl();
+    await handleDiscordRedirect();
+    renderDiscordArea();
+    updateFavCount();
+    renderProducts();
+    renderOutfits();
+    renderQuality();
+    renderStores();
+  })();
+</script>
 </body>
 </html>
