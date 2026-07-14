@@ -1213,10 +1213,10 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
       modal_title: "Zaloguj się, żeby dodawać ulubione",
       modal_text: "Dołącz do naszego serwera Discord i zaloguj się przez Discord, żeby zapisywać ulubione produkty i wracać do nich później.",
       modal_join: "Dołącz do serwera",
-      hero_badge: "Dołącz do społeczności →", hero_lead: "Best Reps.",
+      hero_badge: "Dołącz do społeczności", hero_lead: "Best Reps.",
       back_home: "← Strona główna", back_home_full: "← Wróć do strony głównej",
       search_placeholder: "Szukaj produktów…",
-      filters_btn: "Filters", filters_price: "ZAKRES CEN", filters_batch: "Batch",
+      filters_btn: "Filters", filters_price: "ZAKRES CEN", filters_batch: "BATCH",
       cond_random: "Random", cond_best: "Best", cond_budget: "Budget",
       filters_sort: "SORTUJ WEDŁUG",
       sort_newest: "🕐 Najnowsze", sort_oldest: "🕐 Najstarsze",
@@ -1228,30 +1228,30 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
       cat_torby: "Torby", cat_elektronika: "Elektronika", cat_lego: "Lego", cat_perfumy: "Perfumy",
       cat_okulary: "Okulary", cat_czapki: "Czapki", cat_bizuteria: "Biżuteria", cat_zegarki: "Zegarki",
       cat_bielizna: "Bielizna",
-      products_hint: "Kliknij kartę, żeby zobaczyć więcej zdjęć, ocenę i link do oferty.",
-      pm_go_to_offer: "Przejdź do oferty →",
+      products_hint: "Kliknij kartę, żeby przejść do oferty w sklepie partnera.",
+      pm_go_to_offer: "Przejdź do UsFans",
       sellers_title: "Najlepsi sprzedawcy", see_all: "Zobacz wszystkich →",
       tool_shipping_desc: "Policz szacunkowy koszt produktów i dostawy.",
       tool_tracking_desc: "Sprawdzaj status przesyłek w jednym miejscu.",
       tool_guide_desc: "Przejdź przez zakup krok po kroku.",
       tool_open: "Otwórz narzędzie →", tool_open_guide: "Otwórz poradnik →",
-      outfits_title: "Gotowe stylizacje",
-      outfits_desc: "Zdjęcie całego fitu i linki do każdej z rzeczy w oryginalnym sklepie wraz z ceną.",
-      quality_title: "Sprawdzone produkty",
-      quality_desc: "Zdjęcia i ceny produktów, które nasz zespół sprawdził przed zakupem.",
-      stores_title: "Zweryfikowani sprzedawcy",
-      stores_desc: "Współpracujemy tylko z legalnymi, sprawdzonymi sklepami.",
+      outfits_title: "Outfity",
+      outfits_desc: "Zdjęcie całego fitu i linki do każdej z rzeczy.",
+      quality_title: "Quality Check",
+      quality_desc: "Dokładne zdjęcia sprawdzające jakość produktu",
+      stores_title: "Najelpsi Sprzedawcy",
+      stores_desc: "Najlepsi Sprzedawcy dla danych marek.",
       guide_subtitle: "Wybierz temat po lewej stronie, aby zobaczyć pełną instrukcję.",
       guide_steps_count: "12 kroków od znalezienia produktu do odbioru paczki.",
       guide_step_label: (i, n) => `Poradnik · krok ${i} z ${n}`,
       community_title: "Dołącz do społeczności",
-      community_desc: "85 000+ osób na Discordzie dzieli się okazjami, opiniami i pomaga sobie nawzajem.",
+      community_desc: "Nasza społecznośc na discordzie dzieli się okazjami, opiniami i pomaga sobie nawzajem.",
       community_cta: "Dołącz do Discorda →",
-      footer_tagline: "Najlepsza porównywarka produktów. Dołącz do społeczności i bądź na bieżąco z okazjami.",
+      footer_tagline: "Najlepsza wyszukiwarka produktów! Dołącz do naszej społeczności i bądź na bieżąco.",
       footer_tracking: "Śledzenie paczek", footer_community: "Społeczność", footer_info: "Informacje",
       footer_about: "O nas", footer_terms: "Regulamin", footer_privacy: "Prywatność",
-      footer_copyright: "© Mafia Reps 2026. Wszystkie prawa zastrzeżone.",
-      footer_disclaimer: "Mafia Reps nie sprzedaje produktów bezpośrednio — łączymy Cię z legalnymi sklepami partnerskimi.",
+      footer_copyright: "© Mafia Reps 2026. Wszystkie prawa zastrzeżone. legal",
+      footer_disclaimer: "Nie jesteśmy powiązani z Weidian, Taobao, 1688, Tmall ani żadną inną platformą zakupową. Nasza strona ma charakter informacyjny i pomaga kupującym poruszać się po chińskich marketplace'ach oraz unikać oszustw.\n\nWszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścicieli. Wszystkie nazwy firm, produktów i usług użyte na tej stronie służą wyłącznie celom identyfikacyjnym. Użycie tych nazw, znaków towarowych i marek nie oznacza poparcia.",
       no_products: "Brak produktów spełniających kryteria.",
       results_for: (q) => `Wyniki dla „${q}”`,
       favorites_title: "❤️ Ulubione",
@@ -1530,8 +1530,10 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
       filtered = filtered.filter(p => favs.includes(p.id));
     }
 
-    if (currentbatch !== 'all') {
-      filtered = filtered.filter(p => p.batch === currentbatch);
+    if (currentBatch === 'random') {
+      filtered = filtered.filter(p => p.batch === 'best' || p.batch === 'budget');
+    } else if (currentBatch !== 'all') {
+      filtered = filtered.filter(p => p.batch === currentBatch);
     }
 
     if (priceMin !== null && !isNaN(priceMin)) {
@@ -1846,7 +1848,7 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
     btn.addEventListener('click', () => {
       document.querySelectorAll('.cond-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      currentbatch = btn.dataset.cond;
+      currentBatch = btn.dataset.cond;
     });
   });
 
