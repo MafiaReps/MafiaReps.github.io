@@ -518,7 +518,6 @@
   /* draggable horizontal scroll rows (kategorie, sprzedawcy) */
   .drag-scroll{cursor:grab;user-select:none;}
   .drag-scroll.dragging{cursor:grabbing;scroll-snap-type:none;}
-  .drag-scroll.dragging *{pointer-events:none;}
 
   /* ---------- DISCORD LOGIN ---------- */
   .discord-login-btn{    display:inline-flex;align-items:center;justify-content:center;gap:9px;
@@ -1764,9 +1763,27 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
   }
   function clearDiscordUser() {
     localStorage.removeItem('mafiareps_discord_user');
+    clearDiscordToken();
   }
   function isLoggedIn() {
     return !!getDiscordUser();
+  }
+
+  // Token zapisujemy osobno (razem z datą wygaśnięcia), żeby móc później
+  // ponownie sprawdzić, czy użytkownik dalej jest na serwerze Discord,
+  // bez konieczności ponownego logowania za każdym razem.
+  function getDiscordToken() {
+    try {
+      return JSON.parse(localStorage.getItem('mafiareps_discord_token') || 'null');
+    } catch (e) {
+      return null;
+    }
+  }
+  function saveDiscordToken(token, expiresAt) {
+    localStorage.setItem('mafiareps_discord_token', JSON.stringify({ token, expiresAt }));
+  }
+  function clearDiscordToken() {
+    localStorage.removeItem('mafiareps_discord_token');
   }
 
   // Po powrocie z Discorda token przychodzi we fragmencie adresu (#access_token=...)
@@ -1774,6 +1791,8 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
     if (!window.location.hash.includes('access_token')) return;
     const hashParams = new URLSearchParams(window.location.hash.slice(1));
     const token = hashParams.get('access_token');
+    const expiresIn = parseInt(hashParams.get('expires_in') || '0', 10);
+    const expiresAt = expiresIn ? Date.now() + expiresIn * 1000 : null;
     if (token) {
       try {
         const res = await fetch('https://discord.com/api/users/@me', {
@@ -1802,6 +1821,7 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
 
           if (inGuild) {
             saveDiscordUser({ username: data.global_name || data.username, avatar: avatarUrl, inGuild: true });
+            if (expiresAt) saveDiscordToken(token, expiresAt);
           } else {
             // Nie jest na serwerze -> logowanie odrzucone, pokazujemy komunikat i modal.
             clearDiscordUser();
@@ -1813,6 +1833,42 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
       }
     }
     history.replaceState(null, '', window.location.pathname + window.location.search);
+  }
+
+  // Wywoływane przy każdym wejściu na stronę: sprawdza, czy zalogowany
+  // użytkownik dalej jest na serwerze Discord (mógł w międzyczasie wyjść).
+  async function refreshGuildStatus() {
+    const user = getDiscordUser();
+    if (!user) return;
+    const tokenData = getDiscordToken();
+    if (!tokenData || !tokenData.token) return;
+
+    if (tokenData.expiresAt && Date.now() >= tokenData.expiresAt) {
+      // Token wygasł - nie da się już cicho sprawdzić statusu, trzeba się zalogować ponownie.
+      clearDiscordUser();
+      renderDiscordArea();
+      return;
+    }
+
+    try {
+      const guildsRes = await fetch('https://discord.com/api/users/@me/guilds', {
+        headers: { Authorization: `Bearer ${tokenData.token}` }
+      });
+      if (guildsRes.ok) {
+        const guilds = await guildsRes.json();
+        const inGuild = guilds.some(g => g.id === DISCORD_GUILD_ID);
+        if (inGuild !== user.inGuild) {
+          saveDiscordUser({ ...user, inGuild });
+          renderDiscordArea();
+        }
+      } else if (guildsRes.status === 401) {
+        // Token unieważniony po stronie Discorda.
+        clearDiscordUser();
+        renderDiscordArea();
+      }
+    } catch (e) {
+      console.error('Błąd odświeżania statusu serwera Discord:', e);
+    }
   }
 
   function renderDiscordArea() {
@@ -2020,6 +2076,7 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
     modalLoginBtn.href = getDiscordAuthUrl();
     await handleDiscordRedirect();
     renderDiscordArea();
+    refreshGuildStatus();
     updateFavCount();
     renderProducts();
     renderOutfits();
