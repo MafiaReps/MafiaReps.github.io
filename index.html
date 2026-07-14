@@ -57,15 +57,16 @@
     padding:16px 24px;max-width:1200px;margin:0 auto;gap:20px;
   }
   .brand{
-    display:flex;align-items:center;gap:10px;
-    font-family:"Inter",sans-serif;font-size:20px;font-weight:600;
+    display:flex;align-items:center;gap:12px;
+    font-family:"Inter",sans-serif;font-size:22px;font-weight:600;
     justify-self:start;
   }
   .brand-mark{
-    width:30px;height:30px;border-radius:8px;
+    width:40px;height:40px;border-radius:10px;
     background:var(--red);
     display:flex;align-items:center;justify-content:center;
-    color:#0A0A0C;font-family:"JetBrains Mono",monospace;font-size:13px;font-weight:700;
+    color:#0A0A0C;font-family:"JetBrains Mono",monospace;font-size:15px;font-weight:700;
+    flex-shrink:0;
   }
   .nav-links{
     display:flex;gap:30px;font-size:14.5px;color:var(--muted);
@@ -79,14 +80,11 @@
   .nav-links .icon{
     width:15px;height:15px;display:inline-flex;align-items:center;justify-content:center;
     color:var(--red);
-    filter:none;
+    filter:brightness(0) saturate(100%) invert(24%) sepia(85%) saturate(3000%) hue-rotate(345deg) brightness(95%) contrast(95%);
   }
   #favCount{
     font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--red);
     margin-left:2px;
-  }
-  .nav-links .icon.red-icon{
-    filter:brightness(0) saturate(100%) invert(24%) sepia(85%) saturate(3000%) hue-rotate(345deg) brightness(95%) contrast(95%);
   }
   .nav-dropdown{position:relative;}
   .nav-dropdown .dropdown-menu{
@@ -153,7 +151,7 @@
 
   /* ---------- HERO ---------- */
   .hero{
-    padding:96px 0 64px;
+    padding:96px 0 28px;
     text-align:center;
     position:relative;
   }
@@ -300,9 +298,16 @@
     transition:border-color .15s ease, color .15s ease;
   }
 
+  section#products{padding-top:20px;}
+
   /* ---------- PRODUCT GRID ---------- */
   .product-grid{
     display:grid;grid-template-columns:repeat(4,1fr);gap:20px;
+  }
+  .products-sentinel{grid-column:1/-1;height:1px;}
+  .products-loading{
+    grid-column:1/-1;text-align:center;padding:18px 0;
+    color:var(--muted);font-size:13.5px;font-family:"JetBrains Mono",monospace;
   }
   .product-card{
     background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
@@ -1499,6 +1504,11 @@
   });
 
   // ---------- Render ----------
+  const PRODUCTS_PAGE_SIZE = 12;
+  let currentFiltered = [];
+  let renderedCount = 0;
+  let productsObserver = null;
+
   function renderProducts() {
     const query = searchInput.value.trim().toLowerCase();
 
@@ -1546,12 +1556,28 @@
         : t(CATEGORY_KEYS[currentCategory] || 'cat_all');
     }
 
+    currentFiltered = filtered;
+    renderedCount = 0;
+
     if (filtered.length === 0) {
+      if (productsObserver) productsObserver.disconnect();
       grid.innerHTML = `<p style="color:var(--muted);grid-column:1/-1;">${t('no_products')}</p>`;
       return;
     }
 
-    grid.innerHTML = filtered.map(p => `
+    grid.innerHTML = '';
+    renderNextProductsBatch();
+    setupProductsInfiniteScroll();
+  }
+
+  function renderNextProductsBatch() {
+    const sentinel = grid.querySelector('.products-sentinel');
+    if (sentinel) sentinel.remove();
+
+    const nextSlice = currentFiltered.slice(renderedCount, renderedCount + PRODUCTS_PAGE_SIZE);
+    if (nextSlice.length === 0) return;
+
+    const html = nextSlice.map(p => `
       <div class="product-card">
         <button class="fav-btn" data-id="${p.id}">${isFavorite(p.id) ? '❤️' : '🤍'}</button>
         <button class="pcard-btn" data-id="${p.id}">
@@ -1567,7 +1593,11 @@
       </div>
     `).join('');
 
-    grid.querySelectorAll('.fav-btn').forEach(btn => {
+    grid.insertAdjacentHTML('beforeend', html);
+    renderedCount += nextSlice.length;
+
+    grid.querySelectorAll('.fav-btn:not([data-bound])').forEach(btn => {
+      btn.setAttribute('data-bound', '1');
       btn.addEventListener('click', () => {
         if (!isLoggedIn()) {
           openLoginModal();
@@ -1579,13 +1609,37 @@
       });
     });
 
-    grid.querySelectorAll('.pcard-btn').forEach(btn => {
+    grid.querySelectorAll('.pcard-btn:not([data-bound])').forEach(btn => {
+      btn.setAttribute('data-bound', '1');
       btn.addEventListener('click', () => {
         const product = PRODUCTS.find(x => x.id === btn.dataset.id);
         if (product) openProductModal(product);
       });
     });
+
+    // Sentinel used to detect when the user has scrolled near the bottom of the loaded products.
+    if (renderedCount < currentFiltered.length) {
+      grid.insertAdjacentHTML('beforeend', '<div class="products-sentinel"></div>');
+      if (productsObserver) {
+        productsObserver.observe(grid.querySelector('.products-sentinel'));
+      }
+    }
   }
+
+  function setupProductsInfiniteScroll() {
+    if (productsObserver) productsObserver.disconnect();
+    productsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          renderNextProductsBatch();
+        }
+      });
+    }, { root: null, rootMargin: '600px 0px 600px 0px', threshold: 0 });
+
+    const sentinel = grid.querySelector('.products-sentinel');
+    if (sentinel) productsObserver.observe(sentinel);
+  }
+
 
   // ---------- Ocena produktu (formatowanie X/10) ----------
   function formatRating(rating) {
