@@ -1400,18 +1400,18 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
   // Każdy obiekt tworzy jeden z 12 przycisków po lewej stronie.
   // ============================================================
   const GUIDE_STEPS = [
-    { title: "1. Zacznij od wyszukiwania", text: "Wpisz nazwę produktu w wyszukiwarce na stronie głównej. Użyj kategorii i filtrów, aby szybciej zawęzić wyniki.", image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&q=80" },
-    { title: "2. Sprawdź ofertę", text: "Otwórz kartę produktu i zwróć uwagę na cenę, sklep oraz opis oferty.", image: "https://images.unsplash.com/photo-1556740749-887f6717d7e4?w=1200&q=80" },
-    { title: "3. Weryfikacja jakości", text: "Wejdź do zakładki Weryfikacja Jakości, aby zobaczyć produkty wcześniej sprawdzone przez zespół.", image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" },
-    { title: "4. Wybierz sklep", text: "W zakładce Sklepy Partnerskie znajdziesz listę zweryfikowanych sprzedawców.", image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&q=80" },
-    { title: "5. Dobierz rozmiar", text: "Sprawdź tabelę rozmiarów w konkretnym sklepie i porównaj wymiary z własnymi ubraniami.", image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=1200&q=80" },
-    { title: "6. Dodaj rzeczy do koszyka", text: "W wybranym sklepie dodaj produkty do koszyka i upewnij się, że warianty oraz rozmiary są poprawne.", image: "https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?w=1200&q=80" },
-    { title: "7. Policz wysyłkę", text: "Otwórz Kalkulator Wysyłki, wpisz produkty, ceny oraz kraj dostawy. Strona policzy szacunkową kwotę.", image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1200&q=80" },
-    { title: "8. Złóż zamówienie", text: "Dokończ zamówienie bezpośrednio w sklepie. Sprawdź dane dostawy i metodę płatności.", image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&q=80" },
-    { title: "9. Zachowaj potwierdzenie", text: "Po zakupie zapisz numer zamówienia i potwierdzenie płatności.", image: "https://images.unsplash.com/photo-1554224154-26032ffc0d07?w=1200&q=80" },
-    { title: "10. Śledź przesyłkę", text: "Gdy dostaniesz numer śledzenia, przejdź do Śledzenia paczki i sprawdzaj aktualny status.", image: "https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=1200&q=80" },
-    { title: "11. Odbierz paczkę", text: "Przy odbiorze sprawdź, czy przesyłka nie ma widocznych uszkodzeń.", image: "https://images.unsplash.com/photo-1586880244406-556ebe35f282?w=1200&q=80" },
-    { title: "12. Oceń zakup", text: "Po otrzymaniu zamówienia porównaj produkt z ofertą i podziel się opinią ze społecznością.", image: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=1200&q=80" }
+    { title: "1. Załóż konto", text: "Zajerestruj się na UsFans wpisując swój adres e-mail i hasło, a następnie potwierdź rejestrację.", image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&q=80" },
+    { title: "2. Znajdź produkt", text: "Po zajerestrowaniu się, znajdź swój ulubiony przedmiot na MafiaReps,Weidian,Tabao,1688.", image: "https://images.unsplash.com/photo-1556740749-887f6717d7e4?w=1200&q=80" },
+    { title: "3. Dodaj do koszyka", text: "Dodaj swoje ulubione rzeczy do koszyka wybierając prawidłowy kolor,rozmiar i ilość.", image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" },
+    { title: "4. Zamów przedmioty", text: "Sprawdz swój koszyk,złóz zamówienie płacąc za nie.", image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&q=80" },
+    { title: "5. Potwierdź i przejdź to płatności", text: "Sprawdź czy wszystkie przedmioty sie zgadzają i przejdź do płatności.", image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=1200&q=80" },
+    { title: "6. Płatność", text: "Wybierz odpowiednią metode płatności i zapłać.", image: "https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?w=1200&q=80" },
+    { title: "7. Poczekaj", text: "Zaczekaj az UsFans zrealizuje twoje zamówienie i przysle je do magazynu.", image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1200&q=80" },
+    { title: "8. Quality Check", text: "UsFans przeprowadza dokładna kontrolę jakości produktów w magazynie.", image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&q=80" },
+    { title: "9. Wysyłka", text: "Gdy wszystkie rzeczy dotrą do magazynu,wybierz je i przejdź dalej", image: "https://images.unsplash.com/photo-1554224154-26032ffc0d07?w=1200&q=80" },
+    { title: "10. Transport", text: "Wybierz odpowiadającego tobie przewoźnika i opłac paczke.", image: "https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=1200&q=80" },
+    { title: "11. Odbierz paczkę", text: "Prosimy o sprawdzenie zawartości paczki przy odbiorze i potwierdzenie jej otrzymania.", image: "https://images.unsplash.com/photo-1586880244406-556ebe35f282?w=1200&q=80" },
+    { title: "12. Koniec", text: "Gratulacje Ukończyłeś cały poradnik teraz jesteś gotowy na bezpieczne zakupy.", image: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=1200&q=80" }
   ];
 
   let guideActiveIndex = 0;
