@@ -1956,4 +1956,26 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
   }
   productModalClose.addEventListener('click', closeProductModal);
   productModal.addEventListener('click', (e) => {
-    if (e.target === produ
+    if (e.target === productModal) closeProductModal();
+  });
+
+  // ---------- Start ----------
+  (async function init() {
+    applyStaticTranslations();
+    modalLoginBtn.href = getDiscordAuthUrl();
+    await handleDiscordRedirect();
+    renderDiscordArea();
+    updateFavCount();
+    renderProducts();
+    renderOutfits();
+    renderQuality();
+    renderStores();
+    renderSellerHighlights();
+    renderGuide();
+    enableDragScroll(document.getElementById('categoryPills'));
+    enableDragScroll(document.getElementById('sellerHighlights'));
+    showPageFromHash();
+  })();
+</script>
+</body>
+</html>
