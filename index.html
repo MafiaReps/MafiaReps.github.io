@@ -393,6 +393,14 @@
     display:grid;grid-template-columns:repeat(4,1fr);gap:20px;
   }
   .products-sentinel{grid-column:1/-1;height:1px;}
+  .see-all-products-btn{
+    grid-column:1/-1;justify-self:center;margin-top:8px;
+    background:var(--red);color:#0A0A0C;
+    padding:14px 28px;border-radius:999px;font-weight:700;font-size:15px;
+    display:inline-flex;align-items:center;gap:8px;
+    transition:transform .15s ease, filter .15s ease;
+  }
+  .see-all-products-btn:hover{filter:brightness(1.12);transform:translateY(-1px);}
   .products-loading{
     grid-column:1/-1;text-align:center;padding:18px 0;
     color:var(--muted);font-size:13.5px;font-family:"JetBrains Mono",monospace;
@@ -1114,7 +1122,7 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
       name: "Sneakersy Runner Classic", name_en: "Runner Classic Sneakers",
       price: "", priceValue: 249,
       category: "buty", batch: "best", popularity: 92, dateAdded: 9,
-      store: "SklepA", rating: 8.7,
+      rating: 8.7,
       image: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=500&q=80",
       images: [
         "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=900&q=80",
@@ -1128,7 +1136,7 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
       name: "Buty trekkingowe Trail", name_en: "Trail Hiking Boots",
       price: "", priceValue: 329,
       category: "buty", batch: "best", popularity: 74, dateAdded: 8,
-      store: "SklepB", rating: 7.9,
+      rating: 7.9,
       image: "https://images.unsplash.com/photo-1520256862855-398228c41684?w=500&q=80",
       images: [
         "https://images.unsplash.com/photo-1520256862855-398228c41684?w=900&q=80",
@@ -1142,7 +1150,7 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
       name: "Spodnie cargo Utility", name_en: "Utility Cargo Pants",
       price: "", priceValue: 159,
       category: "spodnie", batch: "best", popularity: 65, dateAdded: 7,
-      store: "SklepC", rating: 8.2,
+      rating: 8.2,
       image: "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=500&q=80",
       images: [
         "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=900&q=80",
@@ -1156,7 +1164,7 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
       name: "Kurtka zimowa Alpine", name_en: "Alpine Winter Jacket",
       price: "", priceValue: 459,
       category: "kurtki", batch: "used", popularity: 58, dateAdded: 6,
-      store: "SklepA", rating: 9.0,
+      rating: 9.0,
       image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=500&q=80",
       images: [
         "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=900&q=80",
@@ -1170,7 +1178,7 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
       name: "Bluza z kapturem Basic", name_en: "Basic Hoodie",
       price: "", priceValue: 129,
       category: "bluzy", batch: "best", popularity: 81, dateAdded: 5,
-      store: "SklepD", rating: 8.4,
+      rating: 8.4,
       image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=500&q=80",
       images: [
         "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=900&q=80",
@@ -1184,7 +1192,7 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
       name: "T-shirt bawełniany Essential", name_en: "Essential Cotton T-Shirt",
       price: "", priceValue: 59,
       category: "tshirty", batch: "best", popularity: 88, dateAdded: 4,
-      store: "SklepB", rating: 8.9,
+      rating: 8.9,
       image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&q=80",
       images: [
         "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=900&q=80",
@@ -1198,7 +1206,7 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
       name: "Czapka z daszkiem Street", name_en: "Street Cap",
       price: "", priceValue: 49,
       category: "akcesoria", batch: "budget", popularity: 43, dateAdded: 3,
-      store: "SklepC", rating: 7.1,
+      rating: 7.1,
       image: "https://images.unsplash.com/photo-1521369909029-2afed882baee?w=500&q=80",
       images: [
         "https://images.unsplash.com/photo-1521369909029-2afed882baee?w=900&q=80",
@@ -1212,7 +1220,7 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
       name: "Słuchawki bezprzewodowe Pulse", name_en: "Pulse Wireless Headphones",
       price: "", priceValue: 199,
       category: "elektronika", batch: "best", popularity: 96, dateAdded: 2,
-      store: "SklepD", rating: 9.3,
+      rating: 9.3,
       image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&q=80",
       images: [
         "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=900&q=80",
@@ -1220,6 +1228,4206 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
         "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=900&q=80"
       ],
       url: "https://example.com/products/sluchawki-pulse"
+    },
+    {
+      id: "p9",
+      name: "PRODUKT 9 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 9 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+9",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+9+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+9+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+9+-+3"
+      ],
+      url: "https://example.com/products/produkt-9"
+    },
+    {
+      id: "p10",
+      name: "PRODUKT 10 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 10 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+10",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+10+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+10+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+10+-+3"
+      ],
+      url: "https://example.com/products/produkt-10"
+    },
+    {
+      id: "p11",
+      name: "PRODUKT 11 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 11 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+11",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+11+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+11+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+11+-+3"
+      ],
+      url: "https://example.com/products/produkt-11"
+    },
+    {
+      id: "p12",
+      name: "PRODUKT 12 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 12 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+12",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+12+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+12+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+12+-+3"
+      ],
+      url: "https://example.com/products/produkt-12"
+    },
+    {
+      id: "p13",
+      name: "PRODUKT 13 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 13 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+13",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+13+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+13+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+13+-+3"
+      ],
+      url: "https://example.com/products/produkt-13"
+    },
+    {
+      id: "p14",
+      name: "PRODUKT 14 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 14 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+14",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+14+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+14+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+14+-+3"
+      ],
+      url: "https://example.com/products/produkt-14"
+    },
+    {
+      id: "p15",
+      name: "PRODUKT 15 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 15 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+15",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+15+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+15+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+15+-+3"
+      ],
+      url: "https://example.com/products/produkt-15"
+    },
+    {
+      id: "p16",
+      name: "PRODUKT 16 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 16 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+16",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+16+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+16+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+16+-+3"
+      ],
+      url: "https://example.com/products/produkt-16"
+    },
+    {
+      id: "p17",
+      name: "PRODUKT 17 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 17 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+17",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+17+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+17+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+17+-+3"
+      ],
+      url: "https://example.com/products/produkt-17"
+    },
+    {
+      id: "p18",
+      name: "PRODUKT 18 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 18 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+18",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+18+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+18+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+18+-+3"
+      ],
+      url: "https://example.com/products/produkt-18"
+    },
+    {
+      id: "p19",
+      name: "PRODUKT 19 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 19 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+19",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+19+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+19+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+19+-+3"
+      ],
+      url: "https://example.com/products/produkt-19"
+    },
+    {
+      id: "p20",
+      name: "PRODUKT 20 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 20 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+20",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+20+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+20+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+20+-+3"
+      ],
+      url: "https://example.com/products/produkt-20"
+    },
+    {
+      id: "p21",
+      name: "PRODUKT 21 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 21 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+21",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+21+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+21+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+21+-+3"
+      ],
+      url: "https://example.com/products/produkt-21"
+    },
+    {
+      id: "p22",
+      name: "PRODUKT 22 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 22 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+22",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+22+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+22+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+22+-+3"
+      ],
+      url: "https://example.com/products/produkt-22"
+    },
+    {
+      id: "p23",
+      name: "PRODUKT 23 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 23 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+23",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+23+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+23+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+23+-+3"
+      ],
+      url: "https://example.com/products/produkt-23"
+    },
+    {
+      id: "p24",
+      name: "PRODUKT 24 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 24 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+24",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+24+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+24+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+24+-+3"
+      ],
+      url: "https://example.com/products/produkt-24"
+    },
+    {
+      id: "p25",
+      name: "PRODUKT 25 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 25 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+25",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+25+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+25+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+25+-+3"
+      ],
+      url: "https://example.com/products/produkt-25"
+    },
+    {
+      id: "p26",
+      name: "PRODUKT 26 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 26 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+26",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+26+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+26+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+26+-+3"
+      ],
+      url: "https://example.com/products/produkt-26"
+    },
+    {
+      id: "p27",
+      name: "PRODUKT 27 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 27 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+27",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+27+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+27+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+27+-+3"
+      ],
+      url: "https://example.com/products/produkt-27"
+    },
+    {
+      id: "p28",
+      name: "PRODUKT 28 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 28 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+28",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+28+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+28+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+28+-+3"
+      ],
+      url: "https://example.com/products/produkt-28"
+    },
+    {
+      id: "p29",
+      name: "PRODUKT 29 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 29 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+29",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+29+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+29+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+29+-+3"
+      ],
+      url: "https://example.com/products/produkt-29"
+    },
+    {
+      id: "p30",
+      name: "PRODUKT 30 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 30 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+30",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+30+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+30+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+30+-+3"
+      ],
+      url: "https://example.com/products/produkt-30"
+    },
+    {
+      id: "p31",
+      name: "PRODUKT 31 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 31 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+31",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+31+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+31+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+31+-+3"
+      ],
+      url: "https://example.com/products/produkt-31"
+    },
+    {
+      id: "p32",
+      name: "PRODUKT 32 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 32 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+32",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+32+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+32+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+32+-+3"
+      ],
+      url: "https://example.com/products/produkt-32"
+    },
+    {
+      id: "p33",
+      name: "PRODUKT 33 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 33 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+33",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+33+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+33+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+33+-+3"
+      ],
+      url: "https://example.com/products/produkt-33"
+    },
+    {
+      id: "p34",
+      name: "PRODUKT 34 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 34 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+34",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+34+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+34+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+34+-+3"
+      ],
+      url: "https://example.com/products/produkt-34"
+    },
+    {
+      id: "p35",
+      name: "PRODUKT 35 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 35 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+35",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+35+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+35+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+35+-+3"
+      ],
+      url: "https://example.com/products/produkt-35"
+    },
+    {
+      id: "p36",
+      name: "PRODUKT 36 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 36 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+36",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+36+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+36+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+36+-+3"
+      ],
+      url: "https://example.com/products/produkt-36"
+    },
+    {
+      id: "p37",
+      name: "PRODUKT 37 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 37 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+37",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+37+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+37+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+37+-+3"
+      ],
+      url: "https://example.com/products/produkt-37"
+    },
+    {
+      id: "p38",
+      name: "PRODUKT 38 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 38 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+38",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+38+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+38+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+38+-+3"
+      ],
+      url: "https://example.com/products/produkt-38"
+    },
+    {
+      id: "p39",
+      name: "PRODUKT 39 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 39 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+39",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+39+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+39+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+39+-+3"
+      ],
+      url: "https://example.com/products/produkt-39"
+    },
+    {
+      id: "p40",
+      name: "PRODUKT 40 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 40 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+40",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+40+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+40+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+40+-+3"
+      ],
+      url: "https://example.com/products/produkt-40"
+    },
+    {
+      id: "p41",
+      name: "PRODUKT 41 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 41 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+41",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+41+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+41+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+41+-+3"
+      ],
+      url: "https://example.com/products/produkt-41"
+    },
+    {
+      id: "p42",
+      name: "PRODUKT 42 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 42 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+42",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+42+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+42+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+42+-+3"
+      ],
+      url: "https://example.com/products/produkt-42"
+    },
+    {
+      id: "p43",
+      name: "PRODUKT 43 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 43 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+43",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+43+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+43+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+43+-+3"
+      ],
+      url: "https://example.com/products/produkt-43"
+    },
+    {
+      id: "p44",
+      name: "PRODUKT 44 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 44 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+44",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+44+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+44+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+44+-+3"
+      ],
+      url: "https://example.com/products/produkt-44"
+    },
+    {
+      id: "p45",
+      name: "PRODUKT 45 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 45 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+45",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+45+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+45+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+45+-+3"
+      ],
+      url: "https://example.com/products/produkt-45"
+    },
+    {
+      id: "p46",
+      name: "PRODUKT 46 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 46 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+46",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+46+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+46+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+46+-+3"
+      ],
+      url: "https://example.com/products/produkt-46"
+    },
+    {
+      id: "p47",
+      name: "PRODUKT 47 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 47 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+47",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+47+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+47+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+47+-+3"
+      ],
+      url: "https://example.com/products/produkt-47"
+    },
+    {
+      id: "p48",
+      name: "PRODUKT 48 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 48 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+48",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+48+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+48+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+48+-+3"
+      ],
+      url: "https://example.com/products/produkt-48"
+    },
+    {
+      id: "p49",
+      name: "PRODUKT 49 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 49 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+49",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+49+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+49+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+49+-+3"
+      ],
+      url: "https://example.com/products/produkt-49"
+    },
+    {
+      id: "p50",
+      name: "PRODUKT 50 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 50 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+50",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+50+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+50+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+50+-+3"
+      ],
+      url: "https://example.com/products/produkt-50"
+    },
+    {
+      id: "p51",
+      name: "PRODUKT 51 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 51 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+51",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+51+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+51+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+51+-+3"
+      ],
+      url: "https://example.com/products/produkt-51"
+    },
+    {
+      id: "p52",
+      name: "PRODUKT 52 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 52 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+52",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+52+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+52+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+52+-+3"
+      ],
+      url: "https://example.com/products/produkt-52"
+    },
+    {
+      id: "p53",
+      name: "PRODUKT 53 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 53 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+53",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+53+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+53+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+53+-+3"
+      ],
+      url: "https://example.com/products/produkt-53"
+    },
+    {
+      id: "p54",
+      name: "PRODUKT 54 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 54 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+54",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+54+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+54+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+54+-+3"
+      ],
+      url: "https://example.com/products/produkt-54"
+    },
+    {
+      id: "p55",
+      name: "PRODUKT 55 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 55 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+55",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+55+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+55+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+55+-+3"
+      ],
+      url: "https://example.com/products/produkt-55"
+    },
+    {
+      id: "p56",
+      name: "PRODUKT 56 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 56 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+56",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+56+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+56+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+56+-+3"
+      ],
+      url: "https://example.com/products/produkt-56"
+    },
+    {
+      id: "p57",
+      name: "PRODUKT 57 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 57 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+57",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+57+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+57+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+57+-+3"
+      ],
+      url: "https://example.com/products/produkt-57"
+    },
+    {
+      id: "p58",
+      name: "PRODUKT 58 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 58 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+58",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+58+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+58+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+58+-+3"
+      ],
+      url: "https://example.com/products/produkt-58"
+    },
+    {
+      id: "p59",
+      name: "PRODUKT 59 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 59 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+59",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+59+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+59+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+59+-+3"
+      ],
+      url: "https://example.com/products/produkt-59"
+    },
+    {
+      id: "p60",
+      name: "PRODUKT 60 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 60 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+60",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+60+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+60+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+60+-+3"
+      ],
+      url: "https://example.com/products/produkt-60"
+    },
+    {
+      id: "p61",
+      name: "PRODUKT 61 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 61 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+61",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+61+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+61+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+61+-+3"
+      ],
+      url: "https://example.com/products/produkt-61"
+    },
+    {
+      id: "p62",
+      name: "PRODUKT 62 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 62 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+62",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+62+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+62+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+62+-+3"
+      ],
+      url: "https://example.com/products/produkt-62"
+    },
+    {
+      id: "p63",
+      name: "PRODUKT 63 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 63 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+63",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+63+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+63+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+63+-+3"
+      ],
+      url: "https://example.com/products/produkt-63"
+    },
+    {
+      id: "p64",
+      name: "PRODUKT 64 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 64 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+64",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+64+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+64+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+64+-+3"
+      ],
+      url: "https://example.com/products/produkt-64"
+    },
+    {
+      id: "p65",
+      name: "PRODUKT 65 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 65 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+65",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+65+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+65+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+65+-+3"
+      ],
+      url: "https://example.com/products/produkt-65"
+    },
+    {
+      id: "p66",
+      name: "PRODUKT 66 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 66 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+66",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+66+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+66+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+66+-+3"
+      ],
+      url: "https://example.com/products/produkt-66"
+    },
+    {
+      id: "p67",
+      name: "PRODUKT 67 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 67 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+67",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+67+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+67+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+67+-+3"
+      ],
+      url: "https://example.com/products/produkt-67"
+    },
+    {
+      id: "p68",
+      name: "PRODUKT 68 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 68 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+68",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+68+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+68+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+68+-+3"
+      ],
+      url: "https://example.com/products/produkt-68"
+    },
+    {
+      id: "p69",
+      name: "PRODUKT 69 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 69 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+69",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+69+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+69+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+69+-+3"
+      ],
+      url: "https://example.com/products/produkt-69"
+    },
+    {
+      id: "p70",
+      name: "PRODUKT 70 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 70 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+70",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+70+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+70+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+70+-+3"
+      ],
+      url: "https://example.com/products/produkt-70"
+    },
+    {
+      id: "p71",
+      name: "PRODUKT 71 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 71 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+71",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+71+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+71+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+71+-+3"
+      ],
+      url: "https://example.com/products/produkt-71"
+    },
+    {
+      id: "p72",
+      name: "PRODUKT 72 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 72 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+72",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+72+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+72+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+72+-+3"
+      ],
+      url: "https://example.com/products/produkt-72"
+    },
+    {
+      id: "p73",
+      name: "PRODUKT 73 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 73 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+73",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+73+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+73+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+73+-+3"
+      ],
+      url: "https://example.com/products/produkt-73"
+    },
+    {
+      id: "p74",
+      name: "PRODUKT 74 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 74 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+74",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+74+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+74+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+74+-+3"
+      ],
+      url: "https://example.com/products/produkt-74"
+    },
+    {
+      id: "p75",
+      name: "PRODUKT 75 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 75 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+75",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+75+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+75+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+75+-+3"
+      ],
+      url: "https://example.com/products/produkt-75"
+    },
+    {
+      id: "p76",
+      name: "PRODUKT 76 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 76 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+76",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+76+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+76+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+76+-+3"
+      ],
+      url: "https://example.com/products/produkt-76"
+    },
+    {
+      id: "p77",
+      name: "PRODUKT 77 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 77 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+77",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+77+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+77+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+77+-+3"
+      ],
+      url: "https://example.com/products/produkt-77"
+    },
+    {
+      id: "p78",
+      name: "PRODUKT 78 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 78 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+78",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+78+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+78+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+78+-+3"
+      ],
+      url: "https://example.com/products/produkt-78"
+    },
+    {
+      id: "p79",
+      name: "PRODUKT 79 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 79 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+79",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+79+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+79+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+79+-+3"
+      ],
+      url: "https://example.com/products/produkt-79"
+    },
+    {
+      id: "p80",
+      name: "PRODUKT 80 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 80 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+80",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+80+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+80+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+80+-+3"
+      ],
+      url: "https://example.com/products/produkt-80"
+    },
+    {
+      id: "p81",
+      name: "PRODUKT 81 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 81 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+81",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+81+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+81+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+81+-+3"
+      ],
+      url: "https://example.com/products/produkt-81"
+    },
+    {
+      id: "p82",
+      name: "PRODUKT 82 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 82 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+82",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+82+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+82+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+82+-+3"
+      ],
+      url: "https://example.com/products/produkt-82"
+    },
+    {
+      id: "p83",
+      name: "PRODUKT 83 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 83 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+83",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+83+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+83+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+83+-+3"
+      ],
+      url: "https://example.com/products/produkt-83"
+    },
+    {
+      id: "p84",
+      name: "PRODUKT 84 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 84 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+84",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+84+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+84+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+84+-+3"
+      ],
+      url: "https://example.com/products/produkt-84"
+    },
+    {
+      id: "p85",
+      name: "PRODUKT 85 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 85 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+85",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+85+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+85+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+85+-+3"
+      ],
+      url: "https://example.com/products/produkt-85"
+    },
+    {
+      id: "p86",
+      name: "PRODUKT 86 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 86 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+86",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+86+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+86+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+86+-+3"
+      ],
+      url: "https://example.com/products/produkt-86"
+    },
+    {
+      id: "p87",
+      name: "PRODUKT 87 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 87 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+87",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+87+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+87+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+87+-+3"
+      ],
+      url: "https://example.com/products/produkt-87"
+    },
+    {
+      id: "p88",
+      name: "PRODUKT 88 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 88 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+88",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+88+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+88+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+88+-+3"
+      ],
+      url: "https://example.com/products/produkt-88"
+    },
+    {
+      id: "p89",
+      name: "PRODUKT 89 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 89 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+89",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+89+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+89+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+89+-+3"
+      ],
+      url: "https://example.com/products/produkt-89"
+    },
+    {
+      id: "p90",
+      name: "PRODUKT 90 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 90 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+90",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+90+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+90+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+90+-+3"
+      ],
+      url: "https://example.com/products/produkt-90"
+    },
+    {
+      id: "p91",
+      name: "PRODUKT 91 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 91 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+91",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+91+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+91+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+91+-+3"
+      ],
+      url: "https://example.com/products/produkt-91"
+    },
+    {
+      id: "p92",
+      name: "PRODUKT 92 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 92 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+92",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+92+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+92+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+92+-+3"
+      ],
+      url: "https://example.com/products/produkt-92"
+    },
+    {
+      id: "p93",
+      name: "PRODUKT 93 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 93 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+93",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+93+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+93+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+93+-+3"
+      ],
+      url: "https://example.com/products/produkt-93"
+    },
+    {
+      id: "p94",
+      name: "PRODUKT 94 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 94 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+94",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+94+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+94+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+94+-+3"
+      ],
+      url: "https://example.com/products/produkt-94"
+    },
+    {
+      id: "p95",
+      name: "PRODUKT 95 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 95 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+95",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+95+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+95+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+95+-+3"
+      ],
+      url: "https://example.com/products/produkt-95"
+    },
+    {
+      id: "p96",
+      name: "PRODUKT 96 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 96 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+96",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+96+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+96+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+96+-+3"
+      ],
+      url: "https://example.com/products/produkt-96"
+    },
+    {
+      id: "p97",
+      name: "PRODUKT 97 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 97 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+97",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+97+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+97+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+97+-+3"
+      ],
+      url: "https://example.com/products/produkt-97"
+    },
+    {
+      id: "p98",
+      name: "PRODUKT 98 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 98 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+98",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+98+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+98+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+98+-+3"
+      ],
+      url: "https://example.com/products/produkt-98"
+    },
+    {
+      id: "p99",
+      name: "PRODUKT 99 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 99 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+99",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+99+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+99+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+99+-+3"
+      ],
+      url: "https://example.com/products/produkt-99"
+    },
+    {
+      id: "p100",
+      name: "PRODUKT 100 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 100 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+100",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+100+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+100+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+100+-+3"
+      ],
+      url: "https://example.com/products/produkt-100"
+    },
+    {
+      id: "p101",
+      name: "PRODUKT 101 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 101 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+101",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+101+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+101+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+101+-+3"
+      ],
+      url: "https://example.com/products/produkt-101"
+    },
+    {
+      id: "p102",
+      name: "PRODUKT 102 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 102 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+102",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+102+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+102+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+102+-+3"
+      ],
+      url: "https://example.com/products/produkt-102"
+    },
+    {
+      id: "p103",
+      name: "PRODUKT 103 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 103 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+103",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+103+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+103+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+103+-+3"
+      ],
+      url: "https://example.com/products/produkt-103"
+    },
+    {
+      id: "p104",
+      name: "PRODUKT 104 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 104 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+104",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+104+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+104+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+104+-+3"
+      ],
+      url: "https://example.com/products/produkt-104"
+    },
+    {
+      id: "p105",
+      name: "PRODUKT 105 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 105 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+105",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+105+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+105+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+105+-+3"
+      ],
+      url: "https://example.com/products/produkt-105"
+    },
+    {
+      id: "p106",
+      name: "PRODUKT 106 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 106 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+106",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+106+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+106+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+106+-+3"
+      ],
+      url: "https://example.com/products/produkt-106"
+    },
+    {
+      id: "p107",
+      name: "PRODUKT 107 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 107 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+107",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+107+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+107+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+107+-+3"
+      ],
+      url: "https://example.com/products/produkt-107"
+    },
+    {
+      id: "p108",
+      name: "PRODUKT 108 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 108 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+108",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+108+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+108+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+108+-+3"
+      ],
+      url: "https://example.com/products/produkt-108"
+    },
+    {
+      id: "p109",
+      name: "PRODUKT 109 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 109 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+109",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+109+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+109+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+109+-+3"
+      ],
+      url: "https://example.com/products/produkt-109"
+    },
+    {
+      id: "p110",
+      name: "PRODUKT 110 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 110 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+110",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+110+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+110+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+110+-+3"
+      ],
+      url: "https://example.com/products/produkt-110"
+    },
+    {
+      id: "p111",
+      name: "PRODUKT 111 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 111 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+111",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+111+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+111+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+111+-+3"
+      ],
+      url: "https://example.com/products/produkt-111"
+    },
+    {
+      id: "p112",
+      name: "PRODUKT 112 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 112 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+112",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+112+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+112+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+112+-+3"
+      ],
+      url: "https://example.com/products/produkt-112"
+    },
+    {
+      id: "p113",
+      name: "PRODUKT 113 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 113 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+113",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+113+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+113+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+113+-+3"
+      ],
+      url: "https://example.com/products/produkt-113"
+    },
+    {
+      id: "p114",
+      name: "PRODUKT 114 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 114 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+114",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+114+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+114+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+114+-+3"
+      ],
+      url: "https://example.com/products/produkt-114"
+    },
+    {
+      id: "p115",
+      name: "PRODUKT 115 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 115 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+115",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+115+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+115+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+115+-+3"
+      ],
+      url: "https://example.com/products/produkt-115"
+    },
+    {
+      id: "p116",
+      name: "PRODUKT 116 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 116 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+116",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+116+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+116+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+116+-+3"
+      ],
+      url: "https://example.com/products/produkt-116"
+    },
+    {
+      id: "p117",
+      name: "PRODUKT 117 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 117 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+117",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+117+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+117+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+117+-+3"
+      ],
+      url: "https://example.com/products/produkt-117"
+    },
+    {
+      id: "p118",
+      name: "PRODUKT 118 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 118 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+118",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+118+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+118+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+118+-+3"
+      ],
+      url: "https://example.com/products/produkt-118"
+    },
+    {
+      id: "p119",
+      name: "PRODUKT 119 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 119 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+119",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+119+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+119+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+119+-+3"
+      ],
+      url: "https://example.com/products/produkt-119"
+    },
+    {
+      id: "p120",
+      name: "PRODUKT 120 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 120 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+120",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+120+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+120+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+120+-+3"
+      ],
+      url: "https://example.com/products/produkt-120"
+    },
+    {
+      id: "p121",
+      name: "PRODUKT 121 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 121 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+121",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+121+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+121+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+121+-+3"
+      ],
+      url: "https://example.com/products/produkt-121"
+    },
+    {
+      id: "p122",
+      name: "PRODUKT 122 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 122 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+122",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+122+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+122+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+122+-+3"
+      ],
+      url: "https://example.com/products/produkt-122"
+    },
+    {
+      id: "p123",
+      name: "PRODUKT 123 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 123 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+123",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+123+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+123+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+123+-+3"
+      ],
+      url: "https://example.com/products/produkt-123"
+    },
+    {
+      id: "p124",
+      name: "PRODUKT 124 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 124 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+124",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+124+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+124+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+124+-+3"
+      ],
+      url: "https://example.com/products/produkt-124"
+    },
+    {
+      id: "p125",
+      name: "PRODUKT 125 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 125 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+125",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+125+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+125+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+125+-+3"
+      ],
+      url: "https://example.com/products/produkt-125"
+    },
+    {
+      id: "p126",
+      name: "PRODUKT 126 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 126 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+126",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+126+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+126+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+126+-+3"
+      ],
+      url: "https://example.com/products/produkt-126"
+    },
+    {
+      id: "p127",
+      name: "PRODUKT 127 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 127 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+127",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+127+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+127+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+127+-+3"
+      ],
+      url: "https://example.com/products/produkt-127"
+    },
+    {
+      id: "p128",
+      name: "PRODUKT 128 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 128 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+128",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+128+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+128+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+128+-+3"
+      ],
+      url: "https://example.com/products/produkt-128"
+    },
+    {
+      id: "p129",
+      name: "PRODUKT 129 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 129 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+129",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+129+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+129+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+129+-+3"
+      ],
+      url: "https://example.com/products/produkt-129"
+    },
+    {
+      id: "p130",
+      name: "PRODUKT 130 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 130 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+130",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+130+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+130+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+130+-+3"
+      ],
+      url: "https://example.com/products/produkt-130"
+    },
+    {
+      id: "p131",
+      name: "PRODUKT 131 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 131 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+131",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+131+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+131+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+131+-+3"
+      ],
+      url: "https://example.com/products/produkt-131"
+    },
+    {
+      id: "p132",
+      name: "PRODUKT 132 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 132 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+132",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+132+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+132+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+132+-+3"
+      ],
+      url: "https://example.com/products/produkt-132"
+    },
+    {
+      id: "p133",
+      name: "PRODUKT 133 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 133 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+133",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+133+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+133+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+133+-+3"
+      ],
+      url: "https://example.com/products/produkt-133"
+    },
+    {
+      id: "p134",
+      name: "PRODUKT 134 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 134 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+134",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+134+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+134+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+134+-+3"
+      ],
+      url: "https://example.com/products/produkt-134"
+    },
+    {
+      id: "p135",
+      name: "PRODUKT 135 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 135 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+135",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+135+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+135+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+135+-+3"
+      ],
+      url: "https://example.com/products/produkt-135"
+    },
+    {
+      id: "p136",
+      name: "PRODUKT 136 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 136 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+136",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+136+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+136+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+136+-+3"
+      ],
+      url: "https://example.com/products/produkt-136"
+    },
+    {
+      id: "p137",
+      name: "PRODUKT 137 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 137 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+137",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+137+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+137+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+137+-+3"
+      ],
+      url: "https://example.com/products/produkt-137"
+    },
+    {
+      id: "p138",
+      name: "PRODUKT 138 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 138 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+138",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+138+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+138+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+138+-+3"
+      ],
+      url: "https://example.com/products/produkt-138"
+    },
+    {
+      id: "p139",
+      name: "PRODUKT 139 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 139 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+139",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+139+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+139+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+139+-+3"
+      ],
+      url: "https://example.com/products/produkt-139"
+    },
+    {
+      id: "p140",
+      name: "PRODUKT 140 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 140 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+140",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+140+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+140+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+140+-+3"
+      ],
+      url: "https://example.com/products/produkt-140"
+    },
+    {
+      id: "p141",
+      name: "PRODUKT 141 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 141 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+141",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+141+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+141+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+141+-+3"
+      ],
+      url: "https://example.com/products/produkt-141"
+    },
+    {
+      id: "p142",
+      name: "PRODUKT 142 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 142 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+142",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+142+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+142+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+142+-+3"
+      ],
+      url: "https://example.com/products/produkt-142"
+    },
+    {
+      id: "p143",
+      name: "PRODUKT 143 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 143 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+143",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+143+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+143+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+143+-+3"
+      ],
+      url: "https://example.com/products/produkt-143"
+    },
+    {
+      id: "p144",
+      name: "PRODUKT 144 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 144 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+144",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+144+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+144+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+144+-+3"
+      ],
+      url: "https://example.com/products/produkt-144"
+    },
+    {
+      id: "p145",
+      name: "PRODUKT 145 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 145 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+145",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+145+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+145+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+145+-+3"
+      ],
+      url: "https://example.com/products/produkt-145"
+    },
+    {
+      id: "p146",
+      name: "PRODUKT 146 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 146 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+146",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+146+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+146+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+146+-+3"
+      ],
+      url: "https://example.com/products/produkt-146"
+    },
+    {
+      id: "p147",
+      name: "PRODUKT 147 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 147 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+147",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+147+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+147+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+147+-+3"
+      ],
+      url: "https://example.com/products/produkt-147"
+    },
+    {
+      id: "p148",
+      name: "PRODUKT 148 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 148 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+148",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+148+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+148+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+148+-+3"
+      ],
+      url: "https://example.com/products/produkt-148"
+    },
+    {
+      id: "p149",
+      name: "PRODUKT 149 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 149 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+149",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+149+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+149+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+149+-+3"
+      ],
+      url: "https://example.com/products/produkt-149"
+    },
+    {
+      id: "p150",
+      name: "PRODUKT 150 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 150 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+150",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+150+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+150+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+150+-+3"
+      ],
+      url: "https://example.com/products/produkt-150"
+    },
+    {
+      id: "p151",
+      name: "PRODUKT 151 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 151 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+151",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+151+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+151+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+151+-+3"
+      ],
+      url: "https://example.com/products/produkt-151"
+    },
+    {
+      id: "p152",
+      name: "PRODUKT 152 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 152 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+152",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+152+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+152+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+152+-+3"
+      ],
+      url: "https://example.com/products/produkt-152"
+    },
+    {
+      id: "p153",
+      name: "PRODUKT 153 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 153 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+153",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+153+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+153+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+153+-+3"
+      ],
+      url: "https://example.com/products/produkt-153"
+    },
+    {
+      id: "p154",
+      name: "PRODUKT 154 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 154 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+154",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+154+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+154+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+154+-+3"
+      ],
+      url: "https://example.com/products/produkt-154"
+    },
+    {
+      id: "p155",
+      name: "PRODUKT 155 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 155 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+155",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+155+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+155+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+155+-+3"
+      ],
+      url: "https://example.com/products/produkt-155"
+    },
+    {
+      id: "p156",
+      name: "PRODUKT 156 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 156 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+156",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+156+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+156+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+156+-+3"
+      ],
+      url: "https://example.com/products/produkt-156"
+    },
+    {
+      id: "p157",
+      name: "PRODUKT 157 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 157 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+157",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+157+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+157+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+157+-+3"
+      ],
+      url: "https://example.com/products/produkt-157"
+    },
+    {
+      id: "p158",
+      name: "PRODUKT 158 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 158 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+158",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+158+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+158+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+158+-+3"
+      ],
+      url: "https://example.com/products/produkt-158"
+    },
+    {
+      id: "p159",
+      name: "PRODUKT 159 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 159 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+159",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+159+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+159+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+159+-+3"
+      ],
+      url: "https://example.com/products/produkt-159"
+    },
+    {
+      id: "p160",
+      name: "PRODUKT 160 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 160 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+160",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+160+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+160+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+160+-+3"
+      ],
+      url: "https://example.com/products/produkt-160"
+    },
+    {
+      id: "p161",
+      name: "PRODUKT 161 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 161 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+161",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+161+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+161+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+161+-+3"
+      ],
+      url: "https://example.com/products/produkt-161"
+    },
+    {
+      id: "p162",
+      name: "PRODUKT 162 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 162 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+162",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+162+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+162+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+162+-+3"
+      ],
+      url: "https://example.com/products/produkt-162"
+    },
+    {
+      id: "p163",
+      name: "PRODUKT 163 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 163 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+163",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+163+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+163+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+163+-+3"
+      ],
+      url: "https://example.com/products/produkt-163"
+    },
+    {
+      id: "p164",
+      name: "PRODUKT 164 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 164 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+164",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+164+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+164+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+164+-+3"
+      ],
+      url: "https://example.com/products/produkt-164"
+    },
+    {
+      id: "p165",
+      name: "PRODUKT 165 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 165 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+165",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+165+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+165+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+165+-+3"
+      ],
+      url: "https://example.com/products/produkt-165"
+    },
+    {
+      id: "p166",
+      name: "PRODUKT 166 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 166 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+166",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+166+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+166+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+166+-+3"
+      ],
+      url: "https://example.com/products/produkt-166"
+    },
+    {
+      id: "p167",
+      name: "PRODUKT 167 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 167 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+167",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+167+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+167+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+167+-+3"
+      ],
+      url: "https://example.com/products/produkt-167"
+    },
+    {
+      id: "p168",
+      name: "PRODUKT 168 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 168 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+168",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+168+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+168+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+168+-+3"
+      ],
+      url: "https://example.com/products/produkt-168"
+    },
+    {
+      id: "p169",
+      name: "PRODUKT 169 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 169 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+169",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+169+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+169+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+169+-+3"
+      ],
+      url: "https://example.com/products/produkt-169"
+    },
+    {
+      id: "p170",
+      name: "PRODUKT 170 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 170 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+170",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+170+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+170+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+170+-+3"
+      ],
+      url: "https://example.com/products/produkt-170"
+    },
+    {
+      id: "p171",
+      name: "PRODUKT 171 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 171 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+171",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+171+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+171+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+171+-+3"
+      ],
+      url: "https://example.com/products/produkt-171"
+    },
+    {
+      id: "p172",
+      name: "PRODUKT 172 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 172 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+172",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+172+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+172+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+172+-+3"
+      ],
+      url: "https://example.com/products/produkt-172"
+    },
+    {
+      id: "p173",
+      name: "PRODUKT 173 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 173 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+173",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+173+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+173+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+173+-+3"
+      ],
+      url: "https://example.com/products/produkt-173"
+    },
+    {
+      id: "p174",
+      name: "PRODUKT 174 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 174 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+174",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+174+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+174+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+174+-+3"
+      ],
+      url: "https://example.com/products/produkt-174"
+    },
+    {
+      id: "p175",
+      name: "PRODUKT 175 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 175 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+175",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+175+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+175+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+175+-+3"
+      ],
+      url: "https://example.com/products/produkt-175"
+    },
+    {
+      id: "p176",
+      name: "PRODUKT 176 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 176 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+176",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+176+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+176+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+176+-+3"
+      ],
+      url: "https://example.com/products/produkt-176"
+    },
+    {
+      id: "p177",
+      name: "PRODUKT 177 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 177 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+177",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+177+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+177+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+177+-+3"
+      ],
+      url: "https://example.com/products/produkt-177"
+    },
+    {
+      id: "p178",
+      name: "PRODUKT 178 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 178 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+178",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+178+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+178+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+178+-+3"
+      ],
+      url: "https://example.com/products/produkt-178"
+    },
+    {
+      id: "p179",
+      name: "PRODUKT 179 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 179 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+179",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+179+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+179+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+179+-+3"
+      ],
+      url: "https://example.com/products/produkt-179"
+    },
+    {
+      id: "p180",
+      name: "PRODUKT 180 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 180 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+180",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+180+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+180+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+180+-+3"
+      ],
+      url: "https://example.com/products/produkt-180"
+    },
+    {
+      id: "p181",
+      name: "PRODUKT 181 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 181 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+181",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+181+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+181+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+181+-+3"
+      ],
+      url: "https://example.com/products/produkt-181"
+    },
+    {
+      id: "p182",
+      name: "PRODUKT 182 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 182 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+182",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+182+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+182+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+182+-+3"
+      ],
+      url: "https://example.com/products/produkt-182"
+    },
+    {
+      id: "p183",
+      name: "PRODUKT 183 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 183 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+183",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+183+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+183+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+183+-+3"
+      ],
+      url: "https://example.com/products/produkt-183"
+    },
+    {
+      id: "p184",
+      name: "PRODUKT 184 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 184 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+184",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+184+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+184+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+184+-+3"
+      ],
+      url: "https://example.com/products/produkt-184"
+    },
+    {
+      id: "p185",
+      name: "PRODUKT 185 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 185 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+185",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+185+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+185+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+185+-+3"
+      ],
+      url: "https://example.com/products/produkt-185"
+    },
+    {
+      id: "p186",
+      name: "PRODUKT 186 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 186 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+186",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+186+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+186+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+186+-+3"
+      ],
+      url: "https://example.com/products/produkt-186"
+    },
+    {
+      id: "p187",
+      name: "PRODUKT 187 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 187 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+187",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+187+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+187+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+187+-+3"
+      ],
+      url: "https://example.com/products/produkt-187"
+    },
+    {
+      id: "p188",
+      name: "PRODUKT 188 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 188 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+188",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+188+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+188+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+188+-+3"
+      ],
+      url: "https://example.com/products/produkt-188"
+    },
+    {
+      id: "p189",
+      name: "PRODUKT 189 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 189 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+189",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+189+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+189+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+189+-+3"
+      ],
+      url: "https://example.com/products/produkt-189"
+    },
+    {
+      id: "p190",
+      name: "PRODUKT 190 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 190 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+190",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+190+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+190+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+190+-+3"
+      ],
+      url: "https://example.com/products/produkt-190"
+    },
+    {
+      id: "p191",
+      name: "PRODUKT 191 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 191 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+191",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+191+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+191+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+191+-+3"
+      ],
+      url: "https://example.com/products/produkt-191"
+    },
+    {
+      id: "p192",
+      name: "PRODUKT 192 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 192 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+192",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+192+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+192+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+192+-+3"
+      ],
+      url: "https://example.com/products/produkt-192"
+    },
+    {
+      id: "p193",
+      name: "PRODUKT 193 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 193 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+193",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+193+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+193+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+193+-+3"
+      ],
+      url: "https://example.com/products/produkt-193"
+    },
+    {
+      id: "p194",
+      name: "PRODUKT 194 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 194 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+194",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+194+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+194+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+194+-+3"
+      ],
+      url: "https://example.com/products/produkt-194"
+    },
+    {
+      id: "p195",
+      name: "PRODUKT 195 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 195 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+195",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+195+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+195+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+195+-+3"
+      ],
+      url: "https://example.com/products/produkt-195"
+    },
+    {
+      id: "p196",
+      name: "PRODUKT 196 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 196 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+196",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+196+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+196+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+196+-+3"
+      ],
+      url: "https://example.com/products/produkt-196"
+    },
+    {
+      id: "p197",
+      name: "PRODUKT 197 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 197 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+197",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+197+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+197+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+197+-+3"
+      ],
+      url: "https://example.com/products/produkt-197"
+    },
+    {
+      id: "p198",
+      name: "PRODUKT 198 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 198 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+198",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+198+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+198+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+198+-+3"
+      ],
+      url: "https://example.com/products/produkt-198"
+    },
+    {
+      id: "p199",
+      name: "PRODUKT 199 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 199 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+199",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+199+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+199+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+199+-+3"
+      ],
+      url: "https://example.com/products/produkt-199"
+    },
+    {
+      id: "p200",
+      name: "PRODUKT 200 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 200 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+200",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+200+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+200+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+200+-+3"
+      ],
+      url: "https://example.com/products/produkt-200"
+    },
+    {
+      id: "p201",
+      name: "PRODUKT 201 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 201 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+201",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+201+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+201+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+201+-+3"
+      ],
+      url: "https://example.com/products/produkt-201"
+    },
+    {
+      id: "p202",
+      name: "PRODUKT 202 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 202 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+202",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+202+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+202+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+202+-+3"
+      ],
+      url: "https://example.com/products/produkt-202"
+    },
+    {
+      id: "p203",
+      name: "PRODUKT 203 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 203 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+203",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+203+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+203+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+203+-+3"
+      ],
+      url: "https://example.com/products/produkt-203"
+    },
+    {
+      id: "p204",
+      name: "PRODUKT 204 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 204 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+204",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+204+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+204+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+204+-+3"
+      ],
+      url: "https://example.com/products/produkt-204"
+    },
+    {
+      id: "p205",
+      name: "PRODUKT 205 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 205 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+205",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+205+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+205+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+205+-+3"
+      ],
+      url: "https://example.com/products/produkt-205"
+    },
+    {
+      id: "p206",
+      name: "PRODUKT 206 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 206 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+206",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+206+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+206+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+206+-+3"
+      ],
+      url: "https://example.com/products/produkt-206"
+    },
+    {
+      id: "p207",
+      name: "PRODUKT 207 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 207 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+207",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+207+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+207+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+207+-+3"
+      ],
+      url: "https://example.com/products/produkt-207"
+    },
+    {
+      id: "p208",
+      name: "PRODUKT 208 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 208 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+208",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+208+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+208+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+208+-+3"
+      ],
+      url: "https://example.com/products/produkt-208"
+    },
+    {
+      id: "p209",
+      name: "PRODUKT 209 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 209 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+209",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+209+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+209+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+209+-+3"
+      ],
+      url: "https://example.com/products/produkt-209"
+    },
+    {
+      id: "p210",
+      name: "PRODUKT 210 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 210 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+210",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+210+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+210+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+210+-+3"
+      ],
+      url: "https://example.com/products/produkt-210"
+    },
+    {
+      id: "p211",
+      name: "PRODUKT 211 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 211 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+211",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+211+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+211+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+211+-+3"
+      ],
+      url: "https://example.com/products/produkt-211"
+    },
+    {
+      id: "p212",
+      name: "PRODUKT 212 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 212 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+212",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+212+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+212+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+212+-+3"
+      ],
+      url: "https://example.com/products/produkt-212"
+    },
+    {
+      id: "p213",
+      name: "PRODUKT 213 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 213 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+213",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+213+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+213+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+213+-+3"
+      ],
+      url: "https://example.com/products/produkt-213"
+    },
+    {
+      id: "p214",
+      name: "PRODUKT 214 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 214 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+214",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+214+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+214+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+214+-+3"
+      ],
+      url: "https://example.com/products/produkt-214"
+    },
+    {
+      id: "p215",
+      name: "PRODUKT 215 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 215 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+215",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+215+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+215+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+215+-+3"
+      ],
+      url: "https://example.com/products/produkt-215"
+    },
+    {
+      id: "p216",
+      name: "PRODUKT 216 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 216 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+216",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+216+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+216+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+216+-+3"
+      ],
+      url: "https://example.com/products/produkt-216"
+    },
+    {
+      id: "p217",
+      name: "PRODUKT 217 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 217 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+217",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+217+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+217+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+217+-+3"
+      ],
+      url: "https://example.com/products/produkt-217"
+    },
+    {
+      id: "p218",
+      name: "PRODUKT 218 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 218 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+218",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+218+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+218+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+218+-+3"
+      ],
+      url: "https://example.com/products/produkt-218"
+    },
+    {
+      id: "p219",
+      name: "PRODUKT 219 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 219 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+219",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+219+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+219+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+219+-+3"
+      ],
+      url: "https://example.com/products/produkt-219"
+    },
+    {
+      id: "p220",
+      name: "PRODUKT 220 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 220 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+220",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+220+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+220+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+220+-+3"
+      ],
+      url: "https://example.com/products/produkt-220"
+    },
+    {
+      id: "p221",
+      name: "PRODUKT 221 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 221 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+221",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+221+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+221+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+221+-+3"
+      ],
+      url: "https://example.com/products/produkt-221"
+    },
+    {
+      id: "p222",
+      name: "PRODUKT 222 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 222 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+222",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+222+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+222+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+222+-+3"
+      ],
+      url: "https://example.com/products/produkt-222"
+    },
+    {
+      id: "p223",
+      name: "PRODUKT 223 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 223 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+223",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+223+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+223+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+223+-+3"
+      ],
+      url: "https://example.com/products/produkt-223"
+    },
+    {
+      id: "p224",
+      name: "PRODUKT 224 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 224 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+224",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+224+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+224+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+224+-+3"
+      ],
+      url: "https://example.com/products/produkt-224"
+    },
+    {
+      id: "p225",
+      name: "PRODUKT 225 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 225 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+225",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+225+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+225+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+225+-+3"
+      ],
+      url: "https://example.com/products/produkt-225"
+    },
+    {
+      id: "p226",
+      name: "PRODUKT 226 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 226 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+226",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+226+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+226+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+226+-+3"
+      ],
+      url: "https://example.com/products/produkt-226"
+    },
+    {
+      id: "p227",
+      name: "PRODUKT 227 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 227 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+227",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+227+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+227+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+227+-+3"
+      ],
+      url: "https://example.com/products/produkt-227"
+    },
+    {
+      id: "p228",
+      name: "PRODUKT 228 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 228 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+228",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+228+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+228+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+228+-+3"
+      ],
+      url: "https://example.com/products/produkt-228"
+    },
+    {
+      id: "p229",
+      name: "PRODUKT 229 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 229 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+229",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+229+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+229+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+229+-+3"
+      ],
+      url: "https://example.com/products/produkt-229"
+    },
+    {
+      id: "p230",
+      name: "PRODUKT 230 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 230 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+230",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+230+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+230+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+230+-+3"
+      ],
+      url: "https://example.com/products/produkt-230"
+    },
+    {
+      id: "p231",
+      name: "PRODUKT 231 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 231 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+231",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+231+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+231+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+231+-+3"
+      ],
+      url: "https://example.com/products/produkt-231"
+    },
+    {
+      id: "p232",
+      name: "PRODUKT 232 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 232 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+232",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+232+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+232+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+232+-+3"
+      ],
+      url: "https://example.com/products/produkt-232"
+    },
+    {
+      id: "p233",
+      name: "PRODUKT 233 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 233 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+233",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+233+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+233+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+233+-+3"
+      ],
+      url: "https://example.com/products/produkt-233"
+    },
+    {
+      id: "p234",
+      name: "PRODUKT 234 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 234 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+234",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+234+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+234+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+234+-+3"
+      ],
+      url: "https://example.com/products/produkt-234"
+    },
+    {
+      id: "p235",
+      name: "PRODUKT 235 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 235 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+235",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+235+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+235+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+235+-+3"
+      ],
+      url: "https://example.com/products/produkt-235"
+    },
+    {
+      id: "p236",
+      name: "PRODUKT 236 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 236 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+236",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+236+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+236+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+236+-+3"
+      ],
+      url: "https://example.com/products/produkt-236"
+    },
+    {
+      id: "p237",
+      name: "PRODUKT 237 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 237 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+237",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+237+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+237+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+237+-+3"
+      ],
+      url: "https://example.com/products/produkt-237"
+    },
+    {
+      id: "p238",
+      name: "PRODUKT 238 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 238 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+238",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+238+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+238+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+238+-+3"
+      ],
+      url: "https://example.com/products/produkt-238"
+    },
+    {
+      id: "p239",
+      name: "PRODUKT 239 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 239 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+239",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+239+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+239+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+239+-+3"
+      ],
+      url: "https://example.com/products/produkt-239"
+    },
+    {
+      id: "p240",
+      name: "PRODUKT 240 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 240 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+240",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+240+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+240+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+240+-+3"
+      ],
+      url: "https://example.com/products/produkt-240"
+    },
+    {
+      id: "p241",
+      name: "PRODUKT 241 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 241 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+241",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+241+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+241+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+241+-+3"
+      ],
+      url: "https://example.com/products/produkt-241"
+    },
+    {
+      id: "p242",
+      name: "PRODUKT 242 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 242 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+242",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+242+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+242+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+242+-+3"
+      ],
+      url: "https://example.com/products/produkt-242"
+    },
+    {
+      id: "p243",
+      name: "PRODUKT 243 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 243 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+243",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+243+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+243+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+243+-+3"
+      ],
+      url: "https://example.com/products/produkt-243"
+    },
+    {
+      id: "p244",
+      name: "PRODUKT 244 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 244 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+244",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+244+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+244+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+244+-+3"
+      ],
+      url: "https://example.com/products/produkt-244"
+    },
+    {
+      id: "p245",
+      name: "PRODUKT 245 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 245 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+245",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+245+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+245+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+245+-+3"
+      ],
+      url: "https://example.com/products/produkt-245"
+    },
+    {
+      id: "p246",
+      name: "PRODUKT 246 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 246 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+246",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+246+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+246+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+246+-+3"
+      ],
+      url: "https://example.com/products/produkt-246"
+    },
+    {
+      id: "p247",
+      name: "PRODUKT 247 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 247 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+247",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+247+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+247+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+247+-+3"
+      ],
+      url: "https://example.com/products/produkt-247"
+    },
+    {
+      id: "p248",
+      name: "PRODUKT 248 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 248 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+248",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+248+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+248+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+248+-+3"
+      ],
+      url: "https://example.com/products/produkt-248"
+    },
+    {
+      id: "p249",
+      name: "PRODUKT 249 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 249 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+249",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+249+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+249+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+249+-+3"
+      ],
+      url: "https://example.com/products/produkt-249"
+    },
+    {
+      id: "p250",
+      name: "PRODUKT 250 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 250 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+250",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+250+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+250+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+250+-+3"
+      ],
+      url: "https://example.com/products/produkt-250"
+    },
+    {
+      id: "p251",
+      name: "PRODUKT 251 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 251 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+251",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+251+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+251+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+251+-+3"
+      ],
+      url: "https://example.com/products/produkt-251"
+    },
+    {
+      id: "p252",
+      name: "PRODUKT 252 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 252 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+252",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+252+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+252+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+252+-+3"
+      ],
+      url: "https://example.com/products/produkt-252"
+    },
+    {
+      id: "p253",
+      name: "PRODUKT 253 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 253 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+253",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+253+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+253+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+253+-+3"
+      ],
+      url: "https://example.com/products/produkt-253"
+    },
+    {
+      id: "p254",
+      name: "PRODUKT 254 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 254 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+254",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+254+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+254+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+254+-+3"
+      ],
+      url: "https://example.com/products/produkt-254"
+    },
+    {
+      id: "p255",
+      name: "PRODUKT 255 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 255 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+255",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+255+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+255+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+255+-+3"
+      ],
+      url: "https://example.com/products/produkt-255"
+    },
+    {
+      id: "p256",
+      name: "PRODUKT 256 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 256 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+256",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+256+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+256+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+256+-+3"
+      ],
+      url: "https://example.com/products/produkt-256"
+    },
+    {
+      id: "p257",
+      name: "PRODUKT 257 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 257 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+257",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+257+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+257+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+257+-+3"
+      ],
+      url: "https://example.com/products/produkt-257"
+    },
+    {
+      id: "p258",
+      name: "PRODUKT 258 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 258 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+258",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+258+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+258+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+258+-+3"
+      ],
+      url: "https://example.com/products/produkt-258"
+    },
+    {
+      id: "p259",
+      name: "PRODUKT 259 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 259 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+259",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+259+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+259+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+259+-+3"
+      ],
+      url: "https://example.com/products/produkt-259"
+    },
+    {
+      id: "p260",
+      name: "PRODUKT 260 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 260 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+260",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+260+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+260+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+260+-+3"
+      ],
+      url: "https://example.com/products/produkt-260"
+    },
+    {
+      id: "p261",
+      name: "PRODUKT 261 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 261 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+261",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+261+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+261+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+261+-+3"
+      ],
+      url: "https://example.com/products/produkt-261"
+    },
+    {
+      id: "p262",
+      name: "PRODUKT 262 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 262 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+262",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+262+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+262+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+262+-+3"
+      ],
+      url: "https://example.com/products/produkt-262"
+    },
+    {
+      id: "p263",
+      name: "PRODUKT 263 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 263 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+263",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+263+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+263+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+263+-+3"
+      ],
+      url: "https://example.com/products/produkt-263"
+    },
+    {
+      id: "p264",
+      name: "PRODUKT 264 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 264 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+264",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+264+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+264+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+264+-+3"
+      ],
+      url: "https://example.com/products/produkt-264"
+    },
+    {
+      id: "p265",
+      name: "PRODUKT 265 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 265 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+265",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+265+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+265+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+265+-+3"
+      ],
+      url: "https://example.com/products/produkt-265"
+    },
+    {
+      id: "p266",
+      name: "PRODUKT 266 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 266 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+266",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+266+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+266+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+266+-+3"
+      ],
+      url: "https://example.com/products/produkt-266"
+    },
+    {
+      id: "p267",
+      name: "PRODUKT 267 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 267 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+267",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+267+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+267+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+267+-+3"
+      ],
+      url: "https://example.com/products/produkt-267"
+    },
+    {
+      id: "p268",
+      name: "PRODUKT 268 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 268 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+268",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+268+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+268+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+268+-+3"
+      ],
+      url: "https://example.com/products/produkt-268"
+    },
+    {
+      id: "p269",
+      name: "PRODUKT 269 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 269 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+269",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+269+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+269+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+269+-+3"
+      ],
+      url: "https://example.com/products/produkt-269"
+    },
+    {
+      id: "p270",
+      name: "PRODUKT 270 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 270 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+270",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+270+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+270+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+270+-+3"
+      ],
+      url: "https://example.com/products/produkt-270"
+    },
+    {
+      id: "p271",
+      name: "PRODUKT 271 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 271 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+271",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+271+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+271+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+271+-+3"
+      ],
+      url: "https://example.com/products/produkt-271"
+    },
+    {
+      id: "p272",
+      name: "PRODUKT 272 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 272 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+272",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+272+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+272+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+272+-+3"
+      ],
+      url: "https://example.com/products/produkt-272"
+    },
+    {
+      id: "p273",
+      name: "PRODUKT 273 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 273 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+273",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+273+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+273+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+273+-+3"
+      ],
+      url: "https://example.com/products/produkt-273"
+    },
+    {
+      id: "p274",
+      name: "PRODUKT 274 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 274 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+274",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+274+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+274+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+274+-+3"
+      ],
+      url: "https://example.com/products/produkt-274"
+    },
+    {
+      id: "p275",
+      name: "PRODUKT 275 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 275 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+275",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+275+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+275+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+275+-+3"
+      ],
+      url: "https://example.com/products/produkt-275"
+    },
+    {
+      id: "p276",
+      name: "PRODUKT 276 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 276 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+276",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+276+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+276+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+276+-+3"
+      ],
+      url: "https://example.com/products/produkt-276"
+    },
+    {
+      id: "p277",
+      name: "PRODUKT 277 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 277 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+277",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+277+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+277+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+277+-+3"
+      ],
+      url: "https://example.com/products/produkt-277"
+    },
+    {
+      id: "p278",
+      name: "PRODUKT 278 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 278 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+278",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+278+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+278+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+278+-+3"
+      ],
+      url: "https://example.com/products/produkt-278"
+    },
+    {
+      id: "p279",
+      name: "PRODUKT 279 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 279 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+279",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+279+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+279+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+279+-+3"
+      ],
+      url: "https://example.com/products/produkt-279"
+    },
+    {
+      id: "p280",
+      name: "PRODUKT 280 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 280 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+280",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+280+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+280+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+280+-+3"
+      ],
+      url: "https://example.com/products/produkt-280"
+    },
+    {
+      id: "p281",
+      name: "PRODUKT 281 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 281 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+281",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+281+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+281+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+281+-+3"
+      ],
+      url: "https://example.com/products/produkt-281"
+    },
+    {
+      id: "p282",
+      name: "PRODUKT 282 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 282 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+282",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+282+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+282+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+282+-+3"
+      ],
+      url: "https://example.com/products/produkt-282"
+    },
+    {
+      id: "p283",
+      name: "PRODUKT 283 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 283 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+283",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+283+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+283+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+283+-+3"
+      ],
+      url: "https://example.com/products/produkt-283"
+    },
+    {
+      id: "p284",
+      name: "PRODUKT 284 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 284 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+284",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+284+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+284+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+284+-+3"
+      ],
+      url: "https://example.com/products/produkt-284"
+    },
+    {
+      id: "p285",
+      name: "PRODUKT 285 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 285 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+285",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+285+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+285+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+285+-+3"
+      ],
+      url: "https://example.com/products/produkt-285"
+    },
+    {
+      id: "p286",
+      name: "PRODUKT 286 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 286 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+286",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+286+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+286+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+286+-+3"
+      ],
+      url: "https://example.com/products/produkt-286"
+    },
+    {
+      id: "p287",
+      name: "PRODUKT 287 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 287 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+287",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+287+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+287+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+287+-+3"
+      ],
+      url: "https://example.com/products/produkt-287"
+    },
+    {
+      id: "p288",
+      name: "PRODUKT 288 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 288 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+288",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+288+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+288+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+288+-+3"
+      ],
+      url: "https://example.com/products/produkt-288"
+    },
+    {
+      id: "p289",
+      name: "PRODUKT 289 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 289 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+289",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+289+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+289+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+289+-+3"
+      ],
+      url: "https://example.com/products/produkt-289"
+    },
+    {
+      id: "p290",
+      name: "PRODUKT 290 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 290 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+290",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+290+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+290+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+290+-+3"
+      ],
+      url: "https://example.com/products/produkt-290"
+    },
+    {
+      id: "p291",
+      name: "PRODUKT 291 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 291 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+291",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+291+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+291+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+291+-+3"
+      ],
+      url: "https://example.com/products/produkt-291"
+    },
+    {
+      id: "p292",
+      name: "PRODUKT 292 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 292 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+292",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+292+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+292+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+292+-+3"
+      ],
+      url: "https://example.com/products/produkt-292"
+    },
+    {
+      id: "p293",
+      name: "PRODUKT 293 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 293 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+293",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+293+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+293+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+293+-+3"
+      ],
+      url: "https://example.com/products/produkt-293"
+    },
+    {
+      id: "p294",
+      name: "PRODUKT 294 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 294 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+294",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+294+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+294+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+294+-+3"
+      ],
+      url: "https://example.com/products/produkt-294"
+    },
+    {
+      id: "p295",
+      name: "PRODUKT 295 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 295 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+295",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+295+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+295+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+295+-+3"
+      ],
+      url: "https://example.com/products/produkt-295"
+    },
+    {
+      id: "p296",
+      name: "PRODUKT 296 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 296 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+296",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+296+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+296+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+296+-+3"
+      ],
+      url: "https://example.com/products/produkt-296"
+    },
+    {
+      id: "p297",
+      name: "PRODUKT 297 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 297 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+297",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+297+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+297+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+297+-+3"
+      ],
+      url: "https://example.com/products/produkt-297"
+    },
+    {
+      id: "p298",
+      name: "PRODUKT 298 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 298 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+298",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+298+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+298+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+298+-+3"
+      ],
+      url: "https://example.com/products/produkt-298"
+    },
+    {
+      id: "p299",
+      name: "PRODUKT 299 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 299 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+299",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+299+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+299+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+299+-+3"
+      ],
+      url: "https://example.com/products/produkt-299"
+    },
+    {
+      id: "p300",
+      name: "PRODUKT 300 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 300 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+300",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+300+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+300+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+300+-+3"
+      ],
+      url: "https://example.com/products/produkt-300"
+    },
+    {
+      id: "p301",
+      name: "PRODUKT 301 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 301 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+301",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+301+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+301+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+301+-+3"
+      ],
+      url: "https://example.com/products/produkt-301"
+    },
+    {
+      id: "p302",
+      name: "PRODUKT 302 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 302 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+302",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+302+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+302+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+302+-+3"
+      ],
+      url: "https://example.com/products/produkt-302"
+    },
+    {
+      id: "p303",
+      name: "PRODUKT 303 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 303 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+303",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+303+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+303+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+303+-+3"
+      ],
+      url: "https://example.com/products/produkt-303"
+    },
+    {
+      id: "p304",
+      name: "PRODUKT 304 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 304 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+304",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+304+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+304+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+304+-+3"
+      ],
+      url: "https://example.com/products/produkt-304"
+    },
+    {
+      id: "p305",
+      name: "PRODUKT 305 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 305 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+305",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+305+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+305+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+305+-+3"
+      ],
+      url: "https://example.com/products/produkt-305"
+    },
+    {
+      id: "p306",
+      name: "PRODUKT 306 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 306 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+306",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+306+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+306+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+306+-+3"
+      ],
+      url: "https://example.com/products/produkt-306"
+    },
+    {
+      id: "p307",
+      name: "PRODUKT 307 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 307 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+307",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+307+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+307+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+307+-+3"
+      ],
+      url: "https://example.com/products/produkt-307"
+    },
+    {
+      id: "p308",
+      name: "PRODUKT 308 - ZMIEŃ NAZWĘ", name_en: "PRODUCT 308 - CHANGE NAME",
+      price: "", priceValue: 0,
+      category: "akcesoria", batch: "best", popularity: 50, dateAdded: 1,
+      rating: 8.0,
+      image: "https://via.placeholder.com/500x500?text=Produkt+308",
+      images: [
+        "https://via.placeholder.com/900x900?text=Produkt+308+-+1",
+        "https://via.placeholder.com/900x900?text=Produkt+308+-+2",
+        "https://via.placeholder.com/900x900?text=Produkt+308+-+3"
+      ],
+      url: "https://example.com/products/produkt-308"
     }
   ];
 
@@ -1324,41 +5532,173 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
       url: "https://tophotfashion.x.yupoo.com/categories/4639789"
     },
     {
-      name: "Goat",
-      description: "Najlepszy sprzedawca na Corteiz, gwarancja jakości i streetwearowego stylu.",
-      description_en: "The best seller for Corteiz—a guarantee of quality and streetwear style.",
-      url: "https://goat-official.x.yupoo.com/"
+      name: "SKLEP 1 - ZMIEŃ NAZWĘ",
+      description: "Opis sklepu 1 po polsku - ZMIEŃ",
+      description_en: "Store 1 description in English - CHANGE",
+      url: "https://example.com/sklep-1"
     },
     {
-      name: "Pengrep",
-      description: "Najlepszy sprzedawca na Dershutze i Mertra, znany z najwyższej jakości i dopracowanych detali.",
-      description_en: "A top seller on Dershutz and Mertra, known for superior quality and refined details.",
-      url: "http://pengreps.x.yupoo.com/"
+      name: "SKLEP 2 - ZMIEŃ NAZWĘ",
+      description: "Opis sklepu 2 po polsku - ZMIEŃ",
+      description_en: "Store 2 description in English - CHANGE",
+      url: "https://example.com/sklep-2"
     },
     {
-      name: "Pika",
-      description: "Sprzedawca streetwearu Sp5der i Hellstar z wyrazistą grafiką i dobrą kontrolą jakości.",
-      description_en: "Streetwear seller offering Sp5der and Hellstar items featuring bold graphics and solid quality control.",
-      url: "https://pikachushop.x.yupoo.com/categories/4695853"
+      name: "SKLEP 3 - ZMIEŃ NAZWĘ",
+      description: "Opis sklepu 3 po polsku - ZMIEŃ",
+      description_en: "Store 3 description in English - CHANGE",
+      url: "https://example.com/sklep-3"
     },
     {
-      name: "Repsbrothers",
-      description: "Popularny sprzedawca odzieży Palm Angels z wysokiej jakości materiałami i dopracowanym krojem.",
-      description_en: "A popular clothing brand, Palm Angels, featuring high-quality materials and refined cuts.",
-      url: "https://repsbro.x.yupoo.com/categories/4971731"
+      name: "SKLEP 4 - ZMIEŃ NAZWĘ",
+      description: "Opis sklepu 4 po polsku - ZMIEŃ",
+      description_en: "Store 4 description in English - CHANGE",
+      url: "https://example.com/sklep-4"
     },
     {
-      name: "Husky",
-      description: "Sprawdzony sprzedawca zestawów Tech Fleece, stawiający na komfort, dopasowanie i trwałość.",
-      description_en: "A trusted seller of Tech Fleece sets, prioritizing comfort, fit, and durability.",
-      url: "https://huskyreps.x.yupoo.com/categories/5071768"
+      name: "SKLEP 5 - ZMIEŃ NAZWĘ",
+      description: "Opis sklepu 5 po polsku - ZMIEŃ",
+      description_en: "Store 5 description in English - CHANGE",
+      url: "https://example.com/sklep-5"
     },
     {
-      name: "ScarlettLuxury",
-      description: "Dostawca galanterii skórzanej premium, stawiający na elegancję, formę i wysokiej jakości materiały.",
-      description_en: "A supplier of premium leather goods, focusing on elegance, form, and high-quality materials.",
-      url: "https://scarlettluxury.x.yupoo.com/"
-    },  
+      name: "SKLEP 6 - ZMIEŃ NAZWĘ",
+      description: "Opis sklepu 6 po polsku - ZMIEŃ",
+      description_en: "Store 6 description in English - CHANGE",
+      url: "https://example.com/sklep-6"
+    },
+    {
+      name: "SKLEP 7 - ZMIEŃ NAZWĘ",
+      description: "Opis sklepu 7 po polsku - ZMIEŃ",
+      description_en: "Store 7 description in English - CHANGE",
+      url: "https://example.com/sklep-7"
+    },
+    {
+      name: "SKLEP 8 - ZMIEŃ NAZWĘ",
+      description: "Opis sklepu 8 po polsku - ZMIEŃ",
+      description_en: "Store 8 description in English - CHANGE",
+      url: "https://example.com/sklep-8"
+    },
+    {
+      name: "SKLEP 9 - ZMIEŃ NAZWĘ",
+      description: "Opis sklepu 9 po polsku - ZMIEŃ",
+      description_en: "Store 9 description in English - CHANGE",
+      url: "https://example.com/sklep-9"
+    },
+    {
+      name: "SKLEP 10 - ZMIEŃ NAZWĘ",
+      description: "Opis sklepu 10 po polsku - ZMIEŃ",
+      description_en: "Store 10 description in English - CHANGE",
+      url: "https://example.com/sklep-10"
+    },
+    {
+      name: "SKLEP 11 - ZMIEŃ NAZWĘ",
+      description: "Opis sklepu 11 po polsku - ZMIEŃ",
+      description_en: "Store 11 description in English - CHANGE",
+      url: "https://example.com/sklep-11"
+    },
+    {
+      name: "SKLEP 12 - ZMIEŃ NAZWĘ",
+      description: "Opis sklepu 12 po polsku - ZMIEŃ",
+      description_en: "Store 12 description in English - CHANGE",
+      url: "https://example.com/sklep-12"
+    },
+    {
+      name: "SKLEP 13 - ZMIEŃ NAZWĘ",
+      description: "Opis sklepu 13 po polsku - ZMIEŃ",
+      description_en: "Store 13 description in English - CHANGE",
+      url: "https://example.com/sklep-13"
+    },
+    {
+      name: "SKLEP 14 - ZMIEŃ NAZWĘ",
+      description: "Opis sklepu 14 po polsku - ZMIEŃ",
+      description_en: "Store 14 description in English - CHANGE",
+      url: "https://example.com/sklep-14"
+    },
+    {
+      name: "SKLEP 15 - ZMIEŃ NAZWĘ",
+      description: "Opis sklepu 15 po polsku - ZMIEŃ",
+      description_en: "Store 15 description in English - CHANGE",
+      url: "https://example.com/sklep-15"
+    },
+    {
+      name: "SKLEP 16 - ZMIEŃ NAZWĘ",
+      description: "Opis sklepu 16 po polsku - ZMIEŃ",
+      description_en: "Store 16 description in English - CHANGE",
+      url: "https://example.com/sklep-16"
+    },
+    {
+      name: "SKLEP 17 - ZMIEŃ NAZWĘ",
+      description: "Opis sklepu 17 po polsku - ZMIEŃ",
+      description_en: "Store 17 description in English - CHANGE",
+      url: "https://example.com/sklep-17"
+    },
+    {
+      name: "SKLEP 18 - ZMIEŃ NAZWĘ",
+      description: "Opis sklepu 18 po polsku - ZMIEŃ",
+      description_en: "Store 18 description in English - CHANGE",
+      url: "https://example.com/sklep-18"
+    },
+    {
+      name: "SKLEP 19 - ZMIEŃ NAZWĘ",
+      description: "Opis sklepu 19 po polsku - ZMIEŃ",
+      description_en: "Store 19 description in English - CHANGE",
+      url: "https://example.com/sklep-19"
+    },
+    {
+      name: "SKLEP 20 - ZMIEŃ NAZWĘ",
+      description: "Opis sklepu 20 po polsku - ZMIEŃ",
+      description_en: "Store 20 description in English - CHANGE",
+      url: "https://example.com/sklep-20"
+    },
+    {
+      name: "SKLEP 21 - ZMIEŃ NAZWĘ",
+      description: "Opis sklepu 21 po polsku - ZMIEŃ",
+      description_en: "Store 21 description in English - CHANGE",
+      url: "https://example.com/sklep-21"
+    },
+    {
+      name: "SKLEP 22 - ZMIEŃ NAZWĘ",
+      description: "Opis sklepu 22 po polsku - ZMIEŃ",
+      description_en: "Store 22 description in English - CHANGE",
+      url: "https://example.com/sklep-22"
+    },
+    {
+      name: "SKLEP 23 - ZMIEŃ NAZWĘ",
+      description: "Opis sklepu 23 po polsku - ZMIEŃ",
+      description_en: "Store 23 description in English - CHANGE",
+      url: "https://example.com/sklep-23"
+    },
+    {
+      name: "SKLEP 24 - ZMIEŃ NAZWĘ",
+      description: "Opis sklepu 24 po polsku - ZMIEŃ",
+      description_en: "Store 24 description in English - CHANGE",
+      url: "https://example.com/sklep-24"
+    },
+    {
+      name: "SKLEP 25 - ZMIEŃ NAZWĘ",
+      description: "Opis sklepu 25 po polsku - ZMIEŃ",
+      description_en: "Store 25 description in English - CHANGE",
+      url: "https://example.com/sklep-25"
+    },
+    {
+      name: "SKLEP 26 - ZMIEŃ NAZWĘ",
+      description: "Opis sklepu 26 po polsku - ZMIEŃ",
+      description_en: "Store 26 description in English - CHANGE",
+      url: "https://example.com/sklep-26"
+    },
+    {
+      name: "SKLEP 27 - ZMIEŃ NAZWĘ",
+      description: "Opis sklepu 27 po polsku - ZMIEŃ",
+      description_en: "Store 27 description in English - CHANGE",
+      url: "https://example.com/sklep-27"
+    },
+    {
+      name: "SKLEP 28 - ZMIEŃ NAZWĘ",
+      description: "Opis sklepu 28 po polsku - ZMIEŃ",
+      description_en: "Store 28 description in English - CHANGE",
+      url: "https://example.com/sklep-28"
+    }
   ];
 
   // ============================================================
@@ -1742,18 +6082,34 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
     }
 
     grid.innerHTML = '';
-    renderNextProductsBatch();
-    setupProductsInfiniteScroll();
+
+    if (document.body.dataset.page === 'home') {
+      if (productsObserver) productsObserver.disconnect();
+      renderHomeProductsPreview();
+    } else {
+      renderNextProductsBatch();
+      setupProductsInfiniteScroll();
+    }
   }
 
-  function renderNextProductsBatch() {
-    const sentinel = grid.querySelector('.products-sentinel');
-    if (sentinel) sentinel.remove();
+  // Na stronie głównej pokazujemy tylko podgląd produktów (bez nieskończonego scrolla),
+  // a resztę odsyłamy przyciskiem "Zobacz wszystko" na pełną stronę produktów (#products).
+  const HOME_PRODUCTS_PREVIEW_SIZE = 8;
 
-    const nextSlice = currentFiltered.slice(renderedCount, renderedCount + PRODUCTS_PAGE_SIZE);
-    if (nextSlice.length === 0) return;
+  function renderHomeProductsPreview() {
+    const preview = currentFiltered.slice(0, HOME_PRODUCTS_PREVIEW_SIZE);
+    renderedCount = preview.length;
 
-    const html = nextSlice.map(p => `
+    grid.innerHTML = preview.map(buildProductCardHtml).join('');
+    bindProductCardEvents();
+
+    if (currentFiltered.length > HOME_PRODUCTS_PREVIEW_SIZE) {
+      grid.insertAdjacentHTML('beforeend', `<a class="see-all-products-btn" href="#products">${t('see_all')}</a>`);
+    }
+  }
+
+  function buildProductCardHtml(p) {
+    return `
       <div class="product-card">
         <button class="fav-btn" data-id="${p.id}">${isFavorite(p.id) ? '❤️' : '🤍'}</button>
         <button class="pcard-btn" data-id="${p.id}">
@@ -1767,11 +6123,10 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
           </div>
         </button>
       </div>
-    `).join('');
+    `;
+  }
 
-    grid.insertAdjacentHTML('beforeend', html);
-    renderedCount += nextSlice.length;
-
+  function bindProductCardEvents() {
     grid.querySelectorAll('.fav-btn:not([data-bound])').forEach(btn => {
       btn.setAttribute('data-bound', '1');
       btn.addEventListener('click', () => {
@@ -1792,6 +6147,21 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
         if (product) openProductModal(product);
       });
     });
+  }
+
+  function renderNextProductsBatch() {
+    const sentinel = grid.querySelector('.products-sentinel');
+    if (sentinel) sentinel.remove();
+
+    const nextSlice = currentFiltered.slice(renderedCount, renderedCount + PRODUCTS_PAGE_SIZE);
+    if (nextSlice.length === 0) return;
+
+    const html = nextSlice.map(buildProductCardHtml).join('');
+
+    grid.insertAdjacentHTML('beforeend', html);
+    renderedCount += nextSlice.length;
+
+    bindProductCardEvents();
 
     // Sentinel used to detect when the user has scrolled near the bottom of the loaded products.
     if (renderedCount < currentFiltered.length) {
