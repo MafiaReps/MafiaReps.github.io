@@ -569,6 +569,9 @@
   .qc-item img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;background:var(--panel-2);}
   .qc-item-cap{padding:11px 13px;font-size:12.5px;color:var(--ink);}
   .qc-item-cap span{display:block;font-size:11px;color:var(--muted);margin-top:2px;}
+  .qc-ext-link{background:var(--panel-2);border:1px solid var(--line);border-radius:8px;
+    padding:11px 13px;font-family:"JetBrains Mono",monospace;font-size:11.5px;color:var(--muted);
+    word-break:break-all;margin-bottom:14px;}
   .qc-others{margin-top:26px;}
   .qc-others h3{font-size:13px;color:var(--muted);font-weight:400;margin-bottom:12px;
     letter-spacing:.1em;text-transform:uppercase;}
@@ -1510,6 +1513,194 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
   // images: lista zdjęć pokazywanych w galerii po kliknięciu w produkt (pierwsze = główne zdjęcie karty).
   // ============================================================
   const PRODUCTS = [
+    {
+      id: "p310",
+      name: "Koszulka Ralph Lauren", name_en: "Ralph Lauren T-Shirt",
+      price: "", priceValue: 59,
+      category: "tshirty", batch: "best", popularity: 90, dateAdded: 11,
+      rating: 9,
+      weight: 254,
+      image: "https://si.geilicdn.com/open1758388573-1234478995-1b970000019bd2751cb80a23b491_1920_1920.jpg",
+      images: [
+        "https://si.geilicdn.com/open1758388573-1234478995-1b970000019bd2751cb80a23b491_1920_1920.jpg"
+      ],
+      qc: [
+        "https://cdn.finds.vectoreps.pl/finds/7747904836/usfans-df79e097.webp",
+        "https://cdn.finds.vectoreps.pl/finds/7747904836/usfans-7c018a2f.webp",
+        "https://cdn.finds.vectoreps.pl/finds/7747904836/usfans-68a02c2f.webp",
+        "https://cdn.finds.vectoreps.pl/finds/7747904836/usfans-bde82d74.webp"
+      ],
+      url: "https://www.usfans.com/product/3/7747904836?ref=Y9WGSY"
+    },
+    {
+      id: "p311",
+      name: "Koszulka Supreme", name_en: "Supreme T-Shirt",
+      price: "", priceValue: 59,
+      category: "tshirty", batch: "best", popularity: 100, dateAdded: 12,
+      rating: 10,
+      weight: 293,
+      image: "https://si.geilicdn.com/pcitem901908557680-29b10000019cb3216cea0a231177_1080_1080.jpg",
+      images: [
+        "https://si.geilicdn.com/pcitem901908557680-29b10000019cb3216cea0a231177_1080_1080.jpg",
+        "https://si.geilicdn.com/pcitem901908557680-23430000019cb32181880a20e672_1280_1280.jpg",
+        "https://si.geilicdn.com/pcitem901908557680-451f0000019cb321c8a70a230115_1080_1080.jpg",
+        "https://si.geilicdn.com/pcitem901908557680-0eb30000019cb321e2aa0a811411_1080_1080.jpg",
+        "https://si.geilicdn.com/pcitem901908557680-18280000019cb321f5770a23913e_800_800.jpg",
+        "https://si.geilicdn.com/pcitem901908557680-393f0000019cb32208f10a20e284_800_800.jpg",
+        "https://si.geilicdn.com/pcitem901908557680-2a270000019cb3221afc0a231177_1080_1080.jpg",
+        "https://si.geilicdn.com/pcitem901908557680-513e0000019cb32238fa0a23041a_800_788.jpg",
+        "https://si.geilicdn.com/pcitem901908557680-35720000019cb3225d8e0a2102c5_800_719.jpg"
+      ],
+      qc: [
+        "https://media.usfans.com/2026/07/13/134334/3727802b-15d5-4fe7-900e-0831888e0589.jpg",
+        "https://media.usfans.com/2026/07/13/134334/e64afcce-2569-4950-a720-eaddb8cf0fc9.jpg",
+        "https://media.usfans.com/2026/07/13/134334/19b2525b-7864-4382-addf-bba779bff72a.jpg",
+        "https://media.usfans.com/2026/07/13/134334/97c03642-c14b-431b-95ec-9b64ae34156e.jpg"
+      ],
+      url: "https://www.usfans.com/product/3/7747947832?ref=Y9WGSY"
+    },
+    {
+      id: "p312",
+      name: "B-P Short Sleeve", name_en: "B-P Short Sleeve",
+      price: "", priceValue: 55,
+      category: "tshirty", batch: "budget", popularity: 90, dateAdded: 13,
+      rating: 9,
+      weight: 349,
+      image: "https://si.geilicdn.com/open1832345461-1234478995-6de00000019596c63bf40aa0834c_800_800.jpg",
+      images: [
+        "https://si.geilicdn.com/open1832345461-1234478995-6de00000019596c63bf40aa0834c_800_800.jpg"
+      ],
+      qc: [
+        "https://media.usfans.com/2026/06/08/215115/7d3431cb-7e42-4221-a00d-e1da6a31de91.jpg",
+        "https://media.usfans.com/2026/06/08/215115/0592dcb9-d162-45c1-b726-5700070b7a23.jpg",
+        "https://media.usfans.com/2026/06/08/215115/e2a7af64-9a78-4eaf-b8ef-366d4e966155.jpg",
+        "https://media.usfans.com/2026/06/08/215115/dcd06604-67fa-4587-9ea8-524bd6c213f9.jpg"
+      ],
+      url: "https://www.usfans.com/product/3/7425299852?ref=Y9WGSY"
+    },
+    {
+      id: "p313",
+      name: "Nike Mind 001", name_en: "Nike Mind 001",
+      price: "", priceValue: 48,
+      category: "buty", batch: "best", popularity: 80, dateAdded: 14,
+      rating: 8,
+      weight: 862,
+      image: "https://si.geilicdn.com/pcitem901878883297-685f0000019e6389e3760a23057e_1440_1440.jpg",
+      images: [
+        "https://si.geilicdn.com/pcitem901878883297-685f0000019e6389e3760a23057e_1440_1440.jpg",
+        "https://si.geilicdn.com/pcitem901878883297-06b70000019e6389fdde0a8132bd_1440_1440.jpg",
+        "https://si.geilicdn.com/pcitem901878883297-6a570000019e638a170d0a230115_1440_1440.jpg",
+        "https://si.geilicdn.com/pcitem901878883297-68a70000019e638a35c00a23057e_1440_1440.jpg",
+        "https://si.geilicdn.com/pcitem901878883297-69af0000019e638a4cbd0a20e284_1440_1440.jpg"
+      ],
+      qc: [
+        "https://media.usfans.com/2026/07/17/192910/8689f425-5538-4ebe-b38c-f6c2f7904364.jpg",
+        "https://media.usfans.com/2026/07/17/192910/72768a34-906c-4062-8bf3-4a73b3852779.jpg",
+        "https://media.usfans.com/2026/07/17/192910/5d236361-c6bf-4e8e-ac2e-f4dbe0c1d082.jpg"
+      ],
+      url: "https://www.usfans.com/product/3/7775441572?ref=Y9WGSY"
+    },
+    {
+      id: "p314",
+      name: "Koszulka Lech Poznań 3D 2025", name_en: "Lech Poznan 3D Printed Jersey 2025",
+      price: "", priceValue: 10,
+      category: "tshirty", batch: "budget", popularity: 100, dateAdded: 15,
+      rating: 10,
+      weight: 235,
+      image: "https://cbu01.alicdn.com/img/ibank/O1CN0121roVY2780ygqf7oh_!!2220172887751-0-cib.jpg",
+      images: [
+        "https://cbu01.alicdn.com/img/ibank/O1CN0121roVY2780ygqf7oh_!!2220172887751-0-cib.jpg"
+      ],
+      qc: [
+        "https://media.usfans.com/2026/07/09/171924/a8721847-dc7c-476a-8f75-db5d10f6f0d7.jpg",
+        "https://media.usfans.com/2026/07/09/171924/cb765d91-7cab-48b3-94b7-3522d9c4211e.jpg",
+        "https://media.usfans.com/2026/07/09/171924/5b8ed20f-7e3b-4bd0-b767-b33ceecf663a.jpg",
+        "https://media.usfans.com/2026/07/09/171924/cb56119a-ff27-4158-9ca3-7bdd35c326a2.jpg"
+      ],
+      url: "https://www.usfans.com/product/1/951778360041?ref=Y9WGSY"
+    },
+    {
+      id: "p315",
+      name: "Travis Scott Jordan Low PK", name_en: "Travis Scott Jordan Low PK Version",
+      price: "", priceValue: 60,
+      category: "buty", batch: "random", popularity: 70, dateAdded: 16,
+      rating: 7,
+      weight: 1265,
+      image: "https://si.geilicdn.com/pcitem901977381709-57900000019dcdc4fb480a2315ef_1280_1707.jpg",
+      images: [
+        "https://si.geilicdn.com/pcitem901977381709-57900000019dcdc4fb480a2315ef_1280_1707.jpg",
+        "https://si.geilicdn.com/pcitem901977381709-60e50000019dcdc3c0070a207569_1280_1707.jpg",
+        "https://si.geilicdn.com/pcitem901977381709-5a590000019dcdc2f9240a210256_1280_1707.jpg",
+        "https://si.geilicdn.com/pcitem901977381709-65320000019dcdc4d7ec0a23037f_1280_1707.jpg",
+        "https://si.geilicdn.com/pcitem901977381709-75f60000019dcdc364fc0a2396f4_1280_1707.jpg",
+        "https://si.geilicdn.com/pcitem901977381709-73780000019dcdc4552c0a2303ee_1280_1707.jpg",
+        "https://si.geilicdn.com/pcitem901977381709-62dd0000019dcdc531270a230115_1280_1707.jpg",
+        "https://si.geilicdn.com/pcitem901977381709-11980000019dcdc4b7780a21146b_1280_1707.jpg",
+        "https://si.geilicdn.com/pcitem901878883297-6a580000019d968e36bc0a23057e_1440_1920.jpg"
+      ],
+      qc: [
+        "https://media.usfans.com/2026/07/13/133622/8c396c10-4c5f-4a53-b294-9e52d1531d51.jpg",
+        "https://media.usfans.com/2026/07/13/133622/03dc7616-cbb5-4019-9aa6-b81db1162994.jpg",
+        "https://media.usfans.com/2026/07/13/133622/08db04b6-7568-4492-8410-fbae5bb6424a.jpg",
+        "https://media.usfans.com/2026/07/13/133622/0cbe3b28-71a2-4a14-a723-14a2a3f455da.jpg",
+        "https://media.usfans.com/2026/07/13/133622/9fd3d950-a45b-45ed-bd13-8154452661dc.jpg"
+      ],
+      url: "https://www.usfans.com/product/3/7737555867?ref=Y9WGSY"
+    },
+    {
+      id: "p316",
+      name: "Koszulka 3D Print 2025", name_en: "3D Printed Sports T-Shirt 2025",
+      price: "", priceValue: 10,
+      category: "tshirty", batch: "budget", popularity: 100, dateAdded: 17,
+      rating: 10,
+      weight: 230,
+      image: "https://cbu01.alicdn.com/img/ibank/O1CN01nsuSEC1YJuj2OMysh_!!2219497913039-0-cib.jpg",
+      images: [
+        "https://cbu01.alicdn.com/img/ibank/O1CN01nsuSEC1YJuj2OMysh_!!2219497913039-0-cib.jpg"
+      ],
+      qc: [
+        "https://media.usfans.com/PDA/c472682c-8ebe-4423-8291-0e87b5f258ea.jpg",
+        "https://media.usfans.com/PDA/529956f2-d9c4-4bc3-a461-9791b56ba574.jpg",
+        "https://media.usfans.com/PDA/22b27d37-f21e-49d9-a441-33df0df00187.jpg",
+        "https://media.usfans.com/PDA/6fc15395-fe10-49b5-a16a-d40119bd3c26.jpg"
+      ],
+      url: "https://www.usfans.com/product/1/964255337134?ref=Y9WGSY"
+    },
+    {
+      id: "p317",
+      name: "Nike Air Max Plus Drift TN", name_en: "Nike Air Max Plus Drift TN",
+      price: "", priceValue: 73,
+      category: "buty", batch: "budget", popularity: 70, dateAdded: 18,
+      rating: 7,
+      weight: 998,
+      image: "https://si.geilicdn.com/wdseller1845163825-465a00000195d53756820a230115_1080_1080.jpg",
+      images: [
+        "https://si.geilicdn.com/wdseller1845163825-465a00000195d53756820a230115_1080_1080.jpg",
+        "https://si.geilicdn.com/wdseller1845163825-50be00000195d5379e770a2396f4_1080_1080.jpg",
+        "https://si.geilicdn.com/wdseller1845163825-4fc100000195d53811a50a8134f0_1080_1080.jpg",
+        "https://si.geilicdn.com/wdseller1845163825-4f6f00000195d5385a560a239646_1080_1080.jpg",
+        "https://si.geilicdn.com/wdseller1845163825-511200000195d53900e60a231316_1080_1080.jpg",
+        "https://si.geilicdn.com/wdseller1845163825-4d4700000195d53954900a20e2c5_1080_1080.jpg",
+        "https://si.geilicdn.com/wdseller1845163825-510300000195d539a9660a2395a3_1080_1080.jpg",
+        "https://si.geilicdn.com/pcitem1845163825-587700000195d5577bcb0a2315ef_1080_1080.jpg",
+        "https://si.geilicdn.com/pcitem1845163825-598700000195d557f7710a231316_1080_1080.jpg",
+        "https://si.geilicdn.com/pcitem1845163825-568b00000195d5582d1b0a20e7c7_1080_1080.jpg",
+        "https://si.geilicdn.com/pcitem1845163825-59a900000195d55861540a231316_1080_1080.jpg",
+        "https://si.geilicdn.com/pcitem1845163825-55d500000195d558a0a40a20e2c5_1080_1080.jpg",
+        "https://si.geilicdn.com/pcitem1845163825-55d600000195d558d5a50a81347d_1080_1080.jpg",
+        "https://si.geilicdn.com/pcitem1845163825-4fab00000195d5599c310a230115_1080_1080.jpg",
+        "https://si.geilicdn.com/pcitem1845163825-620a00000195d559e5480a23037f_1080_1080.jpg"
+      ],
+      qc: [
+        "https://media.usfans.com/2026/07/16/194319/c91e2501-79c4-49db-b17a-979803174a87.jpg",
+        "https://media.usfans.com/2026/07/16/194319/0b1c4e49-c301-4a3e-a878-853d9feadd1a.jpg",
+        "https://media.usfans.com/2026/07/16/194319/f1745b64-b4b6-4885-b1ab-8812b0cb5b53.jpg",
+        "https://media.usfans.com/2026/07/16/194319/9ca19f78-40f8-4345-99fa-055cfd3801c0.jpg",
+        "https://media.usfans.com/2026/07/16/194319/1610771e-4404-40fe-a8bb-e7a48c81bd18.jpg",
+        "https://media.usfans.com/2026/07/16/194319/efb37214-e8ea-425c-9bff-b511c94c591f.jpg"
+      ],
+      url: "https://www.usfans.com/product/3/7621063082?ref=Y9WGSY"
+    },
     {
       id: "p309",
       name: "Bluza Supreme", name_en: "Supreme Hoodie",
@@ -6135,7 +6326,10 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
       nav_converter: "Konwerter linków", tool_converter_desc: "Zamień dowolny link na Usfans lub Kakobuy ze swoim kodem.",
       qc_title: "Quality Check", qc_go: "Sprawdź QC",
       qc_desc: "Wklej link do produktu z naszego katalogu — pokażemy zdjęcia magazynowe.",
-      qc_not_found: "Nie mamy tego produktu w katalogu, więc nie mamy jego zdjęć QC. Wyszukiwarka przeszukuje wyłącznie itemy dodane na tej stronie.",
+      qc_not_found: "Tego produktu nie ma w naszym katalogu, więc nie mamy jego zdjęć QC — pokazujemy tylko to, co faktycznie mamy u siebie.",
+      qc_ext_go: "Skopiuj link i otwórz FindQC →",
+      qc_ext_copied: "Skopiowano — wklej w wyszukiwarkę",
+      qc_ext_hint: "FindQC to zewnętrzna, darmowa baza zdjęć QC. Nie jesteśmy z nią powiązani. Link jest już w Twoim schowku — wystarczy go tam wkleić.",
       qc_bad_link: "To nie wygląda na link do produktu z Taobao, Weidian, 1688 ani od agenta.",
       qc_no_photos: "Ten produkt nie ma jeszcze zdjęć QC.",
       qc_photos_count: "Zdjęcia magazynowe", qc_set: "Zestaw QC",
@@ -6238,7 +6432,10 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
       nav_converter: "Link converter", tool_converter_desc: "Turn any link into an Usfans or Kakobuy link with your code.",
       qc_title: "Quality Check", qc_go: "Check QC",
       qc_desc: "Paste a link to a product from our catalogue — we'll show the warehouse photos.",
-      qc_not_found: "We don't have this product in the catalogue, so we have no QC photos for it. The search only covers items added to this site.",
+      qc_not_found: "This product is not in our catalogue, so we have no QC photos for it — we only show what we actually have.",
+      qc_ext_go: "Copy link and open FindQC →",
+      qc_ext_copied: "Copied — paste it into the search",
+      qc_ext_hint: "FindQC is an external, free QC photo database. We are not affiliated with it. The link is already in your clipboard.",
       qc_bad_link: "That doesn't look like a product link from Taobao, Weidian, 1688 or an agent.",
       qc_no_photos: "This product has no QC photos yet.",
       qc_photos_count: "Warehouse photos", qc_set: "QC set",
@@ -7879,8 +8076,22 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
     const hit = convParse(rawLink);
     if (!hit || hit.short || !hit.platform) return { error: 'qc_bad_link' };
     const found = PRODUCTS.find(p => p.url && p.url.indexOf(hit.id) !== -1);
-    if (!found) return { error: 'qc_not_found' };
+    if (!found) return { error: 'qc_not_found', hit };
     return { product: found };
+  }
+
+  // Produkt spoza katalogu: nie mamy jego zdjec QC i nie udajemy, ze mamy.
+  // Kopiujemy rozpoznany link sklepu do schowka i otwieramy zewnetrzna
+  // wyszukiwarke QC — klient wkleja i ma swoje zdjecia.
+  function qcExternalPanel(hit) {
+    const raw = convRawLink(hit);
+    return `
+      <div class="gen-empty" style="text-align:left">
+        <p style="margin:0 0 14px">${t('qc_not_found')}</p>
+        <div class="qc-ext-link">${raw}</div>
+        <button class="gen-go" id="qcExtGo">${t('qc_ext_go')}</button>
+        <p class="qc-note" style="margin-top:10px">${t('qc_ext_hint')}</p>
+      </div>`;
   }
 
   function qcRenderProduct(product) {
@@ -7939,7 +8150,14 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
     if (!val) { qcEmptyState(); return; }
     const res = qcFindProduct(val);
     if (res.error) {
-      box.innerHTML = `<div class="gen-empty">${t(res.error)}</div>`;
+      box.innerHTML = res.hit ? qcExternalPanel(res.hit) : `<div class="gen-empty">${t(res.error)}</div>`;
+      const btn = document.getElementById('qcExtGo');
+      if (btn) btn.addEventListener('click', () => {
+        const raw = convRawLink(res.hit);
+        navigator.clipboard.writeText(raw).catch(() => {});
+        btn.textContent = t('qc_ext_copied');
+        window.open('https://findqc.com/', '_blank', 'noopener');
+      });
       qcRenderOthers(null);
       return;
     }
