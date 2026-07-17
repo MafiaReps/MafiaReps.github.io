@@ -70,6 +70,7 @@
     display:flex;align-items:center;gap:10px;
     font-family:"Inter",sans-serif;font-size:17px;font-weight:700;
     justify-self:start;
+    white-space:nowrap;   /* napis "Czimi Reps" w jednej linii, bez lamania */
   }
   .brand-mark{
     width:32px;height:32px;border-radius:9px;
@@ -541,27 +542,68 @@
   }
   @media (max-width:800px){ .footer-grid{grid-template-columns:1fr 1fr;} }
 
-  /* ---------- OUTFITS ---------- */
-  .outfit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
-  .outfit-card{
-    background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
-    overflow:hidden;transition:border-color .15s ease,transform .15s ease;
+
+  /* ---------- GENERATOR FITOW ---------- */
+  .gen-panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:20px;margin-bottom:22px;}
+  .gen-block{margin-bottom:20px;}
+  .gen-block:last-child{margin-bottom:0;}
+  .gen-block > label{display:block;font-size:11px;letter-spacing:.12em;color:var(--muted);margin-bottom:9px;text-transform:uppercase;}
+  .gen-chips{display:flex;flex-wrap:wrap;gap:8px;}
+  .gen-chip{border:1px solid var(--line);background:var(--panel-2);color:var(--muted);border-radius:999px;
+    padding:8px 15px;font-size:13px;cursor:pointer;transition:.15s;font-family:inherit;}
+  .gen-chip:hover{color:var(--ink);border-color:rgba(242,241,238,0.25);}
+  .gen-chip.active{background:var(--blue-dim);border-color:var(--blue);color:var(--ink);}
+  .gen-chip[disabled]{opacity:.32;cursor:not-allowed;}
+  .gen-chip[disabled]:hover{color:var(--muted);border-color:var(--line);}
+  .gen-presets{display:flex;flex-wrap:wrap;gap:8px;}
+  .gen-preset{border:1px dashed var(--line);background:transparent;color:var(--muted);border-radius:999px;
+    padding:7px 14px;font-size:12px;cursor:pointer;font-family:inherit;transition:.15s;}
+  .gen-preset:hover{color:var(--ink);border-color:var(--blue);}
+  .gen-budget-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+  .gen-budget-row input[type=range]{flex:1;min-width:180px;accent-color:var(--blue);}
+  .gen-budget-val{font-size:20px;font-weight:700;color:var(--ink);min-width:110px;}
+  .gen-actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+  .gen-go{background:var(--blue);color:#fff;border:0;border-radius:10px;padding:13px 26px;font-size:15px;
+    font-weight:600;cursor:pointer;font-family:inherit;transition:.15s;}
+  .gen-go:hover{filter:brightness(1.12);}
+  .gen-ghost{background:transparent;border:1px solid var(--line);color:var(--muted);border-radius:10px;
+    padding:12px 18px;font-size:13px;cursor:pointer;font-family:inherit;transition:.15s;}
+  .gen-ghost:hover{color:var(--ink);border-color:rgba(242,241,238,0.25);}
+  .gen-note{color:var(--muted);font-size:13px;line-height:1.6;}
+  .gen-note strong{color:var(--ink);}
+  .gen-empty{background:var(--panel);border:1px dashed var(--line);border-radius:var(--radius);
+    padding:34px 24px;text-align:center;color:var(--muted);font-size:14px;line-height:1.7;}
+  .gen-summary{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;
+    background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:16px 20px;margin-bottom:14px;}
+  .gen-total{font-size:24px;font-weight:700;color:var(--ink);}
+  .gen-total span{font-size:12px;color:var(--muted);font-weight:400;display:block;letter-spacing:.1em;text-transform:uppercase;}
+  .gen-over{color:#FF6B6B;}
+  .gen-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:14px;}
+  .gen-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
+    display:flex;flex-direction:column;position:relative;transition:.15s;}
+  .gen-card.is-locked{border-color:var(--blue);}
+  .gen-card-img{aspect-ratio:1/1;background:var(--panel-2);overflow:hidden;}
+  .gen-card-img img{width:100%;height:100%;object-fit:cover;display:block;}
+  .gen-card-body{padding:12px;display:flex;flex-direction:column;gap:6px;flex:1;}
+  .gen-card-cat{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);}
+  .gen-card-name{font-size:13px;color:var(--ink);line-height:1.4;}
+  .gen-card-foot{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:8px;gap:8px;}
+  .gen-card-price{font-size:15px;font-weight:700;color:var(--ink);}
+  .gen-card-link{font-size:12px;color:var(--blue);text-decoration:none;white-space:nowrap;}
+  .gen-card-link:hover{text-decoration:underline;}
+  .gen-lock{position:absolute;top:8px;right:8px;width:32px;height:32px;border-radius:50%;border:1px solid var(--line);
+    background:rgba(10,10,12,.78);color:var(--muted);font-size:13px;cursor:pointer;display:flex;
+    align-items:center;justify-content:center;transition:.15s;backdrop-filter:blur(4px);}
+  .gen-lock:hover{color:var(--ink);}
+  .gen-card.is-locked .gen-lock{background:var(--blue);border-color:var(--blue);color:#fff;}
+  .gen-slot-empty{background:var(--panel-2);border:1px dashed var(--line);border-radius:var(--radius);
+    padding:18px 14px;display:flex;align-items:center;justify-content:center;text-align:center;
+    color:var(--muted);font-size:12px;line-height:1.6;min-height:150px;}
+  @media (max-width:600px){
+    .gen-grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));}
+    .gen-budget-val{min-width:0;}
   }
-  .outfit-card:hover{border-color:var(--blue);transform:translateY(-3px);}
-  .outfit-img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;background:var(--panel-2);}
-  .outfit-body{padding:20px;}
-  .outfit-name{font-family:"Inter",sans-serif;font-size:17px;margin-bottom:14px;}
-  .outfit-items{display:flex;flex-direction:column;gap:8px;}
-  .outfit-item{
-    display:flex;justify-content:space-between;align-items:center;gap:10px;
-    padding:10px 12px;background:var(--panel-2);border-radius:8px;font-size:13.5px;
-    transition:background .15s ease;
-  }
-  .outfit-item:hover{background:var(--blue-dim);}
-  .outfit-item .oi-name{color:var(--ink);}
-  .outfit-item .oi-price{color:var(--blue);font-weight:700;font-family:"JetBrains Mono",monospace;font-size:12.5px;white-space:nowrap;}
-  @media (max-width:900px){ .outfit-grid{grid-template-columns:1fr 1fr;} }
-  @media (max-width:560px){ .outfit-grid{grid-template-columns:1fr;} }
+  @media (prefers-reduced-motion:reduce){ .gen-card,.gen-chip,.gen-go{transition:none;} }
 
   /* ---------- QUALITY ---------- */
   .quality-badge{
@@ -774,8 +816,8 @@
       <a href="#products">
         <span class="icon">🛍️</span> <span data-i18n="nav_products">Produkty</span>
       </a>
-      <a href="#outfits">
-        <span class="icon red-icon">👕</span> <span data-i18n="nav_outfits">Outfits</span>
+      <a href="#generator">
+        <span class="icon red-icon">👕</span> <span data-i18n="nav_generator">Generator fitów</span>
       </a>
       <a href="https://discord.gg/UMXg666H7W" target="_blank" rel="noopener">
         <span class="icon">✅</span> <span data-i18n="nav_quality">Weryfikacja Jakości</span>
@@ -994,16 +1036,50 @@
     </section>
   </div>
 
-  <!-- ============ OUTFITS ============ -->
+  <!-- ============ GENERATOR FITOW ============ -->
 
-  <div class="wrap app-page" data-page="outfits">
-  <section id="outfits">
+  <div class="wrap app-page" data-page="generator">
+  <section id="generator">
     <div class="page-heading"><a class="back-home" href="#home" data-i18n="back_home_full">← Wróć do strony głównej</a></div>
     <div class="section-head">
-      <h2 data-i18n="outfits_title">Outfity</h2>
-      <p data-i18n="outfits_desc">Zdjęcie całego fitu i linki do każdej z rzeczy.</p>
+      <h2 data-i18n="gen_title">Generator fitów</h2>
+      <p data-i18n="gen_desc">Wybierz kategorie i budżet — złożymy fit z produktów dostępnych na stronie.</p>
     </div>
-    <div class="outfit-grid" id="outfitGrid"></div>
+
+    <div class="gen-panel">
+      <div class="gen-block">
+        <label data-i18n="gen_pick_cats">Co ma być w ficie</label>
+        <div class="gen-chips" id="genCats"></div>
+      </div>
+
+      <div class="gen-block">
+        <label data-i18n="gen_presets">Gotowe zestawy</label>
+        <div class="gen-presets" id="genPresets"></div>
+      </div>
+
+      <div class="gen-block">
+        <label data-i18n="gen_budget">Budżet całego fitu</label>
+        <div class="gen-budget-row">
+          <input type="range" id="genBudgetRange" min="100" max="4000" step="50" value="1200">
+          <div class="gen-budget-val" id="genBudgetVal">1200 zł</div>
+        </div>
+      </div>
+
+      <div class="gen-block">
+        <label data-i18n="filters_batch">Batch</label>
+        <div class="gen-chips" id="genBatches"></div>
+      </div>
+
+      <div class="gen-block">
+        <div class="gen-actions">
+          <button class="gen-go" id="genGo" data-i18n="gen_go">Wygeneruj fit</button>
+          <button class="gen-ghost" id="genCopy" data-i18n="gen_copy">Kopiuj linki</button>
+          <button class="gen-ghost" id="genUnlock" data-i18n="gen_unlock_all">Odblokuj wszystko</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="genResult"></div>
   </section>
   </div>
 
@@ -5419,70 +5495,6 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
   ];
 
   // ============================================================
-  // OUTFITY — edytuj tę tablicę, żeby dodać/usunąć stylizacje.
-  // image: zdjęcie całego fitu
-  // items: lista rzeczy w stylizacji — każda z nazwą (i opcjonalnie name_en),
-  //        priceValue w PLN i linkiem do sklepu partnera
-  // ============================================================
-  const OUTFITS = [
-    {
-      id: "o1",
-      name: "Street Casual",
-      image: "https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?w=600&q=80",
-      items: [
-        { name: "Sneakersy Runner Classic", name_en: "Runner Classic Sneakers", priceValue: 249, url: "https://example.com/products/sneakersy-runner-classic" },
-        { name: "Spodnie cargo Utility", name_en: "Utility Cargo Pants", priceValue: 159, url: "https://example.com/products/spodnie-cargo-utility" },
-        { name: "Bluza z kapturem Basic", name_en: "Basic Hoodie", priceValue: 129, url: "https://example.com/products/bluza-z-kapturem-basic" }
-      ]
-    },
-    {
-      id: "o2",
-      name: "Minimal Everyday",
-      image: "https://images.unsplash.com/photo-1516826957135-700dedea698c?w=600&q=80",
-      items: [
-        { name: "T-shirt bawełniany Essential", name_en: "Essential Cotton T-Shirt", priceValue: 59, url: "https://example.com/products/tshirt-basic-essential" },
-        { name: "Czapka z daszkiem Street", name_en: "Street Cap", priceValue: 49, url: "https://example.com/products/czapka-street" }
-      ]
-    },
-    {
-      id: "o3",
-      name: "Outdoor Ready",
-      image: "https://images.unsplash.com/photo-1516257984-b1b4d707412e?w=600&q=80",
-      items: [
-        { name: "Buty trekkingowe Trail", name_en: "Trail Hiking Boots", priceValue: 329, url: "https://example.com/products/buty-trekkingowe-trail" },
-        { name: "Kurtka zimowa Alpine", name_en: "Alpine Winter Jacket", priceValue: 459, url: "https://example.com/products/kurtka-zimowa-alpine" }
-      ]
-    }
-  ];
-
-  // ============================================================
-  // WERYFIKACJA JAKOŚCI — edytuj tę tablicę.
-  // Każdy wpis to produkt sprawdzony przez zespół: zdjęcie + priceValue (w PLN) + link do oferty.
-  // ============================================================
-  const QUALITY = [
-    {
-      id: "q1", name: "Sneakersy Runner Classic", name_en: "Runner Classic Sneakers", priceValue: 249,
-      image: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=500&q=80",
-      url: "https://example.com/products/sneakersy-runner-classic"
-    },
-    {
-      id: "q2", name: "Kurtka zimowa Alpine", name_en: "Alpine Winter Jacket", priceValue: 459,
-      image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=500&q=80",
-      url: "https://example.com/products/kurtka-zimowa-alpine"
-    },
-    {
-      id: "q3", name: "Słuchawki bezprzewodowe Pulse", name_en: "Pulse Wireless Headphones", priceValue: 199,
-      image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&q=80",
-      url: "https://example.com/products/sluchawki-pulse"
-    },
-    {
-      id: "q4", name: "Bluza z kapturem Basic", name_en: "Basic Hoodie", priceValue: 129,
-      image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=500&q=80",
-      url: "https://example.com/products/bluza-z-kapturem-basic"
-    }
-  ];
-
-  // ============================================================
   // SKLEPY PARTNERSKIE — edytuj tę tablicę.
   // name: nazwa sklepu, description: krótki opis, url: link do sklepu
   // ============================================================
@@ -5722,7 +5734,7 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
 
   const I18N = {
     pl: {
-      nav_products: "Produkty", nav_outfits: "Outfits", nav_quality: "Weryfikacja Jakości",
+      nav_products: "Produkty", nav_quality: "Weryfikacja Jakości",
       nav_stores: "Sprzedawcy", nav_tools: "Narzędzia", nav_tracking: "Śledzenie paczki",
       nav_shipping_calc: "Kalkulator wysyłki", nav_guide: "Poradnik", nav_favorites: "Ulubione",
       nav_home: "Home", nav_search_label: "Szukaj",
@@ -5743,6 +5755,16 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
       sort_price_desc: "💲 Cena: wysoka→niska", sort_price_asc: "💲 Cena: niska→wysoka",
       filters_apply: "Zastosuj filtry",
       cat_all: "Wszystkie produkty", cat_buty: "Buty", cat_spodnie: "Spodnie", cat_bluzy: "Bluzy",
+      nav_generator: "Generator fitów", tool_generator_desc: "Złóż losowy, spójny fit w swoim budżecie.",
+      gen_title: "Generator fitów", gen_desc: "Wybierz kategorie i budżet — złożymy fit z produktów dostępnych na stronie.",
+      gen_pick_cats: "Co ma być w ficie", gen_presets: "Gotowe zestawy", gen_budget: "Budżet całego fitu",
+      gen_go: "Wygeneruj fit", gen_copy: "Kopiuj linki", gen_unlock_all: "Odblokuj wszystko",
+      gen_total_label: "Razem", gen_no_cats: "Zaznacz przynajmniej jedną kategorię, żeby złożyć fit.",
+      gen_nothing: "Brak produktów pasujących do tych filtrów. Podnieś budżet albo odznacz batch.",
+      gen_too_cheap: "Najtańszy możliwy zestaw to {min} zł. Podnieś budżet.",
+      gen_slot_empty: "Brak produktów w tej kategorii", gen_copied: "Skopiowano linki",
+      gen_locked_hint: "Kłódka trzyma rzecz przy kolejnym losowaniu.",
+      batch_used: "Used", cond_random: "Random",
       cat_tshirty: "T-shirty", cat_spodenki: "Spodenki", cat_paski: "Paski", cat_akcesoria: "Akcesoria",
       cat_torby: "Torby", cat_elektronika: "Elektronika", cat_lego: "Lego", cat_perfumy: "Perfumy",
       cat_okulary: "Okulary", cat_czapki: "Czapki", cat_bizuteria: "Biżuteria", cat_zegarki: "Zegarki",
@@ -5754,8 +5776,6 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
       tool_tracking_desc: "Sprawdzaj status przesyłek w jednym miejscu.",
       tool_guide_desc: "Przejdź przez zakup krok po kroku.",
       tool_open: "Otwórz narzędzie →", tool_open_guide: "Otwórz poradnik →",
-      outfits_title: "Outfity",
-      outfits_desc: "Zdjęcie całego fitu i linki do każdej z rzeczy.",
       quality_title: "Quality Check",
       quality_desc: "Dokładne zdjęcia sprawdzające jakość produktu",
       stores_title: "Sprzedawcy",
@@ -5778,7 +5798,7 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
       page_description: "Wyszukiwarka produktów i ofert z zaufanych, legalnych sklepów. Porównuj ceny, sprawdzaj opinie, śledź promocje."
     },
     en: {
-      nav_products: "Products", nav_outfits: "Outfits", nav_quality: "Quality Check",
+      nav_products: "Products", nav_quality: "Quality Check",
       nav_stores: "Sellers", nav_tools: "Tools", nav_tracking: "Package Tracking",
       nav_shipping_calc: "Shipping Calculator", nav_guide: "Guide", nav_favorites: "Favorites",
       nav_home: "Home", nav_search_label: "Search",
@@ -5799,6 +5819,16 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
       sort_price_desc: "💲 Price: high→low", sort_price_asc: "💲 Price: low→high",
       filters_apply: "Apply filters",
       cat_all: "All products", cat_buty: "Shoes", cat_spodnie: "Pants", cat_bluzy: "Hoodies",
+      nav_generator: "Fit generator", tool_generator_desc: "Build a random, coherent fit within your budget.",
+      gen_title: "Fit generator", gen_desc: "Pick categories and a budget — we'll build a fit from products on the site.",
+      gen_pick_cats: "What's in the fit", gen_presets: "Quick sets", gen_budget: "Budget for the whole fit",
+      gen_go: "Generate fit", gen_copy: "Copy links", gen_unlock_all: "Unlock all",
+      gen_total_label: "Total", gen_no_cats: "Select at least one category to build a fit.",
+      gen_nothing: "No products match these filters. Raise the budget or clear a batch.",
+      gen_too_cheap: "The cheapest possible set is {min} zl. Raise the budget.",
+      gen_slot_empty: "No products in this category", gen_copied: "Links copied",
+      gen_locked_hint: "The lock keeps an item on the next roll.",
+      batch_used: "Used",
       cat_tshirty: "T-shirts", cat_spodenki: "Shorts", cat_paski: "Belts", cat_akcesoria: "Accessories",
       cat_torby: "Bags", cat_elektronika: "Electronics", cat_lego: "Lego", cat_perfumy: "Perfume",
       cat_okulary: "Glasses", cat_czapki: "Caps", cat_bizuteria: "Jewelry", cat_zegarki: "Watches",
@@ -5810,8 +5840,6 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
       tool_tracking_desc: "Check your shipment status in one place.",
       tool_guide_desc: "Go through the purchase step by step.",
       tool_open: "Open tool →", tool_open_guide: "Open guide →",
-      outfits_title: "Ready-made outfits",
-      outfits_desc: "A photo of the full outfit and links to each item in the original store, with price.",
       quality_title: "Quality-checked products",
       quality_desc: "Photos and prices of products our team checked before purchase.",
       stores_title: "Sellers",
@@ -5892,7 +5920,6 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
   function refreshAllContent() {
     applyStaticTranslations();
     renderProducts();
-    renderOutfits();
     renderQuality();
     renderStores();
     renderSellerHighlights();
@@ -5949,7 +5976,7 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
 
   function getCurrentPage() {
     const requested = window.location.hash.slice(1);
-    return ['products', 'outfits', 'quality', 'stores', 'guide', 'terms', 'privacy'].includes(requested) ? requested : 'home';
+    return ['products', 'quality', 'stores', 'guide', 'generator', 'terms', 'privacy'].includes(requested) ? requested : 'home';
   }
 
   function showPageFromHash() {
@@ -6207,28 +6234,6 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
   function formatRating(rating) {
     if (rating === undefined || rating === null) return '—';
     return `${rating}/10`;
-  }
-
-  // ---------- Render: Outfity ----------
-  function renderOutfits() {
-    const wrap = document.getElementById('outfitGrid');
-    if (!wrap) return;
-    wrap.innerHTML = OUTFITS.map(o => `
-      <div class="outfit-card">
-        <img class="outfit-img" src="${o.image}" alt="${localizedName(o)}" loading="lazy">
-        <div class="outfit-body">
-          <div class="outfit-name">${localizedName(o)}</div>
-          <div class="outfit-items">
-            ${o.items.map(it => `
-              <a class="outfit-item" href="${it.url}" target="_blank" rel="noopener">
-                <span class="oi-name">${localizedName(it)}</span>
-                <span class="oi-price">${formatPrice(it.priceValue)}</span>
-              </a>
-            `).join('')}
-          </div>
-        </div>
-      </div>
-    `).join('');
   }
 
   // ---------- Render: Weryfikacja jakości ----------
@@ -6597,6 +6602,224 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
     }, 60);
   }
 
+
+  // ============================================================
+  // GENERATOR FITOW
+  // Losuje zestaw z tablicy PRODUCTS. Zeby fity byly spojniejsze,
+  // dodaj produktom dwa opcjonalne pola:
+  //   style:  "baggy" | "opium" | "y2k" | "skate" | "sportowy" | "elegancki"
+  //   colors: ["czarny","szary"]   // 1-2 glowne kolory rzeczy
+  // Bez nich generator dalej dziala, tylko dobiera slabiej.
+  // ============================================================
+  const GEN_ORDER = ['czapki','okulary','kurtki','bluzy','tshirty','spodnie','spodenki','buty','paski','torby','zegarki','bizuteria','akcesoria'];
+  const GEN_NEUTRALS = ['czarny','bialy','biały','szary','grafitowy','bezowy','beżowy','kremowy','granatowy','brazowy','brązowy','denim'];
+  const GEN_PRESETS = [
+    { key: 'gen_preset_basic',  label: 'Basic',  cats: ['buty','spodnie','tshirty'] },
+    { key: 'gen_preset_street', label: 'Street', cats: ['buty','spodnie','bluzy','czapki'] },
+    { key: 'gen_preset_summer', label: 'Lato',   cats: ['buty','spodenki','tshirty'] },
+    { key: 'gen_preset_winter', label: 'Zima',   cats: ['buty','spodnie','bluzy','kurtki'] }
+  ];
+
+  let genCats = ['buty','spodnie','bluzy'];
+  let genBatches = [];
+  let genBudget = 1200;
+  let genPicked = {};
+  let genLocked = {};
+
+  function genCatLabel(cat) { return CATEGORY_KEYS[cat] ? t(CATEGORY_KEYS[cat]) : cat; }
+  function genPool(cat) {
+    return PRODUCTS.filter(p => p.category === cat
+      && typeof p.priceValue === 'number' && p.priceValue > 0
+      && (genBatches.length === 0 || genBatches.includes(p.batch)));
+  }
+  // kategoria liczy sie tylko, gdy ma produkt z realna cena (placeholdery z priceValue 0 sa pomijane)
+  function genCount(cat) { return PRODUCTS.filter(p => p.category === cat && typeof p.priceValue === 'number' && p.priceValue > 0).length; }
+  function genAllCats() { return GEN_ORDER.filter(c => genCount(c) > 0); }
+  function genAllBatches() {
+    const seen = [];
+    PRODUCTS.forEach(p => {
+      if (p.batch && typeof p.priceValue === 'number' && p.priceValue > 0 && !seen.includes(p.batch)) seen.push(p.batch);
+    });
+    return seen;
+  }
+
+  // Ocena spojnosci zestawu — im wyzej, tym fit bardziej "trzyma sie kupy".
+  function genScore(combo) {
+    let score = 0;
+    const styles = combo.map(p => p.style).filter(Boolean);
+    if (styles.length > 1) {
+      const uniq = new Set(styles);
+      score += uniq.size === 1 ? 34 : (styles.length - uniq.size) * 11 - (uniq.size - 1) * 13;
+    }
+    const cols = combo.flatMap(p => (p.colors || []).map(c => String(c).toLowerCase()));
+    if (cols.length) {
+      const uniq = [...new Set(cols)];
+      const accents = uniq.filter(c => !GEN_NEUTRALS.includes(c));
+      score += accents.length === 0 ? 14 : accents.length === 1 ? 22 : -9 * (accents.length - 1);
+      score += (cols.length - uniq.length) * 6;
+    }
+    const rated = combo.filter(p => typeof p.rating === 'number');
+    if (rated.length) score += (rated.reduce((s, p) => s + p.rating, 0) / rated.length) * 2;
+    const total = combo.reduce((s, p) => s + p.priceValue, 0);
+    if (genBudget > 0) {
+      const use = total / genBudget;
+      if (use >= 0.55 && use <= 1) score += 18 * use;
+    }
+    if (combo.length > 2 && total > 0) {
+      const max = Math.max(...combo.map(p => p.priceValue));
+      if (max / total > 0.7) score -= 12;
+    }
+    return score;
+  }
+
+  function genBuild() {
+    const cats = genCats.filter(c => genPool(c).length > 0);
+    const freeCats = cats.filter(c => !(genLocked[c] && genPicked[c]));
+    const lockedItems = cats.filter(c => genLocked[c] && genPicked[c]).map(c => genPicked[c]);
+    const lockedCost = lockedItems.reduce((s, p) => s + p.priceValue, 0);
+
+    // czy w ogole da sie zmiescic w budzecie
+    const minTotal = lockedCost + freeCats.reduce((s, c) => s + Math.min(...genPool(c).map(p => p.priceValue)), 0);
+    if (minTotal > genBudget) return { ok: false, reason: 'budget', min: Math.round(minTotal) };
+
+    let best = null, bestScore = -Infinity;
+    for (let i = 0; i < 500; i++) {
+      const combo = [];
+      let cost = lockedCost, fits = true;
+      for (const cat of freeCats) {
+        const pool = genPool(cat).filter(p => p.priceValue <= genBudget - cost);
+        if (!pool.length) { fits = false; break; }
+        const pick = pool[Math.floor(Math.random() * pool.length)];
+        combo.push(pick); cost += pick.priceValue;
+      }
+      if (!fits) continue;
+      const full = lockedItems.concat(combo);
+      const s = genScore(full);
+      if (s > bestScore) { bestScore = s; best = combo; }
+    }
+    if (!best) return { ok: false, reason: 'nothing' };
+
+    freeCats.forEach((cat, i) => { genPicked[cat] = best[i]; });
+    Object.keys(genPicked).forEach(c => { if (!cats.includes(c)) delete genPicked[c]; });
+    return { ok: true };
+  }
+
+  function renderGenControls() {
+    const catWrap = document.getElementById('genCats');
+    if (!catWrap) return;
+    catWrap.innerHTML = genAllCats().map(c => {
+      const n = genCount(c);
+      return `<button class="gen-chip${genCats.includes(c) ? ' active' : ''}" data-gencat="${c}">${genCatLabel(c)} <span style="opacity:.5">${n}</span></button>`;
+    }).join('');
+
+    const batchWrap = document.getElementById('genBatches');
+    batchWrap.innerHTML = genAllBatches().map(b => {
+      const key = 'cond_' + b;
+      const label = I18N[currentLang] && I18N[currentLang][key] ? t(key) : (b.charAt(0).toUpperCase() + b.slice(1));
+      return `<button class="gen-chip${genBatches.includes(b) ? ' active' : ''}" data-genbatch="${b}">${label}</button>`;
+    }).join('');
+
+    const presetWrap = document.getElementById('genPresets');
+    presetWrap.innerHTML = GEN_PRESETS.map((p, i) => `<button class="gen-preset" data-genpreset="${i}">${p.label}</button>`).join('');
+  }
+
+  function renderGenerator(result) {
+    const box = document.getElementById('genResult');
+    if (!box) return;
+
+    if (!genCats.length) { box.innerHTML = `<div class="gen-empty">${t('gen_no_cats')}</div>`; return; }
+    if (result && !result.ok) {
+      const msg = result.reason === 'budget'
+        ? t('gen_too_cheap').replace('{min}', result.min)
+        : t('gen_nothing');
+      box.innerHTML = `<div class="gen-empty">${msg}</div>`;
+      return;
+    }
+    if (!Object.keys(genPicked).length) {
+      box.innerHTML = `<div class="gen-empty">${t('gen_desc')}</div>`;
+      return;
+    }
+
+    const shown = GEN_ORDER.filter(c => genCats.includes(c));
+    const items = shown.map(c => genPicked[c]).filter(Boolean);
+    const total = items.reduce((s, p) => s + p.priceValue, 0);
+    const over = total > genBudget;
+
+    const cards = shown.map(cat => {
+      const p = genPicked[cat];
+      if (!p) return `<div class="gen-slot-empty">${genCatLabel(cat)}<br>${t('gen_slot_empty')}</div>`;
+      const img = (p.images && p.images[0]) || p.image || '';
+      return `
+        <article class="gen-card${genLocked[cat] ? ' is-locked' : ''}">
+          <button class="gen-lock" data-genlock="${cat}" title="${t('gen_locked_hint')}" aria-label="${t('gen_locked_hint')}">${genLocked[cat] ? '🔒' : '🔓'}</button>
+          <div class="gen-card-img">${img ? `<img src="${img}" alt="" loading="lazy">` : ''}</div>
+          <div class="gen-card-body">
+            <div class="gen-card-cat">${genCatLabel(cat)}</div>
+            <div class="gen-card-name">${localizedName(p)}</div>
+            <div class="gen-card-foot">
+              <span class="gen-card-price">${formatPrice(p.priceValue)}</span>
+              ${p.url ? `<a class="gen-card-link" href="${p.url}" target="_blank" rel="noopener">Kup →</a>` : ''}
+            </div>
+          </div>
+        </article>`;
+    }).join('');
+
+    box.innerHTML = `
+      <div class="gen-summary">
+        <div class="gen-total${over ? ' gen-over' : ''}"><span>${t('gen_total_label')}</span>${formatPrice(total)}</div>
+        <div class="gen-note">${t('gen_locked_hint')}</div>
+      </div>
+      <div class="gen-grid">${cards}</div>`;
+  }
+
+  function initGenerator() {
+    const panel = document.getElementById('genCats');
+    if (!panel) return;
+    renderGenControls();
+    renderGenerator();
+
+    const range = document.getElementById('genBudgetRange');
+    const val = document.getElementById('genBudgetVal');
+    const syncBudget = () => { genBudget = Number(range.value); val.textContent = formatPrice(genBudget); };
+    syncBudget();
+    range.addEventListener('input', syncBudget);
+
+    document.getElementById('genCats').addEventListener('click', e => {
+      const b = e.target.closest('[data-gencat]'); if (!b) return;
+      const c = b.dataset.gencat;
+      genCats = genCats.includes(c) ? genCats.filter(x => x !== c) : genCats.concat(c);
+      renderGenControls(); renderGenerator();
+    });
+    document.getElementById('genBatches').addEventListener('click', e => {
+      const b = e.target.closest('[data-genbatch]'); if (!b) return;
+      const v = b.dataset.genbatch;
+      genBatches = genBatches.includes(v) ? genBatches.filter(x => x !== v) : genBatches.concat(v);
+      renderGenControls();
+    });
+    document.getElementById('genPresets').addEventListener('click', e => {
+      const b = e.target.closest('[data-genpreset]'); if (!b) return;
+      genCats = GEN_PRESETS[Number(b.dataset.genpreset)].cats.filter(c => genAllCats().includes(c));
+      genLocked = {};
+      renderGenControls(); renderGenerator(genBuild());
+    });
+    document.getElementById('genResult').addEventListener('click', e => {
+      const b = e.target.closest('[data-genlock]'); if (!b) return;
+      const c = b.dataset.genlock;
+      genLocked[c] = !genLocked[c];
+      renderGenerator();
+    });
+    document.getElementById('genGo').addEventListener('click', () => renderGenerator(genBuild()));
+    document.getElementById('genUnlock').addEventListener('click', () => { genLocked = {}; renderGenerator(); });
+    document.getElementById('genCopy').addEventListener('click', e => {
+      const links = Object.keys(genPicked).map(c => genPicked[c] && genPicked[c].url).filter(Boolean);
+      if (!links.length) return;
+      navigator.clipboard.writeText(links.join('\n'));
+      const btn = e.target, old = btn.textContent;
+      btn.textContent = t('gen_copied');
+      setTimeout(() => { btn.textContent = old; }, 1400);
+    });
+  }
+
   // ---------- Start ----------
   (async function init() {
     applyStaticTranslations();
@@ -6605,11 +6828,11 @@ Wszystkie znaki towarowe, logotypy i nazwy marek są własnością ich właścic
     renderDiscordArea();
     updateFavCount();
     renderProducts();
-    renderOutfits();
     renderQuality();
     renderStores();
     renderSellerHighlights();
     renderGuide();
+    initGenerator();
     startHeroLeadRotation();
     document.addEventListener('keydown', (e) => {
       if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
